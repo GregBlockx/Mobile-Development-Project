@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/criminalBtn"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentStart="true"
+                        android:text="Work"
+                        android:textAlignment="center"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <ImageButton
+                        android:id="@+id/criminalBtn"
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+                        android:layout_marginLeft="8dp"
+                        android:scaleType="fitEnd"
+                        app:srcCompat="@drawable/criminal_icon"
+                        android:layout_alignTop="@+id/workBtn"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
+
+                    <ImageButton
+                        android:id="@+id/workBtn"
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="40dp"
+                        android:scaleType="fitXY"
+                        app:srcCompat="@drawable/briefcase_icon" />
+
+</RelativeLayout>
