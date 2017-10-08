@@ -234,8 +234,76 @@
             android:layout_toLeftOf="@+id/textView3"
             android:layout_toStartOf="@+id/textView3" />
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignEnd="@+id/progressBar2"
+            android:layout_alignLeft="@+id/progressBar2"
+            android:layout_alignRight="@+id/progressBar2"
+            android:layout_alignStart="@+id/progressBar2"
+            android:layout_below="@+id/textView9"
+            android:max="100"
+            android:progress="100"
+            android:progressTint="#966453"
+            android:progressBackgroundTint="#ffffff"/>
 
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/imageView9"
+            android:layout_alignEnd="@+id/tvEducation"
+            android:layout_alignRight="@+id/tvEducation"
+            android:layout_alignTop="@+id/textView9"
+            android:layout_toRightOf="@+id/textView6"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="100"
+            android:progressTint="#f442e5"
+            android:progressBackgroundTint="#ffffff"/>
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="82dp"
+            android:layout_marginStart="82dp"
+            app:srcCompat="@drawable/briefcase_icon_pixel"
+            android:onClick="goToWork"/>
+
+        <ImageButton
+            android:id="@+id/imageButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            app:srcCompat="@drawable/market_icon" />
+
+        <ImageButton
+            android:id="@+id/imageButton6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imageButton5"
+            android:layout_marginLeft="26dp"
+            android:layout_marginStart="26dp"
+            android:layout_toEndOf="@+id/imageButton5"
+            android:layout_toRightOf="@+id/imageButton5"
+            app:srcCompat="@drawable/education_icon_pixel" />
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/imageButton5"
+            app:srcCompat="@drawable/player_icon" />
     </RelativeLayout>
-
 
 </android.widget.RelativeLayout>

@@ -9,18 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
-        <supports-screens android:resizeable="true"
-        android:smallScreens="true"
-        android:normalScreens="true"
-        android:largeScreens="true"
-        android:xlargeScreens="true"
-        android:anyDensity="true"
-        android:requiresSmallestWidthDp="4"
-        android:compatibleWidthLimitDp="4"
-        android:largestWidthLimitDp="20"/>
-
+        <supports-screens
+            android:anyDensity="true"
+            android:compatibleWidthLimitDp="4"
+            android:largeScreens="true"
+            android:largestWidthLimitDp="20"
+            android:normalScreens="true"
+            android:requiresSmallestWidthDp="4"
+            android:resizeable="true"
+            android:smallScreens="true"
+            android:xlargeScreens="true" />
 
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -29,6 +27,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".WorkActivity"></activity>
     </application>
 
 </manifest>
