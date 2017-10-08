@@ -14,7 +14,7 @@
         android:layout_alignParentStart="true">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imageViewPlayer"
             android:layout_width="50dp"
             android:layout_height="50dp"
             app:srcCompat="@drawable/player_icon"
@@ -22,35 +22,35 @@
             tools:layout_editor_absoluteY="16dp" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/textViewName"
             android:layout_width="wrap_content"
             android:layout_height="53dp"
             android:text="Mr. Dave"
             android:textSize="36sp"
             android:textStyle="bold"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/imageView"
-            android:layout_toEndOf="@+id/imageView" />
+            android:layout_toRightOf="@+id/imageViewPlayer"
+            android:layout_toEndOf="@+id/imageViewPlayer" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/textViewHunger"
             android:layout_width="wrap_content"
             android:layout_height="53dp"
             android:layout_weight="1"
             android:text="300/300"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_below="@+id/textView9"
-            android:layout_alignLeft="@+id/textView9"
-            android:layout_alignStart="@+id/textView9" />
+            android:layout_below="@+id/textViewHealth"
+            android:layout_alignLeft="@+id/textViewHealth"
+            android:layout_alignStart="@+id/textViewHealth" />
 
         <TextView
-            android:id="@+id/textView9"
+            android:id="@+id/textViewHealth"
             android:layout_width="wrap_content"
             android:layout_height="53dp"
-            android:layout_alignEnd="@+id/textView7"
-            android:layout_alignRight="@+id/textView7"
-            android:layout_below="@+id/textView8"
+            android:layout_alignEnd="@+id/textViewTransport"
+            android:layout_alignRight="@+id/textViewTransport"
+            android:layout_below="@+id/textViewEductation"
             android:layout_marginTop="22dp"
             android:layout_weight="1"
             android:text="300/300"
@@ -58,120 +58,120 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/textViewEductation"
             android:layout_width="wrap_content"
             android:layout_height="53dp"
-            android:layout_alignLeft="@+id/textView7"
-            android:layout_alignStart="@+id/textView7"
-            android:layout_below="@+id/textView7"
+            android:layout_alignLeft="@+id/textViewTransport"
+            android:layout_alignStart="@+id/textViewTransport"
+            android:layout_below="@+id/textViewTransport"
             android:layout_weight="1"
             android:text="Education:"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tvEducation"
+            android:id="@+id/textViewYourEducation"
             android:layout_width="wrap_content"
             android:layout_height="53dp"
-            android:layout_alignBaseline="@+id/textView8"
-            android:layout_alignBottom="@+id/textView8"
-            android:layout_toEndOf="@+id/textView7"
-            android:layout_toRightOf="@+id/textView7"
+            android:layout_alignBaseline="@+id/textViewEductation"
+            android:layout_alignBottom="@+id/textViewEductation"
+            android:layout_toEndOf="@+id/textViewTransport"
+            android:layout_toRightOf="@+id/textViewTransport"
             android:layout_weight="1"
             android:text="Secondary School"
             android:textSize="18sp"
             android:textStyle="bold"/>
 
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/textViewTransport"
             android:layout_width="wrap_content"
             android:layout_height="53dp"
-            android:layout_alignLeft="@+id/textView6"
-            android:layout_alignStart="@+id/textView6"
-            android:layout_below="@+id/textView6"
+            android:layout_alignLeft="@+id/textViewResidency"
+            android:layout_alignStart="@+id/textViewResidency"
+            android:layout_below="@+id/textViewResidency"
             android:layout_weight="1"
             android:text="Transport:"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tvTransport"
+            android:id="@+id/textViewYourTransport"
             android:layout_width="wrap_content"
             android:layout_height="53dp"
-            android:layout_below="@+id/textView6"
-            android:layout_toEndOf="@+id/textView8"
-            android:layout_toRightOf="@+id/textView8"
+            android:layout_below="@+id/textViewResidency"
+            android:layout_toEndOf="@+id/textViewEductation"
+            android:layout_toRightOf="@+id/textViewEductation"
             android:layout_weight="1"
             android:text="Foot"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/textViewResidency"
             android:layout_width="wrap_content"
             android:layout_height="53dp"
             android:layout_weight="1"
             android:text="Residency:"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_below="@+id/tvMoney"
-            android:layout_alignLeft="@+id/textView"
-            android:layout_alignStart="@+id/textView" />
+            android:layout_below="@+id/textViewYourMoney"
+            android:layout_alignLeft="@+id/textViewName"
+            android:layout_alignStart="@+id/textViewName" />
 
         <TextView
-            android:id="@+id/tvResidency"
+            android:id="@+id/textViewYourResidency"
             android:layout_width="wrap_content"
             android:layout_height="53dp"
-            android:layout_alignBaseline="@+id/textView6"
-            android:layout_alignBottom="@+id/textView6"
-            android:layout_toEndOf="@+id/textView6"
-            android:layout_toRightOf="@+id/textView6"
+            android:layout_alignBaseline="@+id/textViewResidency"
+            android:layout_alignBottom="@+id/textViewResidency"
+            android:layout_toEndOf="@+id/textViewResidency"
+            android:layout_toRightOf="@+id/textViewResidency"
             android:layout_weight="1"
             android:text="Streets"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tvMoney"
+            android:id="@+id/textViewYourMoney"
             android:layout_width="wrap_content"
             android:layout_height="53dp"
             android:layout_weight="1"
             android:text="€ 999999999"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_below="@+id/tvAge"
-            android:layout_toRightOf="@+id/textView11"
-            android:layout_toEndOf="@+id/textView11" />
+            android:layout_below="@+id/textViewYourAge"
+            android:layout_toRightOf="@+id/textViewMoney"
+            android:layout_toEndOf="@+id/textViewMoney" />
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/textViewMoney"
             android:layout_width="wrap_content"
             android:layout_height="53dp"
             android:layout_weight="1"
             android:text="Money:"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_below="@+id/tvAge"
-            android:layout_alignLeft="@+id/textView10"
-            android:layout_alignStart="@+id/textView10" />
+            android:layout_below="@+id/textViewYourAge"
+            android:layout_alignLeft="@+id/textViewAge"
+            android:layout_alignStart="@+id/textViewAge" />
 
         <TextView
-            android:id="@+id/tvAge"
+            android:id="@+id/textViewYourAge"
             android:layout_width="wrap_content"
             android:layout_height="53dp"
-            android:layout_alignBaseline="@+id/textView10"
-            android:layout_alignBottom="@+id/textView10"
-            android:layout_alignLeft="@+id/textView"
-            android:layout_alignStart="@+id/textView"
+            android:layout_alignBaseline="@+id/textViewAge"
+            android:layout_alignBottom="@+id/textViewAge"
+            android:layout_alignLeft="@+id/textViewName"
+            android:layout_alignStart="@+id/textViewName"
             android:layout_weight="1"
             android:text="18 years"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_toLeftOf="@+id/tvResidency"
-            android:layout_toStartOf="@+id/tvResidency" />
+            android:layout_toLeftOf="@+id/textViewYourResidency"
+            android:layout_toStartOf="@+id/textViewYourResidency" />
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/textViewAge"
             android:layout_width="wrap_content"
             android:layout_height="53dp"
             android:layout_marginTop="14dp"
@@ -179,12 +179,12 @@
             android:text="Age:"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_below="@+id/textView"
-            android:layout_toLeftOf="@+id/tvAge"
-            android:layout_toStartOf="@+id/tvAge" />
+            android:layout_below="@+id/textViewName"
+            android:layout_toLeftOf="@+id/textViewYourAge"
+            android:layout_toStartOf="@+id/textViewYourAge" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/imageViewHosue"
             android:layout_width="50dp"
             android:layout_height="30dp"
             android:layout_alignParentLeft="true"
@@ -194,71 +194,71 @@
             app:srcCompat="@drawable/house" />
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/imageViewCar"
             android:layout_width="50dp"
             android:layout_height="30dp"
-            android:layout_alignEnd="@+id/imageView3"
-            android:layout_alignRight="@+id/imageView3"
-            android:layout_below="@+id/imageView3"
+            android:layout_alignEnd="@+id/imageViewHosue"
+            android:layout_alignRight="@+id/imageViewHosue"
+            android:layout_below="@+id/imageViewHosue"
             android:layout_marginTop="26dp"
             app:srcCompat="@drawable/car" />
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/imageViewEducation"
             android:layout_width="50dp"
             android:layout_height="30dp"
-            android:layout_alignEnd="@+id/imageView4"
-            android:layout_alignRight="@+id/imageView4"
-            android:layout_below="@+id/imageView4"
+            android:layout_alignEnd="@+id/imageViewCar"
+            android:layout_alignRight="@+id/imageViewCar"
+            android:layout_below="@+id/imageViewCar"
             android:layout_marginTop="23dp"
             app:srcCompat="@drawable/education" />
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/imageViewHealth"
             android:layout_width="50dp"
             android:layout_height="30dp"
-            android:layout_alignEnd="@+id/imageView5"
-            android:layout_alignRight="@+id/imageView5"
+            android:layout_alignEnd="@+id/imageViewEducation"
+            android:layout_alignRight="@+id/imageViewEducation"
             app:srcCompat="@drawable/hearth"
-            android:layout_alignTop="@+id/textView9" />
+            android:layout_alignTop="@+id/textViewHealth" />
 
         <ImageView
-            android:id="@+id/imageView9"
+            android:id="@+id/imageViewHunger"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/hunger"
-            android:layout_below="@+id/imageView7"
+            android:layout_below="@+id/imageViewHealth"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_alignBottom="@+id/textView3"
-            android:layout_toLeftOf="@+id/textView3"
-            android:layout_toStartOf="@+id/textView3" />
+            android:layout_alignBottom="@+id/textViewHunger"
+            android:layout_toLeftOf="@+id/textViewHunger"
+            android:layout_toStartOf="@+id/textViewHunger" />
 
         <ProgressBar
-            android:id="@+id/progressBar"
+            android:id="@+id/progressBarHunger"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_alignEnd="@+id/progressBar2"
-            android:layout_alignLeft="@+id/progressBar2"
-            android:layout_alignRight="@+id/progressBar2"
-            android:layout_alignStart="@+id/progressBar2"
-            android:layout_below="@+id/textView9"
+            android:layout_alignEnd="@+id/progressBarHealth"
+            android:layout_alignLeft="@+id/progressBarHealth"
+            android:layout_alignRight="@+id/progressBarHealth"
+            android:layout_alignStart="@+id/progressBarHealth"
+            android:layout_below="@+id/textViewHealth"
             android:max="100"
             android:progress="100"
             android:progressTint="#966453"
             android:progressBackgroundTint="#ffffff"/>
 
         <ProgressBar
-            android:id="@+id/progressBar2"
+            android:id="@+id/progressBarHealth"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/imageView9"
-            android:layout_alignEnd="@+id/tvEducation"
-            android:layout_alignRight="@+id/tvEducation"
-            android:layout_alignTop="@+id/textView9"
-            android:layout_toRightOf="@+id/textView6"
+            android:layout_above="@+id/imageViewHunger"
+            android:layout_alignEnd="@+id/textViewYourEducation"
+            android:layout_alignRight="@+id/textViewYourEducation"
+            android:layout_alignTop="@+id/textViewHealth"
+            android:layout_toRightOf="@+id/textViewResidency"
             android:indeterminate="false"
             android:max="100"
             android:progress="100"
@@ -266,7 +266,7 @@
             android:progressBackgroundTint="#ffffff"/>
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/imageButtonWork"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -278,31 +278,33 @@
             android:onClick="goToWork"/>
 
         <ImageButton
-            android:id="@+id/imageButton5"
+            android:id="@+id/imageButtonMarket"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            app:srcCompat="@drawable/market_icon" />
+            app:srcCompat="@drawable/market_icon"
+            android:onClick="goToMarket"/>
 
         <ImageButton
-            android:id="@+id/imageButton6"
+            android:id="@+id/imageButtonEducation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/imageButton5"
+            android:layout_alignTop="@+id/imageButtonMarket"
             android:layout_marginLeft="26dp"
             android:layout_marginStart="26dp"
-            android:layout_toEndOf="@+id/imageButton5"
-            android:layout_toRightOf="@+id/imageButton5"
-            app:srcCompat="@drawable/education_icon_pixel" />
+            android:layout_toEndOf="@+id/imageButtonMarket"
+            android:layout_toRightOf="@+id/imageButtonMarket"
+            app:srcCompat="@drawable/education_icon_pixel"
+            android:onClick="goToEducation"/>
 
         <ImageButton
-            android:id="@+id/imageButton3"
+            android:id="@+id/imageButtonPlayerInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_alignTop="@+id/imageButton5"
+            android:layout_alignTop="@+id/imageButtonMarket"
             app:srcCompat="@drawable/player_icon" />
     </RelativeLayout>
 

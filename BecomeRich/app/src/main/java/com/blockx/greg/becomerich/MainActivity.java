@@ -17,4 +17,14 @@ public class MainActivity extends AppCompatActivity {
         Intent startWorkActivity = new Intent(this, WorkActivity.class);
         startActivity(startWorkActivity);
     }
+
+    public void goToMarket(View view){
+        Intent startMarketActivity = new Intent(this, MarketActivity.class);
+        startActivity(startMarketActivity);
+    }
+
+    public void goToEducation(View view){
+        Intent startEducationActivity = new Intent(this, EducationActivity.class);
+        startActivity(startEducationActivity);
+    }
 }

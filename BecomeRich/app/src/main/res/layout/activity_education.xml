@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.blockx.greg.becomerich.WorkActivity">
+    tools:context="com.blockx.greg.becomerich.EducationActivity">
 
     <RelativeLayout
         android:layout_width="368dp"
@@ -23,28 +23,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:text="Work"
+            android:text="Education"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold" />
 
         <ImageButton
-            android:id="@+id/imageButtonCriminal"
+            android:id="@+id/imageButtonEducation"
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:scaleType="fitEnd"
-            app:srcCompat="@drawable/criminal_icon"
-            android:layout_alignTop="@+id/imageButtonWork"
+            app:srcCompat="@drawable/education"
+            android:layout_alignTop="@+id/imageButtonCriminalSkills"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
         <ImageButton
-            android:id="@+id/imageButtonWork"
+            android:id="@+id/imageButtonCriminalSkills"
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:layout_marginTop="13dp"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/briefcase_icon"
+            app:srcCompat="@drawable/criminal_icon"
             android:layout_below="@+id/textViewTitle"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
@@ -58,7 +58,8 @@
             android:layout_alignParentStart="true"
             android:layout_marginLeft="82dp"
             android:layout_marginStart="82dp"
-            app:srcCompat="@drawable/briefcase_icon_pixel" />
+            app:srcCompat="@drawable/briefcase_icon_pixel"
+            android:onClick="goToWork"/>
 
         <ImageButton
             android:id="@+id/imageButtonMarket"
@@ -70,7 +71,7 @@
             android:onClick="goToMarket"/>
 
         <ImageButton
-            android:id="@+id/imageButtonEducation"
+            android:id="@+id/imageButtonEducationSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/imageButtonMarket"
@@ -78,8 +79,7 @@
             android:layout_marginStart="26dp"
             android:layout_toEndOf="@+id/imageButtonMarket"
             android:layout_toRightOf="@+id/imageButtonMarket"
-            app:srcCompat="@drawable/education_icon_pixel"
-            android:onClick="goToEducation"/>
+            app:srcCompat="@drawable/education_icon_pixel" />
 
         <ImageButton
             android:id="@+id/imageButtonPlayerInfo"
