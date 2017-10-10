@@ -1,5 +1,6 @@
 package com.blockx.greg.becomerich;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,5 +25,10 @@ public class DoWorkActivity extends AppCompatActivity {
         listview = (ListView) findViewById(R.id.listViewJobs);
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,jobsArray);
         listview.setAdapter(adapter);
+  }
+
+  public void goBackToWork(View view){
+      Intent startGoBackToWorkActivity = new Intent(this, WorkActivity.class);
+      startActivity(startGoBackToWorkActivity);
   }
 }
