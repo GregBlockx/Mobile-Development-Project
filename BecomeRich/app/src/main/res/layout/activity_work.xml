@@ -47,7 +47,8 @@
             app:srcCompat="@drawable/briefcase_icon"
             android:layout_below="@+id/textViewTitle"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:onClick="goToDoWork"/>
 
         <ImageButton
             android:id="@+id/imageButtonWorkSmall"

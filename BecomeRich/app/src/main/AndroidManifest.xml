@@ -29,7 +29,8 @@
         </activity>
         <activity android:name=".WorkActivity" />
         <activity android:name=".MarketActivity" />
-        <activity android:name=".EducationActivity"></activity>
+        <activity android:name=".EducationActivity" />
+        <activity android:name=".DoWorkActivity"></activity>
     </application>
 
 </manifest>

@@ -27,4 +27,9 @@ public class WorkActivity extends AppCompatActivity {
         Intent startMainActivity = new Intent(this, MainActivity.class);
         startActivity(startMainActivity);
     }
+
+    public void goToDoWork(View view){
+        Intent startDoWorkActivity = new Intent(this, DoWorkActivity.class);
+        startActivity(startDoWorkActivity);
+    }
 }
