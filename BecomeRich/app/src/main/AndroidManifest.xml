@@ -32,6 +32,11 @@
         <activity android:name=".EducationActivity" />
         <activity android:name=".DoWorkActivity" />
         <activity android:name=".HungerActivity"></activity>
+        <activity android:name=".DoCriminalJobActivity" />
+        <activity android:name=".ChooseResidencyActivity" />
+        <activity android:name=".ChooseTransportActivity" />
+        <activity android:name=".ChooseEducationActivity" />
+        <activity android:name=".ChooseCriminalSkillsActivity"></activity>
     </application>
 
 </manifest>

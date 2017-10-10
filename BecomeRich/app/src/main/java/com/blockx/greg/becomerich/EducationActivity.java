@@ -27,4 +27,14 @@ public class EducationActivity extends AppCompatActivity {
         Intent startMainActivity = new Intent(this, MainActivity.class);
         startActivity(startMainActivity);
     }
+
+    public void goToChooseEducation(View view){
+        Intent startChooseEducationActivity = new Intent(this, ChooseEducationActivity.class);
+        startActivity(startChooseEducationActivity);
+    }
+
+    public void goToChooseCriminalSkills(View view){
+        Intent startChooseCriminalSkillActivity = new Intent(this, ChooseCriminalSkillsActivity.class);
+        startActivity(startChooseCriminalSkillActivity);
+    }
 }
