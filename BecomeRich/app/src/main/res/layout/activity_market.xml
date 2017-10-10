@@ -36,7 +36,8 @@
             app:srcCompat="@drawable/house"
             android:layout_alignTop="@+id/imageButtonTransport"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:onClick="goToChooseResidency"/>
 
         <ImageButton
             android:id="@+id/imageButtonTransport"
@@ -47,7 +48,8 @@
             app:srcCompat="@drawable/car"
             android:layout_below="@+id/textViewTitle"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:onClick="goToChooseTransport"/>
 
         <ImageButton
             android:id="@+id/imageButtonWorkSmall"

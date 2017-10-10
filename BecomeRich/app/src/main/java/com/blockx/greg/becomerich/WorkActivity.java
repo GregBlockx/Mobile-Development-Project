@@ -32,4 +32,9 @@ public class WorkActivity extends AppCompatActivity {
         Intent startDoWorkActivity = new Intent(this, DoWorkActivity.class);
         startActivity(startDoWorkActivity);
     }
+
+    public void goToDoCriminalActivity(View view){
+        Intent startDoCriminalJobActivity = new Intent(this, DoCriminalJobActivity.class);
+        startActivity(startDoCriminalJobActivity);
+    }
 }

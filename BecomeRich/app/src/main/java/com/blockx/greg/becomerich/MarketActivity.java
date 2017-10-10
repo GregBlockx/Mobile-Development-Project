@@ -27,4 +27,14 @@ public class MarketActivity extends AppCompatActivity {
         Intent startMainActivity = new Intent(this, MainActivity.class);
         startActivity(startMainActivity);
     }
+
+    public void goToChooseResidency(View view){
+        Intent startChooseResidencyActivity = new Intent(this, ChooseResidencyActivity.class);
+        startActivity(startChooseResidencyActivity);
+    }
+
+    public void goToChooseTransport(View view){
+        Intent startChooseTransportActivity = new Intent(this, ChooseTransportActivity.class);
+        startActivity(startChooseTransportActivity);
+    }
 }
