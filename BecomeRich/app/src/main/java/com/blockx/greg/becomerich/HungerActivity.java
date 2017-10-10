@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class HungerActivity extends AppCompatActivity {
     ListView listview;
-    ActivityAdapter adapter;
+    ActivityAdapter activityAdapter;
     ArrayList<Activity> foodList = new ArrayList<>();
 
     @Override
@@ -27,8 +27,8 @@ public class HungerActivity extends AppCompatActivity {
         foodList.add(new Activity("Eat at Restaurant", 120));
         foodList.add(new Activity("Eat Internationally", 200));
 
-        adapter = new ActivityAdapter(this, R.layout.activityrow, foodList);
-        listview.setAdapter(adapter);
+        activityAdapter = new ActivityAdapter(this, R.layout.activityrow, foodList);
+        listview.setAdapter(activityAdapter);
     }
 
     public void goBackToScreen(View view){

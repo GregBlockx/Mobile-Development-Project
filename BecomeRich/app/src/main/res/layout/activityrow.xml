@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/text"
+        android:id="@+id/textViewActivity"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -14,7 +14,7 @@
         tools:text="test" />
 
     <TextView
-        android:id="@+id/text2"
+        android:id="@+id/textViewMoney"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

@@ -25,7 +25,7 @@ public class ActivityAdapter extends ArrayAdapter<String> {
 
     @Override
     public int getCount() {
-        return super.getCount();
+        return items.size();
     }
 
     @Override
@@ -34,8 +34,8 @@ public class ActivityAdapter extends ArrayAdapter<String> {
         View v = convertView;
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         v = inflater.inflate(R.layout.activityrow,null);
-        TextView textView = (TextView) v.findViewById(R.id.text);
-        TextView textView2 = (TextView) v.findViewById(R.id.text2);
+        TextView textView = v.findViewById(R.id.textViewActivity);
+        TextView textView2 = v.findViewById(R.id.textViewMoney);
         textView.setText(items.get(position).getActivityName());
         textView2.setText(concat + items.get(position).getActivityAmount());
         return v;
