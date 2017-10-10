@@ -27,4 +27,9 @@ public class MainActivity extends AppCompatActivity {
         Intent startEducationActivity = new Intent(this, EducationActivity.class);
         startActivity(startEducationActivity);
     }
+
+    public void goToHunger(View view){
+        Intent startHungerActivity = new Intent(this, HungerActivity.class);
+        startActivity(startHungerActivity);
+    }
 }

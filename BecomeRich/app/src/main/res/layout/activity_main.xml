@@ -184,7 +184,7 @@
             android:layout_toStartOf="@+id/textViewYourAge" />
 
         <ImageView
-            android:id="@+id/imageViewHosue"
+            android:id="@+id/imageViewHouse"
             android:layout_width="50dp"
             android:layout_height="30dp"
             android:layout_alignParentLeft="true"
@@ -197,9 +197,9 @@
             android:id="@+id/imageViewCar"
             android:layout_width="50dp"
             android:layout_height="30dp"
-            android:layout_alignEnd="@+id/imageViewHosue"
-            android:layout_alignRight="@+id/imageViewHosue"
-            android:layout_below="@+id/imageViewHosue"
+            android:layout_alignEnd="@+id/imageViewHouse"
+            android:layout_alignRight="@+id/imageViewHouse"
+            android:layout_below="@+id/imageViewHouse"
             android:layout_marginTop="26dp"
             app:srcCompat="@drawable/car" />
 
@@ -222,17 +222,21 @@
             app:srcCompat="@drawable/hearth"
             android:layout_alignTop="@+id/textViewHealth" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/imageViewHunger"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/hunger"
-            android:layout_below="@+id/imageViewHealth"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_alignBottom="@+id/textViewHunger"
+            android:layout_below="@+id/imageViewHealth"
             android:layout_toLeftOf="@+id/textViewHunger"
-            android:layout_toStartOf="@+id/textViewHunger" />
+            android:layout_toStartOf="@+id/textViewHunger"
+            android:adjustViewBounds="false"
+            android:onClick="goToHunger"
+            android:scaleType="fitXY"
+            android:layout_marginTop="10px"
+            app:srcCompat="@drawable/hunger"
+            android:layout_alignBottom="@+id/progressBarHunger" />
 
         <ProgressBar
             android:id="@+id/progressBarHunger"
