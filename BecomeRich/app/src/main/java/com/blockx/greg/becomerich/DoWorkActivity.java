@@ -13,30 +13,16 @@ import java.util.List;
 import static android.app.PendingIntent.getActivity;
 
 public class DoWorkActivity extends AppCompatActivity {
+    ListView listview;
+    ArrayAdapter<String> adapter;
+    String[] jobsArray = {"Beg: €1", "Wash bikes: €5", "Bartender: €20"};
 
-    ListView listJobs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_do_work);
-        
-        listJobs = (ListView)findViewById(R.id.listViewJobs);
-
-        String[] jobsArray = {
-                "Beg: € 1",
-                "Wash Bikes/Cars: € 5",
-                "Bartender: € 20"
-        };
-
-        List<String> jobs = new ArrayList<String>(Arrays.asList(jobsArray));
-
-        ArrayAdapter<String> jobAdapter = new ArrayAdapter<String>(
-          this,
-          R.layout.activity_do_work,
-          R.id.listViewJobs,
-          jobs
-        );
-
-        listJobs.setAdapter(jobAdapter);
-    }
+        listview = (ListView) findViewById(R.id.listViewJobs);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,jobsArray);
+        listview.setAdapter(adapter);
+  }
 }
