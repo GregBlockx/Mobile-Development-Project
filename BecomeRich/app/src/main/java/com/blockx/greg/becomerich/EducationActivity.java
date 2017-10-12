@@ -13,6 +13,11 @@ public class EducationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_education);
     }
 
+    @Override
+    protected void onPause(){
+        super.onPause();
+    }
+
     public void goToWork(View view){
         Intent startWorkActivity = new Intent(this, WorkActivity.class);
         startActivity(startWorkActivity);

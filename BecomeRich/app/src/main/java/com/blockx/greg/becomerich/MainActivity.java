@@ -7,10 +7,13 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
+    //private HealthManager healthManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //healthManager.setCurrentHealth(healthManager.getMaxHealth());
     }
 
     public void goToWork(View view){

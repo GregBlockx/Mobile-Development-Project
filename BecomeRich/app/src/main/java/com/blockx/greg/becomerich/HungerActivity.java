@@ -8,6 +8,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class HungerActivity extends AppCompatActivity {
+
     ListView listview;
     ActivityAdapter activityAdapter;
     ArrayList<Activity> foodList = new ArrayList<>();

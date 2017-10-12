@@ -7,11 +7,13 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+
 public class DoCriminalJobActivity extends AppCompatActivity {
 
     ListView listview;
-    ArrayAdapter<String> adapter;
-    String[] criminalJobsobsArray = {"Rob: €30", "Steal Bike: €200", "Sell Drugs: €400"};
+    ActivityAdapter activityAdapter;
+    ArrayList<Activity> jobList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,8 +21,19 @@ public class DoCriminalJobActivity extends AppCompatActivity {
         setContentView(R.layout.activity_do_criminal_job);
 
         listview = (ListView) findViewById(R.id.listViewCriminalJobs);
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,criminalJobsobsArray);
-        listview.setAdapter(adapter);
+
+        jobList.add(new Activity("Rob Homeless Person", 20));
+        jobList.add(new Activity("Rob Local Person", 70));
+        jobList.add(new Activity("Steal Bike", 200));
+        jobList.add(new Activity("Deal Drugs", 350));
+        jobList.add(new Activity("Sell Smuggled Goods", 700));
+        jobList.add(new Activity("Kidnap Kid", 1100));
+        jobList.add(new Activity("Assassinate Target", 1800));
+        jobList.add(new Activity("Rob Rich Person", 10000));
+
+
+        activityAdapter = new ActivityAdapter(this, R.layout.activityrow,jobList);
+        listview.setAdapter(activityAdapter);
     }
 
     public void goBackToWork(View view){

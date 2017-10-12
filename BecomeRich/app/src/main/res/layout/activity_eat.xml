@@ -128,8 +128,6 @@
             android:id="@+id/listViewFood"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:divider="#000"
-            android:dividerHeight="2dp"
             android:layout_below="@+id/textViewMoney"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
