@@ -40,5 +40,10 @@ public class ActivityAdapter extends ArrayAdapter<String> {
         textView2.setText(concat + items.get(position).getActivityAmount());
         return v;
     }
+
+    //When you click on an item in a listview this will return the money you get or have to pay
+    public String getItem(int position){
+        return String.valueOf(items.get(position).getActivityAmount());
+    }
 }
 
