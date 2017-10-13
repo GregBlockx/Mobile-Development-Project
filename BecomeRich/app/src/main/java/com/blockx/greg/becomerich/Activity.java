@@ -8,10 +8,25 @@ public class Activity {
 
     String activityName;
     int activityAmount;
+    boolean haveBought;
 
     public Activity(String activityName, int activityAmount){
         this.activityName = activityName;
         this.activityAmount = activityAmount;
+    }
+
+    public Activity(String activityName, int activityAmount, boolean haveBought){
+        this.activityName = activityName;
+        this.activityAmount = activityAmount;
+        this.haveBought = haveBought;
+    }
+
+    public boolean isHaveBought() {
+        return haveBought;
+    }
+
+    public void setHaveBought(boolean haveBought) {
+        this.haveBought = haveBought;
     }
 
     public String getActivityName() {
