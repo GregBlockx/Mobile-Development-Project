@@ -134,14 +134,10 @@
             android:id="@+id/listViewJobs"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:layout_alignEnd="@+id/textViewYourMoney"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignRight="@+id/textViewYourMoney"
-            android:layout_marginLeft="18dp"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="140dp" ></ListView>
+            android:layout_marginTop="14dp"
+            android:layout_below="@+id/textViewMoney"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/buttonBack" />
 
         <Button
             android:id="@+id/buttonBack"

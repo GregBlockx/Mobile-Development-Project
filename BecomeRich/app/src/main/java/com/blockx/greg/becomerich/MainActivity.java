@@ -35,4 +35,9 @@ public class MainActivity extends AppCompatActivity {
         Intent startHungerActivity = new Intent(this, HungerActivity.class);
         startActivity(startHungerActivity);
     }
+
+    public void goToHealth(View view){
+        Intent startHealthActivity = new Intent(this, HealthActivity.class);
+        startActivity(startHealthActivity);
+    }
 }

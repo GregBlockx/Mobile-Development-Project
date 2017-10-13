@@ -213,30 +213,28 @@
             android:layout_marginTop="23dp"
             app:srcCompat="@drawable/education" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/imageViewHealth"
             android:layout_width="50dp"
-            android:layout_height="30dp"
-            android:layout_alignEnd="@+id/imageViewEducation"
-            android:layout_alignRight="@+id/imageViewEducation"
+            android:layout_height="50dp"
+            android:scaleType="fitCenter"
+            android:onClick="goToHealth"
             app:srcCompat="@drawable/hearth"
-            android:layout_alignTop="@+id/textViewHealth" />
+            android:layout_below="@+id/textViewEductation"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="11dp" />
 
         <ImageButton
             android:id="@+id/imageViewHunger"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/imageViewHealth"
-            android:layout_toLeftOf="@+id/textViewHunger"
-            android:layout_toStartOf="@+id/textViewHunger"
-            android:adjustViewBounds="false"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:onClick="goToHunger"
-            android:scaleType="fitXY"
-            android:layout_marginTop="10px"
+            android:scaleType="fitCenter"
             app:srcCompat="@drawable/hunger"
-            android:layout_alignBottom="@+id/progressBarHunger" />
+            android:layout_below="@+id/imageViewHealth"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <ProgressBar
             android:id="@+id/progressBarHunger"

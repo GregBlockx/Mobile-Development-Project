@@ -137,7 +137,7 @@
             android:layout_marginTop="14dp"
             android:layout_below="@+id/textViewMoney"
             android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"/>
+            android:layout_above="@+id/buttonBack" />
 
         <Button
             android:id="@+id/buttonBack"

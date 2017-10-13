@@ -15,17 +15,33 @@ import static android.app.PendingIntent.getActivity;
 
 public class DoWorkActivity extends AppCompatActivity {
     ListView listview;
-    ArrayAdapter<String> adapter;
-    String[] jobsArray = {"Beg: €1", "Wash bikes: €5", "Bartender: €20"};
+    ActivityAdapter activityAdapter;
+    ArrayList<Activity> jobList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_do_work);
+
         listview = (ListView) findViewById(R.id.listViewJobs);
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,jobsArray);
-        listview.setAdapter(adapter);
-  }
+
+        jobList.add(new Activity("Beg", 1));
+        jobList.add(new Activity("Wash Cars", 5));
+        jobList.add(new Activity("Bartender", 20));
+        jobList.add(new Activity("Deliver Mail", 50));
+        jobList.add(new Activity("Deliver Packages", 75));
+        jobList.add(new Activity("Work in Factory", 100));
+        jobList.add(new Activity("Bank Clerk", 250));
+        jobList.add(new Activity("Office Manager", 500));
+        jobList.add(new Activity("Booze Shop Owner", 1000));
+        jobList.add(new Activity("Supermarket Owner", 2000));
+        jobList.add(new Activity("E-Commerce Shop Owner", 3000));
+        jobList.add(new Activity("Businessman", 5000));
+
+
+        activityAdapter = new ActivityAdapter(this, R.layout.activityrow,jobList);
+        listview.setAdapter(activityAdapter);
+    }
 
   public void goBackToWork(View view){
       Intent startGoBackToWorkActivity = new Intent(this, WorkActivity.class);
