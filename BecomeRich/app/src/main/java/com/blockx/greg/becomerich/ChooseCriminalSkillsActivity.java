@@ -4,7 +4,11 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.CheckBox;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -13,6 +17,9 @@ public class ChooseCriminalSkillsActivity extends AppCompatActivity {
     ListView listview;
     ActivityAdapterCheckBox activityAdapter;
     ArrayList<Activity> skillsList = new ArrayList<>();
+    TextView yourMoney;
+    int yourMoneyInt;
+    int criminalSkillPrice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +27,10 @@ public class ChooseCriminalSkillsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_choose_criminal_skills);
 
         listview = (ListView) findViewById(R.id.listViewCriminalSkills);
+        yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
+
+        //To test substraction
+        yourMoney.setText("€ 10000");
 
         skillsList.add(new Activity("Weapon Skills Beginner", 100, false));
         skillsList.add(new Activity("Weapon Skills Intermediate", 600, false));
@@ -30,6 +41,30 @@ public class ChooseCriminalSkillsActivity extends AppCompatActivity {
 
         activityAdapter = new ActivityAdapterCheckBox(this, R.layout.activityrow_checkbox, skillsList);
         listview.setAdapter(activityAdapter);
+
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                yourMoneyInt = Integer.parseInt(yourMoney.getText().toString().substring(2));
+                criminalSkillPrice = Integer.parseInt(adapterView.getItemAtPosition(i).toString());
+                CheckBox HaveItem = view.findViewById(R.id.checkBoxHaveItem);
+
+                if(yourMoneyInt >= criminalSkillPrice && !HaveItem.isChecked()){
+                    yourMoneyInt -= criminalSkillPrice;
+                    skillsList.get(i).setHaveBought(true);
+                    HaveItem.setChecked(skillsList.get(i).isHaveBought());
+                }else if(yourMoneyInt < criminalSkillPrice){
+                    Toast toast = Toast.makeText(getApplicationContext(), "You don't have enough money!", Toast.LENGTH_SHORT);
+                    toast.show();
+                }else if(HaveItem.isChecked()){
+                    Toast toast = Toast.makeText(getApplicationContext(), "You already have this item!", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+
+                yourMoney.setText("€ " + yourMoneyInt);
+
+            }
+        });
     }
 
     public void goBackToEducation(View view){

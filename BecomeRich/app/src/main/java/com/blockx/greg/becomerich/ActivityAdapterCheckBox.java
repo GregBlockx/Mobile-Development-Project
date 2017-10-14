@@ -1,6 +1,7 @@
 package com.blockx.greg.becomerich;
 
 import android.content.Context;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,4 +53,11 @@ public class ActivityAdapterCheckBox extends ArrayAdapter<String>{
         return v;
     }
 
+    //When you click on an item in a listview this will return the money you get or have to pay
+
+    @Nullable
+    @Override
+    public String getItem(int position) {
+        return String.valueOf(items.get(position).getActivityAmount());
+    }
 }

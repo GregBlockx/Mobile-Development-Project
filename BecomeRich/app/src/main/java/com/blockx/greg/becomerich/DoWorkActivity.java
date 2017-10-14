@@ -22,6 +22,8 @@ public class DoWorkActivity extends AppCompatActivity {
     ListView listview;
     ActivityAdapter activityAdapter;
     ArrayList<Activity> jobList = new ArrayList<>();
+    TextView yourMoney;
+    int yourMoneyInt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,7 @@ public class DoWorkActivity extends AppCompatActivity {
         setContentView(R.layout.activity_do_work);
 
         listview = (ListView) findViewById(R.id.listViewJobs);
+        yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
 
         jobList.add(new Activity("Beg", 1));
         jobList.add(new Activity("Wash Cars", 5));
@@ -47,14 +50,12 @@ public class DoWorkActivity extends AppCompatActivity {
         activityAdapter = new ActivityAdapter(this, R.layout.activityrow,jobList);
         listview.setAdapter(activityAdapter);
 
-        //Geld toevoegen misschien in een aparte methode steken!
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                TextView money = (TextView) findViewById(R.id.textViewYourMoney);
-                int moneyInt = Integer.parseInt(money.getText().toString().substring(2));
-                moneyInt += Integer.parseInt(adapterView.getItemAtPosition(i).toString());
-                money.setText("€ " + moneyInt);
+                yourMoneyInt = Integer.parseInt(yourMoney.getText().toString().substring(2));
+                yourMoneyInt += Integer.parseInt(adapterView.getItemAtPosition(i).toString());
+                yourMoney.setText("€ " + yourMoneyInt);
             }
         });
     }
