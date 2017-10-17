@@ -1,6 +1,8 @@
 package com.blockx.greg.becomerich;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -31,10 +33,16 @@ public class HungerActivity extends AppCompatActivity {
 
     TextView yourMoney;
 
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eat);
+
+        Context context = this;
+        sharedPreferences = this.getSharedPreferences("money",context.MODE_PRIVATE);
 
         hunger = maxValue;
         health = maxValue;
