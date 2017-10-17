@@ -48,7 +48,6 @@ public class DoWorkActivity extends AppCompatActivity {
         Context context = this;
         sharedPreferences = this.getSharedPreferences("money",context.MODE_PRIVATE);
 
-
         hunger = maxValue;
         health = maxValue;
 

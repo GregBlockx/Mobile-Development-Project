@@ -1,6 +1,8 @@
 package com.blockx.greg.becomerich;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,16 +23,21 @@ public class ChooseEducationActivity extends AppCompatActivity {
     int yourMoneyInt;
     int educationPrice;
 
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_education);
 
+        Context context = this;
+        sharedPreferences = this.getSharedPreferences("money",context.MODE_PRIVATE);
+
         listview = (ListView) findViewById(R.id.listViewEducation);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
 
-        //To test substraction
-        yourMoney.setText("€ 100000");
+        yourMoney.setText("€ " + sharedPreferences.getInt("money",0));
 
         educationList.add(new Activity("Nothing", 0, true));
         educationList.add(new Activity("Secondary School", 100, false));
@@ -61,8 +68,11 @@ public class ChooseEducationActivity extends AppCompatActivity {
                     toast.show();
                 }
 
-                yourMoney.setText("€ " + yourMoneyInt);
+                editor = sharedPreferences.edit();
+                editor.putInt("money", yourMoneyInt);
+                editor.commit();
 
+                yourMoney.setText("€ " + sharedPreferences.getInt("money",0));
             }
         });
     }
