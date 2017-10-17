@@ -1,6 +1,8 @@
 package com.blockx.greg.becomerich;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,16 +23,21 @@ public class ChooseCriminalSkillsActivity extends AppCompatActivity {
     int yourMoneyInt;
     int criminalSkillPrice;
 
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_criminal_skills);
 
+        Context context = this;
+        sharedPreferences = this.getSharedPreferences("money",context.MODE_PRIVATE);
+
         listview = (ListView) findViewById(R.id.listViewCriminalSkills);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
 
-        //To test substraction
-        yourMoney.setText("€ 10000");
+        yourMoney.setText("€ " + sharedPreferences.getInt("money",0));
 
         skillsList.add(new Activity("Weapon Skills Beginner", 100, false));
         skillsList.add(new Activity("Weapon Skills Intermediate", 600, false));
@@ -61,8 +68,11 @@ public class ChooseCriminalSkillsActivity extends AppCompatActivity {
                     toast.show();
                 }
 
-                yourMoney.setText("€ " + yourMoneyInt);
+                editor = sharedPreferences.edit();
+                editor.putInt("money", yourMoneyInt);
+                editor.commit();
 
+                yourMoney.setText("€ " + sharedPreferences.getInt("money",0));
             }
         });
     }
