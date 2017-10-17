@@ -32,12 +32,24 @@
             android:id="@+id/imageButtonResidency"
             android:layout_width="180dp"
             android:layout_height="180dp"
-            android:scaleType="fitEnd"
-            app:srcCompat="@drawable/house"
-            android:layout_alignTop="@+id/imageButtonTransport"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/gun_icon"
+            android:onClick="goToChooseWeapon"
+            android:layout_below="@+id/imageButton"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:onClick="goToChooseResidency"/>
+            android:layout_marginTop="15dp" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/imageButtonTransport"
+            android:onClick="goToChooseResidency"
+            android:scaleType="fitEnd"
+            app:srcCompat="@drawable/house" />
 
         <ImageButton
             android:id="@+id/imageButtonTransport"

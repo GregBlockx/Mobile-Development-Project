@@ -37,4 +37,9 @@ public class MarketActivity extends AppCompatActivity {
         Intent startChooseTransportActivity = new Intent(this, ChooseTransportActivity.class);
         startActivity(startChooseTransportActivity);
     }
+
+    public void goToChooseWeapon(View view){
+        Intent startChooseWeaponActivity = new Intent(this, ChooseWeaponActivity.class);
+        startActivity(startChooseWeaponActivity);
+    }
 }

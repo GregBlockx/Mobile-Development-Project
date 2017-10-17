@@ -15,14 +15,14 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class ChooseEducationActivity extends AppCompatActivity {
+public class ChooseWeaponActivity extends AppCompatActivity {
 
     ListView listview;
     ActivityAdapterCheckBox activityAdapter;
-    ArrayList<Activity> educationList = new ArrayList<>();
+    ArrayList<Activity> weaponList = new ArrayList<>();
     TextView yourMoney;
     int yourMoneyInt;
-    int educationPrice;
+    int weaponPrice;
 
     TextView yourHealthText;
     TextView yourHungerText;
@@ -39,7 +39,7 @@ public class ChooseEducationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_choose_education);
+        setContentView(R.layout.activity_choose_weapon);
 
         Context context = getApplicationContext();
         sharedPreferences = context.getSharedPreferences("money",context.MODE_PRIVATE);
@@ -50,7 +50,7 @@ public class ChooseEducationActivity extends AppCompatActivity {
         hunger = sharedPreferences.getInt("hunger",150);
         health = sharedPreferences.getInt("health",150);
 
-        listview = (ListView) findViewById(R.id.listViewEducation);
+        listview = (ListView) findViewById(R.id.listViewWeapons);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
         yourMoney.setText("€ " + sharedPreferences.getInt("money",0));
 
@@ -68,32 +68,32 @@ public class ChooseEducationActivity extends AppCompatActivity {
         yourHealth.setProgress(health);
         yourHunger.setProgress(hunger);
 
-        educationList.add(new Activity("Nothing", 0, true));
-        educationList.add(new Activity("Secondary School", 100, false));
-        educationList.add(new Activity("High School", 7500, false));
-        educationList.add(new Activity("General Training", 15000, false));
-        educationList.add(new Activity("College", 25000, false));
-        educationList.add(new Activity("Master's Degree", 100000, false));
+        weaponList.add(new Activity("Pocket Knife", 20, false));
+        weaponList.add(new Activity("Pistol", 300, false));
+        weaponList.add(new Activity("AK-47", 800, false));
+        weaponList.add(new Activity("Sniper Rifle", 1200, false));
+        weaponList.add(new Activity("Bullet Proof Jacket", 3000, false));
+        weaponList.add(new Activity("C4-Explosives", 5000, false));
 
-        activityAdapter = new ActivityAdapterCheckBox(this, R.layout.activityrow_checkbox, educationList);
+        activityAdapter = new ActivityAdapterCheckBox(this, R.layout.activityrow_checkbox, weaponList);
         listview.setAdapter(activityAdapter);
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 yourMoneyInt = sharedPreferences.getInt("money", 0);
-                educationPrice = Integer.parseInt(adapterView.getItemAtPosition(i).toString());
+                weaponPrice = Integer.parseInt(adapterView.getItemAtPosition(i).toString());
                 CheckBox HaveItem = view.findViewById(R.id.checkBoxHaveItem);
 
-                if (yourMoneyInt >= educationPrice && !HaveItem.isChecked()) {
-                    yourMoneyInt -= educationPrice;
-                    educationList.get(i).setHaveBought(true);
-                    HaveItem.setChecked(educationList.get(i).isHaveBought());
-                } else if (yourMoneyInt < educationPrice) {
+                if (yourMoneyInt >= weaponPrice && !HaveItem.isChecked()) {
+                    yourMoneyInt -= weaponPrice;
+                    weaponList.get(i).setHaveBought(true);
+                    HaveItem.setChecked(weaponList.get(i).isHaveBought());
+                } else if (yourMoneyInt < weaponPrice) {
                     Toast toast = Toast.makeText(getApplicationContext(), "You don't have enough money!", Toast.LENGTH_SHORT);
                     toast.show();
                 } else if (HaveItem.isChecked()) {
-                    Toast toast = Toast.makeText(getApplicationContext(), "You already have this education!", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), "You already have this item!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
                 editor.putInt("money", yourMoneyInt);
@@ -103,8 +103,8 @@ public class ChooseEducationActivity extends AppCompatActivity {
         });
     }
 
-    public void goBackToEducation(View view){
-        Intent startGoBackToEducationActivity = new Intent(this, EducationActivity.class);
-        startActivity(startGoBackToEducationActivity);
+    public void goBackToMarket(View view){
+        Intent startGoBackToMarketActivity = new Intent(this, MarketActivity.class);
+        startActivity(startGoBackToMarketActivity);
     }
 }

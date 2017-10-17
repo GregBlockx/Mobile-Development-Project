@@ -38,7 +38,8 @@
         <activity android:name=".ChooseTransportActivity" />
         <activity android:name=".ChooseEducationActivity" />
         <activity android:name=".ChooseCriminalSkillsActivity" />
-        <activity android:name=".HealthActivity"></activity>
+        <activity android:name=".HealthActivity" />
+        <activity android:name=".ChooseWeaponActivity"></activity>
     </application>
 
 </manifest>
