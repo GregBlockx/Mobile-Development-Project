@@ -39,8 +39,8 @@ public class DoCriminalJobActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_do_criminal_job);
 
-        Context context = this;
-        sharedPreferences = this.getSharedPreferences("money",context.MODE_PRIVATE);
+        Context context = getApplicationContext();
+        sharedPreferences = context.getSharedPreferences("money",context.MODE_PRIVATE);
 
         hunger = maxValue;
         health = maxValue;
@@ -82,6 +82,7 @@ public class DoCriminalJobActivity extends AppCompatActivity {
 
                 yourMoneyInt = sharedPreferences.getInt("money", 0);
                 yourMoneyInt += Integer.parseInt(adapterView.getItemAtPosition(i).toString());
+
                 editor = sharedPreferences.edit();
                 editor.putInt("money", yourMoneyInt);
                 editor.commit();

@@ -45,10 +45,10 @@ public class DoWorkActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_do_work);
 
-        Context context = this;
-        sharedPreferences = this.getSharedPreferences("money",context.MODE_PRIVATE);
-        sharedPreferences = this.getSharedPreferences("health",context.MODE_PRIVATE);
-        sharedPreferences = this.getSharedPreferences("hunger",context.MODE_PRIVATE);
+        Context context = getApplicationContext();
+        sharedPreferences = context.getSharedPreferences("money",context.MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences("health",context.MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences("hunger",context.MODE_PRIVATE);
 
         hunger = maxValue;
         health = maxValue;

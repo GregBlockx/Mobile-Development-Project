@@ -19,13 +19,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Context context = this;
 
-        sharedPreferences = this.getSharedPreferences("money",context.MODE_PRIVATE);
-        sharedPreferences = this.getSharedPreferences("health",context.MODE_PRIVATE);
-        sharedPreferences = this.getSharedPreferences("hunger",context.MODE_PRIVATE);
+        Context context = getApplicationContext();
+
+        sharedPreferences = context.getSharedPreferences("money",context.MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences("health",context.MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences("hunger",context.MODE_PRIVATE);
 
         editor = sharedPreferences.edit();
+
         if(!sharedPreferences.contains("money") || !sharedPreferences.contains("health") || !sharedPreferences.contains("hunger")){
             editor.putInt("money", 200);
             editor.putInt("health", 300);

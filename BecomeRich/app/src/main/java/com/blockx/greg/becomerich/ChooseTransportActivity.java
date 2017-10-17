@@ -32,8 +32,8 @@ public class ChooseTransportActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_transport);
 
-        Context context = this;
-        sharedPreferences = this.getSharedPreferences("money",context.MODE_PRIVATE);
+        Context context = getApplicationContext();
+        sharedPreferences = context.getSharedPreferences("money",context.MODE_PRIVATE);
 
         listview = (ListView) findViewById(R.id.listViewTransport);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);

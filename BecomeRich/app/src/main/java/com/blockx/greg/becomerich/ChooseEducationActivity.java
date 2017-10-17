@@ -31,8 +31,8 @@ public class ChooseEducationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_education);
 
-        Context context = this;
-        sharedPreferences = this.getSharedPreferences("money",context.MODE_PRIVATE);
+        Context context = getApplicationContext();
+        sharedPreferences = context.getSharedPreferences("money",context.MODE_PRIVATE);
 
         listview = (ListView) findViewById(R.id.listViewEducation);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
