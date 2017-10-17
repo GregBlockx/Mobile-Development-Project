@@ -9,6 +9,7 @@ public class Activity {
     String activityName;
     int activityAmount;
     boolean haveBought;
+    int healthValue;
 
     public Activity(String activityName, int activityAmount){
         this.activityName = activityName;
@@ -19,6 +20,20 @@ public class Activity {
         this.activityName = activityName;
         this.activityAmount = activityAmount;
         this.haveBought = haveBought;
+    }
+
+    public Activity(String activityName, int activityAmount, int healthValue){
+        this.activityName = activityName;
+        this.activityAmount = activityAmount;
+        this.healthValue = healthValue;
+    }
+
+    public int getHealthValue() {
+        return healthValue;
+    }
+
+    public void setHealthValue(int healthValue) {
+        this.healthValue = healthValue;
     }
 
     public boolean isHaveBought() {
