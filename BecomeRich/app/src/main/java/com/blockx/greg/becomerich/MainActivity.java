@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
         healthBar.setProgress(sharedPreferences.getInt("health",0));
 
         ProgressBar hungerBar = (ProgressBar) findViewById(R.id.progressBarHunger);
-        healthBar.setMax(maxHealthAndHunger);
-        healthBar.setProgress(sharedPreferences.getInt("hunger",0));
+        hungerBar.setMax(maxHealthAndHunger);
+        hungerBar.setProgress(sharedPreferences.getInt("hunger",0));
     }
 
     public void goToWork(View view){
