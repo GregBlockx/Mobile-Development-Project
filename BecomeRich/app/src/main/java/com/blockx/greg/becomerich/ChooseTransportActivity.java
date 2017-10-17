@@ -54,7 +54,7 @@ public class ChooseTransportActivity extends AppCompatActivity {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                yourMoneyInt = Integer.parseInt(yourMoney.getText().toString().substring(2));
+                yourMoneyInt = sharedPreferences.getInt("money", 0);
                 transportPrice = Integer.parseInt(adapterView.getItemAtPosition(i).toString());
                 CheckBox HaveItem = view.findViewById(R.id.checkBoxHaveItem);
 
@@ -74,7 +74,7 @@ public class ChooseTransportActivity extends AppCompatActivity {
                 editor.putInt("money", yourMoneyInt);
                 editor.commit();
 
-                yourMoney.setText("€ " + sharedPreferences.getInt("money",0));
+                yourMoney.setText("€ " + yourMoneyInt);
             }
         });
     }

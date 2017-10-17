@@ -80,13 +80,13 @@ public class DoCriminalJobActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                yourMoneyInt = Integer.parseInt(yourMoney.getText().toString().substring(2));
+                yourMoneyInt = sharedPreferences.getInt("money", 0);
                 yourMoneyInt += Integer.parseInt(adapterView.getItemAtPosition(i).toString());
                 editor = sharedPreferences.edit();
                 editor.putInt("money", yourMoneyInt);
                 editor.commit();
 
-                yourMoney.setText("€ " + sharedPreferences.getInt("money",0));
+                yourMoney.setText("€ " + yourMoneyInt);
 
                 health -= 15;
                 hunger -= 15;
