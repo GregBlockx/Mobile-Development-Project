@@ -50,12 +50,7 @@ public class DoWorkActivity extends AppCompatActivity {
         sharedPreferences = this.getSharedPreferences("health",context.MODE_PRIVATE);
         sharedPreferences = this.getSharedPreferences("hunger",context.MODE_PRIVATE);
 
-
-        hunger = sharedPreferences.getInt("hunger",150);
-        health = sharedPreferences.getInt("health",150);
-
         hunger = maxValue;
-        health = maxValue;
         health = maxValue;
 
         listview = (ListView) findViewById(R.id.listViewCriminalJobs);
