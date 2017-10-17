@@ -32,10 +32,6 @@ public class Activity {
         return healthValue;
     }
 
-    public void setHealthValue(int healthValue) {
-        this.healthValue = healthValue;
-    }
-
     public boolean isHaveBought() {
         return haveBought;
     }
@@ -48,16 +44,8 @@ public class Activity {
         return activityName;
     }
 
-    public void setActivityName(String activityName) {
-        this.activityName = activityName;
-    }
-
     public int getActivityAmount() {
         return activityAmount;
-    }
-
-    public void setActivityAmount(int activityAmount) {
-        this.activityAmount = activityAmount;
     }
 
 }
