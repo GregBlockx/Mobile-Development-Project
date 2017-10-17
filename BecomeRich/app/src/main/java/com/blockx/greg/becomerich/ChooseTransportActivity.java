@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +25,15 @@ public class ChooseTransportActivity extends AppCompatActivity {
     int yourMoneyInt;
     int transportPrice;
 
+    TextView yourHealthText;
+    TextView yourHungerText;
+    ProgressBar yourHealth;
+    ProgressBar yourHunger;
+    public int hunger;
+    public int health;
+
+    public int maxValue = 300;
+
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
 
@@ -34,11 +44,30 @@ public class ChooseTransportActivity extends AppCompatActivity {
 
         Context context = getApplicationContext();
         sharedPreferences = context.getSharedPreferences("money",context.MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences("health",context.MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences("hunger",context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        hunger = sharedPreferences.getInt("hunger",150);
+        health = sharedPreferences.getInt("health",150);
 
         listview = (ListView) findViewById(R.id.listViewTransport);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
-
         yourMoney.setText("€ " + sharedPreferences.getInt("money",0));
+
+        yourHealthText = (TextView) findViewById(R.id.textViewHealth);
+        yourHealthText.setText(health + "/300");
+        yourHungerText = (TextView) findViewById(R.id.textViewHunger);
+        yourHungerText.setText(hunger + "/300");
+
+        yourHealth = (ProgressBar) findViewById(R.id.progressBarHealth);
+        yourHunger = (ProgressBar) findViewById(R.id.progressBarHunger);
+
+        yourHealth.setMax(maxValue);
+        yourHunger.setMax(maxValue);
+
+        yourHealth.setProgress(health);
+        yourHunger.setProgress(hunger);
 
         transportList.add(new Activity("Foot", 0, true));
         transportList.add(new Activity("Shoes", 40, false));
@@ -72,9 +101,9 @@ public class ChooseTransportActivity extends AppCompatActivity {
 
                 editor = sharedPreferences.edit();
                 editor.putInt("money", yourMoneyInt);
-                editor.commit();
-
                 yourMoney.setText("€ " + yourMoneyInt);
+
+                editor.commit();
             }
         });
     }

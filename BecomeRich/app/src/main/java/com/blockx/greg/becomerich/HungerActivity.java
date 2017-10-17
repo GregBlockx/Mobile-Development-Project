@@ -41,17 +41,24 @@ public class HungerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eat);
 
-        Context context = this;
-        sharedPreferences = this.getSharedPreferences("money",context.MODE_PRIVATE);
+        Context context = getApplicationContext();
+        sharedPreferences = context.getSharedPreferences("money",context.MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences("health",context.MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences("hunger",context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
 
-        hunger = maxValue;
-        health = maxValue;
+        hunger = sharedPreferences.getInt("hunger",150);
+        health = sharedPreferences.getInt("health",150);
 
         listview = (ListView) findViewById(R.id.listViewCriminalJobs);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
+        yourMoney.setText("€ " + sharedPreferences.getInt("money",0));
+
 
         yourHealthText = (TextView) findViewById(R.id.textViewHealth);
+        yourHealthText.setText(health + "/300");
         yourHungerText = (TextView) findViewById(R.id.textViewHunger);
+        yourHungerText.setText(hunger + "/300");
 
         yourHealth = (ProgressBar) findViewById(R.id.progressBarHealth);
         yourHunger = (ProgressBar) findViewById(R.id.progressBarHunger);
@@ -59,14 +66,11 @@ public class HungerActivity extends AppCompatActivity {
         yourHealth.setMax(maxValue);
         yourHunger.setMax(maxValue);
 
-        yourHealth.setProgress(150);
-        yourHunger.setProgress(150);
+        yourHealth.setProgress(health);
+        yourHunger.setProgress(hunger);
 
         listview = (ListView) findViewById(R.id.listViewFood);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
-
-        //Test to buy something
-        yourMoney.setText("€ 1000");
 
         foodList.add(new Activity("Eat Trash", 0,15));
         foodList.add(new Activity("Eat Nuts", 2,30));
@@ -85,17 +89,13 @@ public class HungerActivity extends AppCompatActivity {
 
                 if(hunger < 300)
                 {
-
-                    if((hunger += Integer.parseInt(activityAdapter.getHealth(i).toString())) > 300)
+                    hunger += Integer.parseInt(activityAdapter.getHealth(i).toString());
+                    if(hunger >= 300)
                     {
                         hunger = 300;
-                    } else
-                    {
-                        hunger += Integer.parseInt(activityAdapter.getHealth(i).toString());
                     }
 
-
-                    yourMoneyInt = Integer.parseInt(yourMoney.getText().toString().substring(2));
+                    yourMoneyInt = sharedPreferences.getInt("money",0);
                     foodPrice = Integer.parseInt(adapterView.getItemAtPosition(i).toString());
 
                     if(yourMoneyInt >= foodPrice){
@@ -106,6 +106,7 @@ public class HungerActivity extends AppCompatActivity {
                     }
 
                     yourMoney.setText("€ " + yourMoneyInt);
+                    editor.putInt("money",yourMoneyInt);
                     health -= 15;
 
                 } else
@@ -115,6 +116,9 @@ public class HungerActivity extends AppCompatActivity {
                     Toast toast = Toast.makeText(getApplicationContext(), "Hunger is full!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
+
+                editor.putInt("health",health);
+                editor.putInt("hunger",hunger);
 
                 yourHealthText.setText(health + "/" + maxValue);
                 yourHungerText.setText(hunger + "/" + maxValue);
@@ -126,7 +130,10 @@ public class HungerActivity extends AppCompatActivity {
                     Toast toast = Toast.makeText(getApplicationContext(), "You Died! Start again!", Toast.LENGTH_SHORT);
                     toast.show();
                     goToPlayerInfo();
+                    editor.putInt("health",maxValue);
+                    editor.putInt("hunger",maxValue);
                 }
+                editor.commit();
             }
         });
     }

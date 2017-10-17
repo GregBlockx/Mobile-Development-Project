@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,15 @@ public class ChooseEducationActivity extends AppCompatActivity {
     int yourMoneyInt;
     int educationPrice;
 
+    TextView yourHealthText;
+    TextView yourHungerText;
+    ProgressBar yourHealth;
+    ProgressBar yourHunger;
+    public int hunger;
+    public int health;
+
+    public int maxValue = 300;
+
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
 
@@ -33,11 +43,30 @@ public class ChooseEducationActivity extends AppCompatActivity {
 
         Context context = getApplicationContext();
         sharedPreferences = context.getSharedPreferences("money",context.MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences("health",context.MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences("hunger",context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        hunger = sharedPreferences.getInt("hunger",150);
+        health = sharedPreferences.getInt("health",150);
 
         listview = (ListView) findViewById(R.id.listViewEducation);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
-
         yourMoney.setText("€ " + sharedPreferences.getInt("money",0));
+
+        yourHealthText = (TextView) findViewById(R.id.textViewHealth);
+        yourHealthText.setText(health + "/300");
+        yourHungerText = (TextView) findViewById(R.id.textViewHunger);
+        yourHungerText.setText(hunger + "/300");
+
+        yourHealth = (ProgressBar) findViewById(R.id.progressBarHealth);
+        yourHunger = (ProgressBar) findViewById(R.id.progressBarHunger);
+
+        yourHealth.setMax(maxValue);
+        yourHunger.setMax(maxValue);
+
+        yourHealth.setProgress(health);
+        yourHunger.setProgress(hunger);
 
         educationList.add(new Activity("Nothing", 0, true));
         educationList.add(new Activity("Secondary School", 100, false));
@@ -56,23 +85,20 @@ public class ChooseEducationActivity extends AppCompatActivity {
                 educationPrice = Integer.parseInt(adapterView.getItemAtPosition(i).toString());
                 CheckBox HaveItem = view.findViewById(R.id.checkBoxHaveItem);
 
-                if(yourMoneyInt >= educationPrice && !HaveItem.isChecked()){
+                if (yourMoneyInt >= educationPrice && !HaveItem.isChecked()) {
                     yourMoneyInt -= educationPrice;
                     educationList.get(i).setHaveBought(true);
                     HaveItem.setChecked(educationList.get(i).isHaveBought());
-                }else if(yourMoneyInt < educationPrice){
+                } else if (yourMoneyInt < educationPrice) {
                     Toast toast = Toast.makeText(getApplicationContext(), "You don't have enough money!", Toast.LENGTH_SHORT);
                     toast.show();
-                }else if(HaveItem.isChecked()){
-                    Toast toast = Toast.makeText(getApplicationContext(), "You already have this item!", Toast.LENGTH_SHORT);
+                } else if (HaveItem.isChecked()) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "You already have education!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
-
-                editor = sharedPreferences.edit();
                 editor.putInt("money", yourMoneyInt);
-                editor.commit();
-
                 yourMoney.setText("€ " + yourMoneyInt);
+                editor.commit();
             }
         });
     }

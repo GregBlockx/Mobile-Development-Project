@@ -41,17 +41,20 @@ public class DoCriminalJobActivity extends AppCompatActivity {
 
         Context context = getApplicationContext();
         sharedPreferences = context.getSharedPreferences("money",context.MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences("health",context.MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences("hunger",context.MODE_PRIVATE);
 
-        hunger = maxValue;
-        health = maxValue;
+        hunger = sharedPreferences.getInt("hunger",150);
+        health = sharedPreferences.getInt("health",150);
 
         listview = (ListView) findViewById(R.id.listViewCriminalJobs);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
-
         yourMoney.setText("€ " + sharedPreferences.getInt("money",0));
 
         yourHealthText = (TextView) findViewById(R.id.textViewHealth);
+        yourHealthText.setText(health + "/300");
         yourHungerText = (TextView) findViewById(R.id.textViewHunger);
+        yourHungerText.setText(hunger + "/300");
 
         yourHealth = (ProgressBar) findViewById(R.id.progressBarHealth);
         yourHunger = (ProgressBar) findViewById(R.id.progressBarHunger);
@@ -59,8 +62,8 @@ public class DoCriminalJobActivity extends AppCompatActivity {
         yourHealth.setMax(maxValue);
         yourHunger.setMax(maxValue);
 
-        yourHealth.setProgress(maxValue);
-        yourHunger.setProgress(maxValue);
+        yourHealth.setProgress(health);
+        yourHunger.setProgress(hunger);
 
 
         jobList.add(new Activity("Rob Homeless Person", 20));
@@ -85,12 +88,15 @@ public class DoCriminalJobActivity extends AppCompatActivity {
 
                 editor = sharedPreferences.edit();
                 editor.putInt("money", yourMoneyInt);
-                editor.commit();
+
 
                 yourMoney.setText("€ " + yourMoneyInt);
 
                 health -= 15;
                 hunger -= 15;
+
+                editor.putInt("health",health);
+                editor.putInt("hunger",hunger);
 
                 yourHealthText.setText(health + "/" + maxValue);
                 yourHungerText.setText(hunger + "/" + maxValue);
@@ -102,7 +108,10 @@ public class DoCriminalJobActivity extends AppCompatActivity {
                     Toast toast = Toast.makeText(getApplicationContext(), "You Died! Start again!", Toast.LENGTH_SHORT);
                     toast.show();
                     goToPlayerInfo();
+                    editor.putInt("health",maxValue);
+                    editor.putInt("hunger",maxValue);
                 }
+                editor.commit();
             }
         });
     }

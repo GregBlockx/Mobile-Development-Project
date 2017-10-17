@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         TextView money = (TextView)findViewById(R.id.textViewYourMoney);
-        money.setText("€ " + sharedPreferences.getInt("money",0));
+        money.setText(" € " + sharedPreferences.getInt("money",0));
 
         TextView healthText = (TextView) findViewById(R.id.textViewHealth);
         healthText.setText(sharedPreferences.getInt("health",0) + "/300");

@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,16 @@ public class ChooseCriminalSkillsActivity extends AppCompatActivity {
     int yourMoneyInt;
     int criminalSkillPrice;
 
+    TextView yourHealthText;
+    TextView yourHungerText;
+    ProgressBar yourHealth;
+    ProgressBar yourHunger;
+    public int hunger;
+    public int health;
+
+    public int maxValue = 300;
+
+
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
 
@@ -33,11 +44,30 @@ public class ChooseCriminalSkillsActivity extends AppCompatActivity {
 
         Context context = getApplicationContext();
         sharedPreferences = context.getSharedPreferences("money",context.MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences("health",context.MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences("hunger",context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        hunger = sharedPreferences.getInt("hunger",150);
+        health = sharedPreferences.getInt("health",150);
 
         listview = (ListView) findViewById(R.id.listViewCriminalSkills);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
-
         yourMoney.setText("€ " + sharedPreferences.getInt("money",0));
+
+        yourHealthText = (TextView) findViewById(R.id.textViewHealth);
+        yourHealthText.setText(health + "/300");
+        yourHungerText = (TextView) findViewById(R.id.textViewHunger);
+        yourHungerText.setText(hunger + "/300");
+
+        yourHealth = (ProgressBar) findViewById(R.id.progressBarHealth);
+        yourHunger = (ProgressBar) findViewById(R.id.progressBarHunger);
+
+        yourHealth.setMax(maxValue);
+        yourHunger.setMax(maxValue);
+
+        yourHealth.setProgress(health);
+        yourHunger.setProgress(hunger);
 
         skillsList.add(new Activity("Weapon Skills Beginner", 100, false));
         skillsList.add(new Activity("Weapon Skills Intermediate", 600, false));
@@ -64,15 +94,15 @@ public class ChooseCriminalSkillsActivity extends AppCompatActivity {
                     Toast toast = Toast.makeText(getApplicationContext(), "You don't have enough money!", Toast.LENGTH_SHORT);
                     toast.show();
                 }else if(HaveItem.isChecked()){
-                    Toast toast = Toast.makeText(getApplicationContext(), "You already have this item!", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), "You already have this skill!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
 
                 editor = sharedPreferences.edit();
                 editor.putInt("money", yourMoneyInt);
-                editor.commit();
-
                 yourMoney.setText("€ " + yourMoneyInt);
+
+                editor.commit();
             }
         });
     }

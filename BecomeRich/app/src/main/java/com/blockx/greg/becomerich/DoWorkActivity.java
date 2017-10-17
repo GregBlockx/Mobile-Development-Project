@@ -50,16 +50,17 @@ public class DoWorkActivity extends AppCompatActivity {
         sharedPreferences = context.getSharedPreferences("health",context.MODE_PRIVATE);
         sharedPreferences = context.getSharedPreferences("hunger",context.MODE_PRIVATE);
 
-        hunger = maxValue;
-        health = maxValue;
+        hunger = sharedPreferences.getInt("hunger",150);
+        health = sharedPreferences.getInt("health",150);
 
         listview = (ListView) findViewById(R.id.listViewCriminalJobs);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
-
         yourMoney.setText("€ " + sharedPreferences.getInt("money",0));
 
         yourHealthText = (TextView) findViewById(R.id.textViewHealth);
+        yourHealthText.setText(health + "/300");
         yourHungerText = (TextView) findViewById(R.id.textViewHunger);
+        yourHungerText.setText(hunger + "/300");
 
         yourHealth = (ProgressBar) findViewById(R.id.progressBarHealth);
         yourHunger = (ProgressBar) findViewById(R.id.progressBarHunger);
@@ -105,14 +106,16 @@ public class DoWorkActivity extends AppCompatActivity {
                 health -= 15;
                 hunger -= 15;
 
+                editor.putInt("health",health);
+                editor.putInt("hunger",hunger);
+
                 yourHealthText.setText(health + "/" + maxValue);
                 yourHungerText.setText(hunger + "/" + maxValue);
 
                 yourHealth.setProgress(health);
                 yourHunger.setProgress(hunger);
 
-                editor.putInt("health",health);
-                editor.putInt("hunger",hunger);
+
 
                 if(health <= 0 || hunger <= 0) {
                     Toast toast = Toast.makeText(getApplicationContext(), "You Died! Start again!", Toast.LENGTH_SHORT);

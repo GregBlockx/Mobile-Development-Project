@@ -1,6 +1,8 @@
 package com.blockx.greg.becomerich;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -35,19 +37,31 @@ public class HealthActivity extends AppCompatActivity {
 
     TextView yourMoney;
 
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_health);
 
-        hunger = maxValue;
-        health = maxValue;
+        Context context = getApplicationContext();
+        sharedPreferences = context.getSharedPreferences("money",context.MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences("health",context.MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences("hunger",context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        hunger = sharedPreferences.getInt("hunger",150);
+        health = sharedPreferences.getInt("health",150);
 
         listview = (ListView) findViewById(R.id.listViewCriminalJobs);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
+        yourMoney.setText("€ " + sharedPreferences.getInt("money",0));
 
         yourHealthText = (TextView) findViewById(R.id.textViewHealth);
+        yourHealthText.setText(health + "/300");
         yourHungerText = (TextView) findViewById(R.id.textViewHunger);
+        yourHungerText.setText(hunger + "/300");
 
         yourHealth = (ProgressBar) findViewById(R.id.progressBarHealth);
         yourHunger = (ProgressBar) findViewById(R.id.progressBarHunger);
@@ -55,14 +69,11 @@ public class HealthActivity extends AppCompatActivity {
         yourHealth.setMax(maxValue);
         yourHunger.setMax(maxValue);
 
-        yourHealth.setProgress(maxValue);
-        yourHunger.setProgress(maxValue);
+        yourHealth.setProgress(health);
+        yourHunger.setProgress(hunger);
 
         listview = (ListView) findViewById(R.id.listViewHealth);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
-
-        //Test to buy something
-        yourMoney.setText("€ 1000");
 
         healthList.add(new Activity("Sleep on road", 0, 15));
         healthList.add(new Activity("Take a Pill", 2,30));
@@ -81,17 +92,13 @@ public class HealthActivity extends AppCompatActivity {
 
                 if(health < 300)
                 {
-
-                    if((health += Integer.parseInt(activityAdapter.getHealth(i).toString())) > 300)
+                    health += Integer.parseInt(activityAdapter.getHealth(i).toString());
+                    if(health >= 300)
                     {
                         health = 300;
-                    } else
-                        {
-                            health += Integer.parseInt(activityAdapter.getHealth(i).toString());
-                        }
+                    }
 
-
-                    yourMoneyInt = Integer.parseInt(yourMoney.getText().toString().substring(2));
+                    yourMoneyInt = sharedPreferences.getInt("money",0);
                     healthPrice = Integer.parseInt(adapterView.getItemAtPosition(i).toString());
 
                     if(yourMoneyInt >= healthPrice){
@@ -102,6 +109,7 @@ public class HealthActivity extends AppCompatActivity {
                     }
 
                     yourMoney.setText("€ " + yourMoneyInt);
+                    editor.putInt("money",yourMoneyInt);
                     hunger -= 15;
 
                 } else
@@ -111,6 +119,9 @@ public class HealthActivity extends AppCompatActivity {
                     Toast toast = Toast.makeText(getApplicationContext(), "Health is full!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
+
+                editor.putInt("health",health);
+                editor.putInt("hunger",hunger);
 
                 yourHealthText.setText(health + "/" + maxValue);
                 yourHungerText.setText(hunger + "/" + maxValue);
@@ -122,7 +133,10 @@ public class HealthActivity extends AppCompatActivity {
                     Toast toast = Toast.makeText(getApplicationContext(), "You Died! Start again!", Toast.LENGTH_SHORT);
                     toast.show();
                     goToPlayerInfo();
+                    editor.putInt("health",maxValue);
+                    editor.putInt("hunger",maxValue);
                 }
+                editor.commit();
             }
         });
     }
