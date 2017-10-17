@@ -1,6 +1,8 @@
 package com.blockx.greg.becomerich;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -35,17 +37,25 @@ public class DoWorkActivity extends AppCompatActivity {
     public int maxValue = 300;
 
     int yourMoneyInt;
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_do_work);
 
+        Context context = this;
+        sharedPreferences = this.getSharedPreferences("money",context.MODE_PRIVATE);
+
+
         hunger = maxValue;
         health = maxValue;
 
         listview = (ListView) findViewById(R.id.listViewCriminalJobs);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
+
+        yourMoney.setText("€ " + sharedPreferences.getInt("money",0));
 
         yourHealthText = (TextView) findViewById(R.id.textViewHealth);
         yourHungerText = (TextView) findViewById(R.id.textViewHunger);
@@ -84,7 +94,12 @@ public class DoWorkActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 yourMoneyInt = Integer.parseInt(yourMoney.getText().toString().substring(2));
                 yourMoneyInt += Integer.parseInt(adapterView.getItemAtPosition(i).toString());
-                yourMoney.setText("€ " + yourMoneyInt);
+
+                editor = sharedPreferences.edit();
+                editor.putInt("money", yourMoneyInt);
+                editor.commit();
+
+                yourMoney.setText("€ " + sharedPreferences.getInt("money",0));
 
                 health -= 15;
                 hunger -= 15;
