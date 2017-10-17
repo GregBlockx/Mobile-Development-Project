@@ -6,13 +6,14 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
 
-    //private HealthManager healthManager;
+public class MainActivity extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
+    private static int maxHealthAndHunger = 300;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,15 +22,33 @@ public class MainActivity extends AppCompatActivity {
         Context context = this;
 
         sharedPreferences = this.getSharedPreferences("money",context.MODE_PRIVATE);
+        sharedPreferences = this.getSharedPreferences("health",context.MODE_PRIVATE);
+        sharedPreferences = this.getSharedPreferences("hunger",context.MODE_PRIVATE);
+
         editor = sharedPreferences.edit();
-        if(!sharedPreferences.contains("money")){
+        if(!sharedPreferences.contains("money") || !sharedPreferences.contains("health") || !sharedPreferences.contains("hunger")){
             editor.putInt("money", 200);
+            editor.putInt("health", 300);
+            editor.putInt("hunger",300);
             editor.commit();
         }
 
         TextView money = (TextView)findViewById(R.id.textViewYourMoney);
         money.setText("€ " + sharedPreferences.getInt("money",0));
-        //healthManager.setCurrentHealth(healthManager.getMaxHealth());
+
+        TextView healthText = (TextView) findViewById(R.id.textViewHealth);
+        healthText.setText(sharedPreferences.getInt("health",0) + "/300");
+
+        TextView hungerText = (TextView) findViewById(R.id.textViewHunger);
+        hungerText.setText(sharedPreferences.getInt("hunger",0) + "/300");
+
+        ProgressBar healthBar = (ProgressBar) findViewById(R.id.progressBarHealth);
+        healthBar.setMax(maxHealthAndHunger);
+        healthBar.setProgress(sharedPreferences.getInt("health",0));
+
+        ProgressBar hungerBar = (ProgressBar) findViewById(R.id.progressBarHunger);
+        healthBar.setMax(maxHealthAndHunger);
+        healthBar.setProgress(sharedPreferences.getInt("hunger",0));
     }
 
     public void goToWork(View view){
