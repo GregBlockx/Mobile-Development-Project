@@ -60,7 +60,8 @@
             android:layout_toRightOf="@+id/imageButtonPlayerInfo"
             android:layout_toEndOf="@+id/imageButtonPlayerInfo"
             android:layout_marginLeft="32dp"
-            android:layout_marginStart="32dp" />
+            android:layout_marginStart="32dp"
+            android:onClick="goToWork"/>
 
         <ImageButton
             android:id="@+id/imageButtonMarket"
