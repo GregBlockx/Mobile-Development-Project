@@ -22,11 +22,15 @@ import com.facebook.login.widget.LoginButton;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
+
+import java.util.Date;
 
 
 public class MainActivity extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
     public static final String GAME_PREFERENCES = "GamePrefs";
+    static int AGE = 6570;
     private SharedPreferences.Editor editor;
     private static int maxHealthAndHunger = 300;
     LoginButton loginButton;
@@ -84,13 +88,18 @@ public class MainActivity extends AppCompatActivity {
         if(!sharedPreferences.contains("money") ||
                 !sharedPreferences.contains("health") ||
                 !sharedPreferences.contains("hunger") ||
-                !sharedPreferences.contains("playername")){
+                !sharedPreferences.contains("playername") ||
+                !sharedPreferences.contains("age")){
             editor.putInt("money", 200);
             editor.putInt("health", 300);
             editor.putInt("hunger",300);
             editor.putString("playername","Davidson");
+            editor.putInt("age",AGE);
             editor.commit();
         }
+
+        TextView ageTextView = (TextView) findViewById(R.id.textViewYourAge);
+        ageTextView.setText(getAge(sharedPreferences.getInt("age",AGE)));
 
         TextView lastNameTextView = (TextView) findViewById(R.id.textViewName);
         lastNameTextView.setText("Mr. " + sharedPreferences.getString("playername","Davidson"));
@@ -155,5 +164,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private String getAge(int ageInDays)
+    {
+        int years = ageInDays/365;
+        int days = ageInDays%365;
+
+        return " " + years + " years " + days + " days";
     }
 }

@@ -25,6 +25,7 @@ public class DoCriminalJobActivity extends AppCompatActivity {
     TextView yourHungerText;
     ProgressBar yourHealth;
     ProgressBar yourHunger;
+    int age;
     public int hunger;
     public int health;
 
@@ -40,14 +41,15 @@ public class DoCriminalJobActivity extends AppCompatActivity {
         setContentView(R.layout.activity_do_criminal_job);
 
         Context context = getApplicationContext();
-        sharedPreferences = context.getSharedPreferences(MainActivity.GAME_PREFERENCES,context.MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences(MainActivity.GAME_PREFERENCES, context.MODE_PRIVATE);
 
-        hunger = sharedPreferences.getInt("hunger",150);
-        health = sharedPreferences.getInt("health",150);
+        hunger = sharedPreferences.getInt("hunger", 150);
+        health = sharedPreferences.getInt("health", 150);
+        age = sharedPreferences.getInt("age", 0);
 
         listview = (ListView) findViewById(R.id.listViewCriminalJobs);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
-        yourMoney.setText("€ " + sharedPreferences.getInt("money",0));
+        yourMoney.setText("€ " + sharedPreferences.getInt("money", 0));
 
         yourHealthText = (TextView) findViewById(R.id.textViewHealth);
         yourHealthText.setText(health + "/300");
@@ -74,7 +76,7 @@ public class DoCriminalJobActivity extends AppCompatActivity {
         jobList.add(new Activity("Rob Rich Person", 10000));
 
 
-        activityAdapter = new ActivityAdapter(this, R.layout.activityrow,jobList);
+        activityAdapter = new ActivityAdapter(this, R.layout.activityrow, jobList);
         listview.setAdapter(activityAdapter);
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -92,9 +94,11 @@ public class DoCriminalJobActivity extends AppCompatActivity {
 
                 health -= 15;
                 hunger -= 15;
+                age += 1;
 
-                editor.putInt("health",health);
-                editor.putInt("hunger",hunger);
+                editor.putInt("health", health);
+                editor.putInt("hunger", hunger);
+                editor.putInt("age",age);
 
                 yourHealthText.setText(health + "/" + maxValue);
                 yourHungerText.setText(hunger + "/" + maxValue);
@@ -102,24 +106,24 @@ public class DoCriminalJobActivity extends AppCompatActivity {
                 yourHealth.setProgress(health);
                 yourHunger.setProgress(hunger);
 
-                if(health <= 0 || hunger <= 0) {
+                if (health <= 0 || hunger <= 0) {
                     Toast toast = Toast.makeText(getApplicationContext(), "You Died! Start again!", Toast.LENGTH_SHORT);
                     toast.show();
                     goToPlayerInfo();
-                    editor.putInt("health",maxValue);
-                    editor.putInt("hunger",maxValue);
+                    editor.putInt("health", maxValue);
+                    editor.putInt("hunger", maxValue);
                 }
                 editor.commit();
             }
         });
     }
 
-    public void goBackToWork(View view){
+    public void goBackToWork(View view) {
         Intent startGoBackToWorkActivity = new Intent(this, WorkActivity.class);
         startActivity(startGoBackToWorkActivity);
     }
 
-    public void goToPlayerInfo(){
+    public void goToPlayerInfo() {
         Intent startMainActivity = new Intent(this, MainActivity.class);
         startActivity(startMainActivity);
     }

@@ -25,6 +25,7 @@ public class HealthActivity extends AppCompatActivity {
     ArrayList<Activity> healthList = new ArrayList<>();
     int yourMoneyInt;
     int healthPrice;
+    int age;
 
     TextView yourHealthText;
     TextView yourHungerText;
@@ -51,6 +52,7 @@ public class HealthActivity extends AppCompatActivity {
 
         hunger = sharedPreferences.getInt("hunger",150);
         health = sharedPreferences.getInt("health",150);
+        age = sharedPreferences.getInt("age",0);
 
         listview = (ListView) findViewById(R.id.listViewCriminalJobs);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
@@ -109,6 +111,7 @@ public class HealthActivity extends AppCompatActivity {
                     yourMoney.setText("€ " + yourMoneyInt);
                     editor.putInt("money",yourMoneyInt);
                     hunger -= 15;
+                    age += 1;
 
                 } else
                 {
@@ -120,6 +123,7 @@ public class HealthActivity extends AppCompatActivity {
 
                 editor.putInt("health",health);
                 editor.putInt("hunger",hunger);
+                editor.putInt("age",age);
 
                 yourHealthText.setText(health + "/" + maxValue);
                 yourHungerText.setText(hunger + "/" + maxValue);

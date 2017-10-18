@@ -179,8 +179,9 @@
             android:text="18 years"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_toLeftOf="@+id/textViewYourResidency"
-            android:layout_toStartOf="@+id/textViewYourResidency" />
+            android:layout_toStartOf="@+id/textViewYourResidency"
+            android:layout_alignRight="@+id/textViewYourEducation"
+            android:layout_alignEnd="@+id/textViewYourEducation" />
 
         <TextView
             android:id="@+id/textViewAge"

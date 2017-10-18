@@ -123,8 +123,9 @@
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_alignBottom="@+id/login_button"
-            android:layout_toLeftOf="@+id/imageViewHealth"
-            android:layout_toStartOf="@+id/imageViewHealth" />
+            android:layout_toRightOf="@+id/imageButtonWorkSmall"
+            android:layout_alignRight="@+id/imageButtonEducation"
+            android:layout_alignEnd="@+id/imageButtonEducation" />
 
         <ImageView
             android:id="@+id/imageViewHouse"

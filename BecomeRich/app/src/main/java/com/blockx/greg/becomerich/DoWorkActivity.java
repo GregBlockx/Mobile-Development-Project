@@ -31,6 +31,7 @@ public class DoWorkActivity extends AppCompatActivity {
     TextView yourHungerText;
     ProgressBar yourHealth;
     ProgressBar yourHunger;
+    int age;
     public int hunger;
     public int health;
 
@@ -50,6 +51,7 @@ public class DoWorkActivity extends AppCompatActivity {
 
         hunger = sharedPreferences.getInt("hunger",150);
         health = sharedPreferences.getInt("health",150);
+        age = sharedPreferences.getInt("age",0);
 
         listview = (ListView) findViewById(R.id.listViewCriminalJobs);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
@@ -103,7 +105,9 @@ public class DoWorkActivity extends AppCompatActivity {
 
                 health -= 15;
                 hunger -= 15;
+                age+=1;
 
+                editor.putInt("age",age);
                 editor.putInt("health",health);
                 editor.putInt("hunger",hunger);
 
