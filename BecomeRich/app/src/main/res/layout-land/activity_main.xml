@@ -29,9 +29,7 @@
             android:id="@+id/imageViewPlayer"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            app:srcCompat="@drawable/player_icon"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="16dp" />
+            app:srcCompat="@drawable/player_icon" />
 
         <TextView
             android:id="@+id/textViewName"
@@ -41,8 +39,8 @@
             android:textSize="36sp"
             android:textStyle="bold"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/imageViewPlayer"
-            android:layout_toEndOf="@+id/imageViewPlayer" />
+            android:layout_toLeftOf="@+id/textViewYourAge"
+            android:layout_toStartOf="@+id/textViewYourAge" />
 
         <TextView
             android:id="@+id/textViewHunger"
@@ -53,8 +51,8 @@
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_below="@+id/textViewHealth"
-            android:layout_alignLeft="@+id/textViewHealth"
-            android:layout_alignStart="@+id/textViewHealth" />
+            android:layout_toRightOf="@+id/imageViewHunger"
+            android:layout_toEndOf="@+id/imageViewHunger" />
 
         <TextView
             android:id="@+id/textViewHealth"
@@ -76,9 +74,9 @@
             android:text="Secondary School"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_below="@+id/progressBarHealth"
-            android:layout_alignLeft="@+id/textViewYourTransport"
-            android:layout_alignStart="@+id/textViewYourTransport" />
+            android:layout_below="@+id/textViewYourTransport"
+            android:layout_toRightOf="@+id/imageViewEducation"
+            android:layout_toEndOf="@+id/imageViewEducation" />
 
         <TextView
             android:id="@+id/textViewYourTransport"
@@ -88,9 +86,10 @@
             android:text="Foot"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_above="@+id/textViewYourEducation"
-            android:layout_alignLeft="@+id/textViewYourResidency"
-            android:layout_alignStart="@+id/textViewYourResidency" />
+            android:layout_above="@+id/imageViewEducation"
+            android:layout_toRightOf="@+id/imageViewCar"
+            android:layout_toEndOf="@+id/imageViewCar"
+            android:layout_below="@+id/textViewYourResidency" />
 
         <TextView
             android:id="@+id/textViewYourResidency"
@@ -100,9 +99,9 @@
             android:text="Streets"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_above="@+id/imageViewHealth"
-            android:layout_toRightOf="@+id/imageButtonPlayerInfo"
-            android:layout_toEndOf="@+id/imageButtonPlayerInfo" />
+            android:layout_alignTop="@+id/imageViewHouse"
+            android:layout_toRightOf="@+id/imageViewHouse"
+            android:layout_toEndOf="@+id/imageViewHouse" />
 
         <TextView
             android:id="@+id/textViewYourMoney"
@@ -112,11 +111,9 @@
             android:text="€ 999999999"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_below="@+id/imageViewPlayer"
-            android:layout_alignLeft="@+id/imageButtonEducation"
-            android:layout_alignStart="@+id/imageButtonEducation"
-            android:layout_marginLeft="42dp"
-            android:layout_marginStart="42dp" />
+            android:layout_below="@+id/textViewYourAge"
+            android:layout_alignLeft="@+id/textViewYourAge"
+            android:layout_alignStart="@+id/textViewYourAge" />
 
         <TextView
             android:id="@+id/textViewYourAge"
@@ -126,16 +123,18 @@
             android:text="18 years"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_alignParentTop="true"
-            android:layout_alignLeft="@+id/textViewYourMoney"
-            android:layout_alignStart="@+id/textViewYourMoney" />
+            android:layout_alignBottom="@+id/login_button"
+            android:layout_alignLeft="@+id/imageButtonWorkSmall"
+            android:layout_alignStart="@+id/imageButtonWorkSmall"
+            android:layout_marginLeft="22dp"
+            android:layout_marginStart="22dp" />
 
         <ImageView
             android:id="@+id/imageViewHouse"
             android:layout_width="50dp"
             android:layout_height="30dp"
             app:srcCompat="@drawable/house"
-            android:layout_alignBottom="@+id/textViewYourMoney"
+            android:layout_above="@+id/imageViewHealth"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
@@ -144,7 +143,7 @@
             android:layout_width="50dp"
             android:layout_height="30dp"
             app:srcCompat="@drawable/car"
-            android:layout_alignTop="@+id/textViewYourTransport"
+            android:layout_above="@+id/imageViewHunger"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
@@ -153,7 +152,7 @@
             android:layout_width="50dp"
             android:layout_height="30dp"
             app:srcCompat="@drawable/education"
-            android:layout_alignBottom="@+id/imageViewHealth"
+            android:layout_alignBottom="@+id/imageViewHunger"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
@@ -164,7 +163,7 @@
             android:scaleType="fitCenter"
             android:onClick="goToHealth"
             app:srcCompat="@drawable/hearth"
-            android:layout_below="@+id/imageViewCar"
+            android:layout_centerVertical="true"
             android:layout_alignLeft="@+id/imageViewHunger"
             android:layout_alignStart="@+id/imageViewHunger" />
 
@@ -175,9 +174,9 @@
             android:onClick="goToHunger"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/hunger"
-            android:layout_alignBottom="@+id/textViewHunger"
-            android:layout_toLeftOf="@+id/imageButtonEducation"
-            android:layout_toStartOf="@+id/imageButtonEducation" />
+            android:layout_below="@+id/imageViewHealth"
+            android:layout_alignLeft="@+id/imageButtonMarket"
+            android:layout_alignStart="@+id/imageButtonMarket" />
 
         <ProgressBar
             android:id="@+id/progressBarHunger"
@@ -205,51 +204,58 @@
             android:progressTint="#f442e5"
             android:progressBackgroundTint="#ffffff"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/imageButtonEducation"
+            android:layout_alignLeft="@+id/imageButtonEducation"
+            android:layout_alignStart="@+id/imageButtonEducation"
+            android:layout_marginLeft="35dp"
+            android:layout_marginStart="35dp"
             android:layout_alignRight="@+id/login_button"
             android:layout_alignEnd="@+id/login_button" />
 
         <ImageButton
-            android:id="@+id/imageButtonWork"
+            android:id="@+id/imageButtonWorkSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="82dp"
-            android:layout_marginStart="82dp"
             app:srcCompat="@drawable/briefcase_icon_pixel"
-            android:onClick="goToWork"/>
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/imageButtonPlayerInfo"
+            android:layout_toEndOf="@+id/imageButtonPlayerInfo"
+            android:layout_marginLeft="32dp"
+            android:layout_marginStart="32dp" />
 
         <ImageButton
             android:id="@+id/imageButtonMarket"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
             app:srcCompat="@drawable/market_icon"
-            android:onClick="goToMarket"/>
+            android:onClick="goToMarket"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="32dp"
+            android:layout_toLeftOf="@+id/imageButtonEducation"
+            android:layout_toStartOf="@+id/imageButtonEducation" />
 
         <ImageButton
             android:id="@+id/imageButtonEducation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/imageButtonMarket"
-            android:layout_marginLeft="26dp"
-            android:layout_marginStart="26dp"
-            android:layout_toEndOf="@+id/imageButtonMarket"
-            android:layout_toRightOf="@+id/imageButtonMarket"
             app:srcCompat="@drawable/education_icon_pixel"
-            android:onClick="goToEducation"/>
+            android:onClick="goToEducation"
+            android:layout_marginRight="126dp"
+            android:layout_marginEnd="126dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
         <ImageButton
             android:id="@+id/imageButtonPlayerInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:srcCompat="@drawable/player_icon"
+            android:onClick="goToPlayerInfo"
+            android:layout_marginLeft="126dp"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_alignTop="@+id/imageButtonMarket"
-            app:srcCompat="@drawable/player_icon" />
+            android:layout_marginStart="108dp" />
     </RelativeLayout>
 
 </android.widget.RelativeLayout>
