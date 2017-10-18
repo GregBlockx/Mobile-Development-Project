@@ -40,9 +40,7 @@ public class DoCriminalJobActivity extends AppCompatActivity {
         setContentView(R.layout.activity_do_criminal_job);
 
         Context context = getApplicationContext();
-        sharedPreferences = context.getSharedPreferences("money",context.MODE_PRIVATE);
-        sharedPreferences = context.getSharedPreferences("health",context.MODE_PRIVATE);
-        sharedPreferences = context.getSharedPreferences("hunger",context.MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences(MainActivity.GAME_PREFERENCES,context.MODE_PRIVATE);
 
         hunger = sharedPreferences.getInt("hunger",150);
         health = sharedPreferences.getInt("health",150);

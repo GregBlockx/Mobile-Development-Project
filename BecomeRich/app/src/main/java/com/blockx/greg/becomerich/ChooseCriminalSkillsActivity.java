@@ -43,9 +43,7 @@ public class ChooseCriminalSkillsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_choose_criminal_skills);
 
         Context context = getApplicationContext();
-        sharedPreferences = context.getSharedPreferences("money",context.MODE_PRIVATE);
-        sharedPreferences = context.getSharedPreferences("health",context.MODE_PRIVATE);
-        sharedPreferences = context.getSharedPreferences("hunger",context.MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences(MainActivity.GAME_PREFERENCES,context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
         hunger = sharedPreferences.getInt("hunger",150);
@@ -101,7 +99,6 @@ public class ChooseCriminalSkillsActivity extends AppCompatActivity {
                 editor = sharedPreferences.edit();
                 editor.putInt("money", yourMoneyInt);
                 yourMoney.setText("€ " + yourMoneyInt);
-
                 editor.commit();
             }
         });

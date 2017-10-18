@@ -46,9 +46,7 @@ public class DoWorkActivity extends AppCompatActivity {
         setContentView(R.layout.activity_do_work);
 
         Context context = getApplicationContext();
-        sharedPreferences = context.getSharedPreferences("money",context.MODE_PRIVATE);
-        sharedPreferences = context.getSharedPreferences("health",context.MODE_PRIVATE);
-        sharedPreferences = context.getSharedPreferences("hunger",context.MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences(MainActivity.GAME_PREFERENCES,context.MODE_PRIVATE);
 
         hunger = sharedPreferences.getInt("hunger",150);
         health = sharedPreferences.getInt("health",150);
@@ -124,7 +122,6 @@ public class DoWorkActivity extends AppCompatActivity {
                     editor.putInt("health",maxValue);
                     editor.putInt("hunger",maxValue);
                 }
-
                 editor.commit();
             }
         });
