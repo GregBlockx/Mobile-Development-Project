@@ -70,11 +70,11 @@ public class ChooseResidencyActivity extends AppCompatActivity {
         yourHunger.setProgress(hunger);
 
         residencyList.add(new Activity("Sleeping bag", 0, true));
-        residencyList.add(new Activity("Rent Basement", 70, false));
-        residencyList.add(new Activity("Rent Apartment", 500, false));
-        residencyList.add(new Activity("Buy Apartment", 40000, false));
-        residencyList.add(new Activity("Buy Penthouse", 150000, false));
-        residencyList.add(new Activity("Buy Mansion", 500000, false));
+        residencyList.add(new Activity("Rent Basement", 70));
+        residencyList.add(new Activity("Rent Apartment", 500));
+        residencyList.add(new Activity("Buy Apartment", 40000));
+        residencyList.add(new Activity("Buy Penthouse", 150000));
+        residencyList.add(new Activity("Buy Mansion", 500000));
 
         activityAdapter = new ActivityAdapterCheckBox(this, R.layout.activityrow_checkbox, residencyList);
         listview.setAdapter(activityAdapter);
