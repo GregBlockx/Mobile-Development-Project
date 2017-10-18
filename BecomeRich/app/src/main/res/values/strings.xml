@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Become Rich</string>
+    <string name="facebook_app_id">585522281839051</string>
+    <string name="fb_login_protocol_scheme">fb585522281839051</string>
 </resources>
