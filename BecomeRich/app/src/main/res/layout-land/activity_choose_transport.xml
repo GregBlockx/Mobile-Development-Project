@@ -99,7 +99,7 @@
             android:layout_marginLeft="22dp"
             android:layout_marginStart="22dp"
             app:srcCompat="@drawable/money_icon"
-            android:layout_alignParentTop="true"
+            android:layout_alignBottom="@+id/textViewYourMoney"
             android:layout_toRightOf="@+id/progressBarHealth"
             android:layout_toEndOf="@+id/progressBarHealth" />
 

@@ -96,10 +96,10 @@
             android:id="@+id/imageViewMoney"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="36dp"
-            android:layout_marginStart="36dp"
+            android:layout_marginLeft="37dp"
+            android:layout_marginStart="37dp"
             app:srcCompat="@drawable/money_icon"
-            android:layout_alignParentTop="true"
+            android:layout_alignBottom="@+id/textViewYourMoney"
             android:layout_toRightOf="@+id/progressBarHealth"
             android:layout_toEndOf="@+id/progressBarHealth" />
 
