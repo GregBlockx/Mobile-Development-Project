@@ -79,15 +79,20 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = context.getSharedPreferences("money",context.MODE_PRIVATE);
         sharedPreferences = context.getSharedPreferences("health",context.MODE_PRIVATE);
         sharedPreferences = context.getSharedPreferences("hunger",context.MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences("playername",context.MODE_PRIVATE);
 
         editor = sharedPreferences.edit();
 
-        if(!sharedPreferences.contains("money") || !sharedPreferences.contains("health") || !sharedPreferences.contains("hunger")){
+        if(!sharedPreferences.contains("money") || !sharedPreferences.contains("health") || !sharedPreferences.contains("hunger") || !sharedPreferences.contains("playername")){
             editor.putInt("money", 200);
             editor.putInt("health", 300);
             editor.putInt("hunger",300);
+            editor.putString("playername","Dave");
             editor.commit();
         }
+
+        TextView lastNameTextView = (TextView) findViewById(R.id.textViewName);
+        lastNameTextView.setText("Mr. " + sharedPreferences.getString("playername","Dave"));
 
         TextView money = (TextView)findViewById(R.id.textViewYourMoney);
         money.setText(" € " + sharedPreferences.getInt("money",0));
@@ -139,8 +144,12 @@ public class MainActivity extends AppCompatActivity {
         Email = object.getString("email");
         ID = object.getString("id");
 
+        editor = sharedPreferences.edit();
+        editor.putString("playername",lastName);
+        editor.commit();
         TextView lastNameTextView = (TextView) findViewById(R.id.textViewName);
-        lastNameTextView.setText("Mr. " + lastName);
+        lastNameTextView.setText("Mr. " + sharedPreferences.getString("playername","Dave"));
+
     }
 
     @Override

@@ -39,8 +39,8 @@
             android:textSize="36sp"
             android:textStyle="bold"
             android:layout_alignParentTop="true"
-            android:layout_toLeftOf="@+id/textViewYourAge"
-            android:layout_toStartOf="@+id/textViewYourAge" />
+            android:layout_toRightOf="@+id/textViewYourTransport"
+            android:layout_toEndOf="@+id/textViewYourTransport" />
 
         <TextView
             android:id="@+id/textViewHunger"
@@ -123,10 +123,8 @@
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_alignBottom="@+id/login_button"
-            android:layout_alignLeft="@+id/imageButtonWorkSmall"
-            android:layout_alignStart="@+id/imageButtonWorkSmall"
-            android:layout_marginLeft="22dp"
-            android:layout_marginStart="22dp" />
+            android:layout_toLeftOf="@+id/imageViewHealth"
+            android:layout_toStartOf="@+id/imageViewHealth" />
 
         <ImageView
             android:id="@+id/imageViewHouse"
