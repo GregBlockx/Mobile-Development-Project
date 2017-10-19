@@ -85,18 +85,27 @@ public class MainActivity extends AppCompatActivity {
 
         editor = sharedPreferences.edit();
 
-        if(!sharedPreferences.contains("money") ||
-                !sharedPreferences.contains("health") ||
-                !sharedPreferences.contains("hunger") ||
-                !sharedPreferences.contains("playername") ||
-                !sharedPreferences.contains("age")){
+        if(sharedPreferences.getBoolean("firstrun" ,true)){
+            editor.putBoolean("firstrun", false);
             editor.putInt("money", 200);
             editor.putInt("health", 300);
             editor.putInt("hunger",300);
             editor.putString("playername","Davidson");
             editor.putInt("age",AGE);
+            editor.putString("residency","Streets");
+            editor.putString("transport","Foot");
+            editor.putString("education","Secondary School");
             editor.commit();
         }
+
+        TextView yourResidency = (TextView) findViewById(R.id.textViewYourResidency);
+        yourResidency.setText(sharedPreferences.getString("residency",null));
+
+        TextView yourTransport = (TextView) findViewById(R.id.textViewYourTransport);
+        yourTransport.setText(sharedPreferences.getString("transport",null));
+
+        TextView yourEducation = (TextView) findViewById(R.id.textViewYourEducation);
+        yourEducation.setText(sharedPreferences.getString("education",null));
 
         TextView ageTextView = (TextView) findViewById(R.id.textViewYourAge);
         ageTextView.setText(getAge(sharedPreferences.getInt("age",AGE)));

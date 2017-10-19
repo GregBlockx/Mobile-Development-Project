@@ -97,6 +97,7 @@ public class ChooseResidencyActivity extends AppCompatActivity {
                 }
 
                 editor = sharedPreferences.edit();
+                editor.putString("residency",residencyList.get(i).getActivityName());
                 editor.putInt("money", yourMoneyInt);
                 yourMoney.setText("€ " + yourMoneyInt);
                 editor.commit();

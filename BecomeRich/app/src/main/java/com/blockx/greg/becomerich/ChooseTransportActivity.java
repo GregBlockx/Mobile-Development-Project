@@ -98,6 +98,7 @@ public class ChooseTransportActivity extends AppCompatActivity {
                 }
 
                 editor = sharedPreferences.edit();
+                editor.putString("transport",transportList.get(i).getActivityName());
                 editor.putInt("money", yourMoneyInt);
                 yourMoney.setText("€ " + yourMoneyInt);
                 editor.commit();

@@ -95,6 +95,7 @@ public class ChooseEducationActivity extends AppCompatActivity {
                     toast.show();
                 }
                 editor.putInt("money", yourMoneyInt);
+                editor.putString("education",educationList.get(i).getActivityName());
                 yourMoney.setText("€ " + yourMoneyInt);
                 editor.commit();
             }

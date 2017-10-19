@@ -85,14 +85,14 @@
             android:id="@+id/textViewYourEducation"
             android:layout_width="wrap_content"
             android:layout_height="53dp"
-            android:layout_alignBaseline="@+id/textViewEductation"
-            android:layout_alignBottom="@+id/textViewEductation"
-            android:layout_toEndOf="@+id/textViewTransport"
-            android:layout_toRightOf="@+id/textViewTransport"
             android:layout_weight="1"
             android:text="Secondary School"
             android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:layout_alignBaseline="@+id/textViewEductation"
+            android:layout_alignBottom="@+id/textViewEductation"
+            android:layout_alignLeft="@+id/textViewYourResidency"
+            android:layout_alignStart="@+id/textViewYourResidency" />
 
         <TextView
             android:id="@+id/textViewTransport"
@@ -110,13 +110,13 @@
             android:id="@+id/textViewYourTransport"
             android:layout_width="wrap_content"
             android:layout_height="53dp"
-            android:layout_below="@+id/textViewResidency"
-            android:layout_toEndOf="@+id/textViewEductation"
-            android:layout_toRightOf="@+id/textViewEductation"
             android:layout_weight="1"
             android:text="Foot"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_below="@+id/textViewYourResidency"
+            android:layout_alignLeft="@+id/textViewYourResidency"
+            android:layout_alignStart="@+id/textViewYourResidency" />
 
         <TextView
             android:id="@+id/textViewResidency"
@@ -134,14 +134,15 @@
             android:id="@+id/textViewYourResidency"
             android:layout_width="wrap_content"
             android:layout_height="53dp"
-            android:layout_alignBaseline="@+id/textViewResidency"
-            android:layout_alignBottom="@+id/textViewResidency"
-            android:layout_toEndOf="@+id/textViewResidency"
-            android:layout_toRightOf="@+id/textViewResidency"
             android:layout_weight="1"
             android:text="Streets"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_below="@+id/textViewYourMoney"
+            android:layout_toRightOf="@+id/textViewResidency"
+            android:layout_toEndOf="@+id/textViewResidency"
+            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp" />
 
         <TextView
             android:id="@+id/textViewYourMoney"
@@ -179,7 +180,6 @@
             android:text="18 years"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_toStartOf="@+id/textViewYourResidency"
             android:layout_alignRight="@+id/textViewYourEducation"
             android:layout_alignEnd="@+id/textViewYourEducation" />
 
