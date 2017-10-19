@@ -104,6 +104,7 @@ public class ChooseResidencyActivity extends AppCompatActivity {
                     yourMoneyInt -= residencyPrice;
                     residencyList.get(i).setHaveBought(true);
                     residencyOwned.add(residencyList.get(i).getActivityName());
+                    editor.putString("residency",residencyList.get(i).getActivityName());
                     HaveItem.setChecked(residencyList.get(i).isHaveBought());
                 }else if(HaveItem.isChecked()){
                     Toast toast = Toast.makeText(getApplicationContext(), "You already own this residence!", Toast.LENGTH_SHORT);
@@ -113,8 +114,6 @@ public class ChooseResidencyActivity extends AppCompatActivity {
                     toast.show();
                 }
 
-                editor = sharedPreferences.edit();
-                editor.putString("residency",residencyList.get(i).getActivityName());
                 editor.putInt("money", yourMoneyInt);
                 editor.putStringSet("residencyOwned", residencyOwned);
                 yourMoney.setText("€ " + yourMoneyInt);

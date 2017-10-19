@@ -25,6 +25,8 @@ import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -35,11 +37,18 @@ public class MainActivity extends AppCompatActivity {
     private static int maxHealthAndHunger = 300;
     LoginButton loginButton;
     CallbackManager callbackManager;
+    Set<String> transportOwned = new HashSet<>();
+    Set<String> educationOwned = new HashSet<>();
+    Set<String> weaponOwned = new HashSet<>();
+    Set<String> residencyOwned = new HashSet<>();
+    Set<String> skillsOwned = new HashSet<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         loginButton = (LoginButton) findViewById(R.id.login_button);
         loginButton.setReadPermissions("email","public_profile");
@@ -87,14 +96,24 @@ public class MainActivity extends AppCompatActivity {
 
         if(sharedPreferences.getBoolean("firstrun" ,true)){
             editor.putBoolean("firstrun", false);
+
+            transportOwned.add("Foot");
+            educationOwned.add("Nothing");
+            residencyOwned.add("Sleeping bag");
+
             editor.putInt("money", 200);
             editor.putInt("health", 300);
             editor.putInt("hunger",300);
             editor.putString("playername","Davidson");
             editor.putInt("age",AGE);
-            editor.putString("residency","Streets");
+            editor.putString("residency","Sleeping bag");
             editor.putString("transport","Foot");
             editor.putString("education","Secondary School");
+            editor.putStringSet("transportOwned",transportOwned);
+            editor.putStringSet("educationOwned",educationOwned);
+            editor.putStringSet("weaponOwned",weaponOwned);
+            editor.putStringSet("residencyOwned",residencyOwned);
+            editor.putStringSet("skillsOwned",skillsOwned);
             editor.commit();
         }
 

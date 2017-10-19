@@ -106,6 +106,7 @@ public class ChooseTransportActivity extends AppCompatActivity {
                     yourMoneyInt -= transportPrice;
                     transportList.get(i).setHaveBought(true);
                     transportOwned.add(transportList.get(i).getActivityName());
+                    editor.putString("transport",transportList.get(i).getActivityName());
                     HaveItem.setChecked(transportList.get(i).isHaveBought());
                 } else if(HaveItem.isChecked()){
                     Toast toast = Toast.makeText(getApplicationContext(), "You already have this item!", Toast.LENGTH_SHORT);
@@ -114,8 +115,7 @@ public class ChooseTransportActivity extends AppCompatActivity {
                     Toast toast = Toast.makeText(getApplicationContext(), "You don't have enough money!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
-                editor = sharedPreferences.edit();
-                editor.putString("transport",transportList.get(i).getActivityName());
+
                 editor.putInt("money", yourMoneyInt);
                 editor.putStringSet("transportOwned", transportOwned);
                 yourMoney.setText("€ " + yourMoneyInt);

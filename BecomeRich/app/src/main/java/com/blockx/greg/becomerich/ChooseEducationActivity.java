@@ -102,6 +102,7 @@ public class ChooseEducationActivity extends AppCompatActivity {
                     yourMoneyInt -= educationPrice;
                     educationList.get(i).setHaveBought(true);
                     educationOwned.add(educationList.get(i).getActivityName());
+                    editor.putString("education",educationList.get(i).getActivityName());
                     HaveItem.setChecked(educationList.get(i).isHaveBought());
                 } else if (yourMoneyInt < educationPrice) {
                     Toast toast = Toast.makeText(getApplicationContext(), "You don't have enough money!", Toast.LENGTH_SHORT);
@@ -111,7 +112,7 @@ public class ChooseEducationActivity extends AppCompatActivity {
                     toast.show();
                 }
                 editor.putInt("money", yourMoneyInt);
-                editor.putString("education",educationList.get(i).getActivityName());
+
                 editor.putStringSet("educationOwned", educationOwned);
                 yourMoney.setText("€ " + yourMoneyInt);
                 editor.commit();
