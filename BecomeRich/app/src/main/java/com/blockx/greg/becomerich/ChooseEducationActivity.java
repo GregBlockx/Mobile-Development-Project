@@ -22,7 +22,7 @@ public class ChooseEducationActivity extends AppCompatActivity {
 
     ListView listview;
     ActivityAdapterCheckBox activityAdapter;
-    ArrayList<Activity> educationList = new ArrayList<>();
+    ArrayList<GameItem> educationList = new ArrayList<>();
     TextView yourMoney;
     int yourMoneyInt;
     int educationPrice;
@@ -71,12 +71,12 @@ public class ChooseEducationActivity extends AppCompatActivity {
         yourHealth.setProgress(health);
         yourHunger.setProgress(hunger);
 
-        educationList.add(new Activity("Nothing", 0, true));
-        educationList.add(new Activity("Secondary School", 100, false));
-        educationList.add(new Activity("High School", 7500, false));
-        educationList.add(new Activity("General Training", 15000, false));
-        educationList.add(new Activity("College", 25000, false));
-        educationList.add(new Activity("Master's Degree", 100000, false));
+        educationList.add(new GameItem("Nothing", 0, true));
+        educationList.add(new GameItem("Secondary School", 100, false));
+        educationList.add(new GameItem("High School", 7500, false));
+        educationList.add(new GameItem("General Training", 15000, false));
+        educationList.add(new GameItem("College", 25000, false));
+        educationList.add(new GameItem("Master's Degree", 100000, false));
 
         for(int i = 0; i <educationList.size();i++)
         {

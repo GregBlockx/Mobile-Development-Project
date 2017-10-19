@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "185795948710",
+    "firebase_url": "https://become-rich-a91f1.firebaseio.com",
+    "project_id": "become-rich-a91f1",
+    "storage_bucket": "become-rich-a91f1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:185795948710:android:bcd5939a48bb8210",
+        "android_client_info": {
+          "package_name": "com.blockx.greg.becomerich"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "185795948710-tbga6tcuqdbqn1j0qaah6fth6d8rvf59.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.blockx.greg.becomerich",
+            "certificate_hash": "13f4c115791782df4747a3a1c7c727cb5351187b"
+          }
+        },
+        {
+          "client_id": "185795948710-72dvmplohgko780ssqrcufhba919n6p4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1B1Z2pObPv4k9R3yJDYX63jRg-yK3ECo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "185795948710-72dvmplohgko780ssqrcufhba919n6p4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

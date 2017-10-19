@@ -22,7 +22,7 @@ public class ChooseResidencyActivity extends AppCompatActivity {
 
     ListView listview;
     ActivityAdapterCheckBox activityAdapter;
-    ArrayList<Activity> residencyList = new ArrayList<>();
+    ArrayList<GameItem> residencyList = new ArrayList<>();
     TextView yourMoney;
     int yourMoneyInt;
     int residencyPrice;
@@ -73,12 +73,12 @@ public class ChooseResidencyActivity extends AppCompatActivity {
         yourHealth.setProgress(health);
         yourHunger.setProgress(hunger);
 
-        residencyList.add(new Activity("Sleeping bag", 0, true));
-        residencyList.add(new Activity("Rent Basement", 70,false));
-        residencyList.add(new Activity("Rent Apartment", 500,false));
-        residencyList.add(new Activity("Buy Apartment", 40000,false));
-        residencyList.add(new Activity("Buy Penthouse", 150000,false));
-        residencyList.add(new Activity("Buy Mansion", 500000,false));
+        residencyList.add(new GameItem("Sleeping bag", 0, true));
+        residencyList.add(new GameItem("Rent Basement", 70,false));
+        residencyList.add(new GameItem("Rent Apartment", 500,false));
+        residencyList.add(new GameItem("Buy Apartment", 40000,false));
+        residencyList.add(new GameItem("Buy Penthouse", 150000,false));
+        residencyList.add(new GameItem("Buy Mansion", 500000,false));
 
         for(int i = 0; i <residencyList.size();i++)
         {

@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -22,7 +21,7 @@ public class DoCriminalJobActivity extends AppCompatActivity {
 
     ListView listview;
     ActivityAdapter activityAdapter;
-    ArrayList<Activity> jobList = new ArrayList<>();
+    ArrayList<GameItem> jobList = new ArrayList<>();
     TextView yourMoney;
     TextView yourHealthText;
     TextView yourHungerText;
@@ -90,14 +89,14 @@ public class DoCriminalJobActivity extends AppCompatActivity {
         yourHunger.setProgress(hunger);
 
 
-        jobList.add(new Activity("Rob Homeless Person", 20,array1));
-        jobList.add(new Activity("Rob Local Person", 70,array2));
-        jobList.add(new Activity("Steal Bike", 200,array2));
-        jobList.add(new Activity("Deal Drugs", 350,array3));
-        jobList.add(new Activity("Sell Smuggled Goods", 700,array4));
-        jobList.add(new Activity("Kidnap Kid", 1100,array5));
-        jobList.add(new Activity("Assassinate Target", 1800,array6));
-        jobList.add(new Activity("Rob Rich Person", 10000,array7));
+        jobList.add(new GameItem("Rob Homeless Person", 20,array1));
+        jobList.add(new GameItem("Rob Local Person", 70,array2));
+        jobList.add(new GameItem("Steal Bike", 200,array2));
+        jobList.add(new GameItem("Deal Drugs", 350,array3));
+        jobList.add(new GameItem("Sell Smuggled Goods", 700,array4));
+        jobList.add(new GameItem("Kidnap Kid", 1100,array5));
+        jobList.add(new GameItem("Assassinate Target", 1800,array6));
+        jobList.add(new GameItem("Rob Rich Person", 10000,array7));
 
 
         activityAdapter = new ActivityAdapter(this, R.layout.activityrow, jobList);
@@ -106,12 +105,12 @@ public class DoCriminalJobActivity extends AppCompatActivity {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String[] requirements;
 
                 yourMoneyInt = sharedPreferences.getInt("money", 0);
-                requirements = jobList.get(i).getRequirements();
                 editor = sharedPreferences.edit();
 
+                String[] requirements;
+                requirements = jobList.get(i).getRequirements();
                 String requirementsString = "";
                 int counter = 0;
                 int counterhigh = 0;

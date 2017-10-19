@@ -18,10 +18,10 @@ import java.util.ArrayList;
 public class ActivityAdapterCheckBox extends ArrayAdapter<String>{
 
 
-    private ArrayList<Activity> items = new ArrayList<>();
+    private ArrayList<GameItem> items = new ArrayList<>();
     private String concat = "€ ";
 
-    public ActivityAdapterCheckBox(Context context, int resource, ArrayList<Activity> objects) {
+    public ActivityAdapterCheckBox(Context context, int resource, ArrayList<GameItem> objects) {
         super(context, resource);
         items = objects;
     }

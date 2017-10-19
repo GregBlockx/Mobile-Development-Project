@@ -16,9 +16,9 @@ import java.util.ArrayList;
 
 public class ActivityAdapter extends ArrayAdapter<String> {
 
-    ArrayList<Activity> items = new ArrayList<>();
+    ArrayList<GameItem> items = new ArrayList<>();
     String concat = "€ ";
-    public ActivityAdapter(Context context, int resource, ArrayList<Activity> objects) {
+    public ActivityAdapter(Context context, int resource, ArrayList<GameItem> objects) {
         super(context, resource);
         items = objects;
     }

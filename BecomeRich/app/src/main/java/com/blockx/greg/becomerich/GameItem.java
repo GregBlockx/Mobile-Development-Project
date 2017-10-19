@@ -6,7 +6,7 @@ import java.lang.reflect.Array;
  * Created by Bryan on 10/10/2017.
  */
 
-public class Activity {
+public class GameItem {
 
     private String activityName;
     private int activityAmount;
@@ -14,19 +14,19 @@ public class Activity {
     private int healthValue;
     private String[] requirements;
 
-    public Activity(String activityName, int activityAmount, String[] requirements){
+    public GameItem(String activityName, int activityAmount, String[] requirements){
         this.activityName = activityName;
         this.activityAmount = activityAmount;
         this.requirements = requirements;
     }
 
-    public Activity(String activityName, int activityAmount, boolean haveBought){
+    public GameItem(String activityName, int activityAmount, boolean haveBought){
         this.activityName = activityName;
         this.activityAmount = activityAmount;
         this.haveBought = haveBought;
     }
 
-    public Activity(String activityName, int activityAmount, int healthValue){
+    public GameItem(String activityName, int activityAmount, int healthValue){
         this.activityName = activityName;
         this.activityAmount = activityAmount;
         this.healthValue = healthValue;

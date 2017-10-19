@@ -22,7 +22,7 @@ public class ChooseWeaponActivity extends AppCompatActivity {
 
     ListView listview;
     ActivityAdapterCheckBox activityAdapter;
-    ArrayList<Activity> weaponList = new ArrayList<>();
+    ArrayList<GameItem> weaponList = new ArrayList<>();
     TextView yourMoney;
     int yourMoneyInt;
     int weaponPrice;
@@ -71,12 +71,12 @@ public class ChooseWeaponActivity extends AppCompatActivity {
         yourHealth.setProgress(health);
         yourHunger.setProgress(hunger);
 
-        weaponList.add(new Activity("Pocket Knife", 20, false));
-        weaponList.add(new Activity("Pistol", 300, false));
-        weaponList.add(new Activity("AK-47", 800, false));
-        weaponList.add(new Activity("Sniper Rifle", 1200, false));
-        weaponList.add(new Activity("Bullet Proof Jacket", 3000, false));
-        weaponList.add(new Activity("C4-Explosives", 5000, false));
+        weaponList.add(new GameItem("Pocket Knife", 20, false));
+        weaponList.add(new GameItem("Pistol", 300, false));
+        weaponList.add(new GameItem("AK-47", 800, false));
+        weaponList.add(new GameItem("Sniper Rifle", 1200, false));
+        weaponList.add(new GameItem("Bullet Proof Jacket", 3000, false));
+        weaponList.add(new GameItem("C4-Explosives", 5000, false));
 
         for(int i = 0; i <weaponList.size();i++)
         {

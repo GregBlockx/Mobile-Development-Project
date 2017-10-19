@@ -3,12 +3,10 @@ package com.blockx.greg.becomerich;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -16,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -25,7 +22,7 @@ public class ChooseTransportActivity extends AppCompatActivity {
 
     ListView listview;
     ActivityAdapterCheckBox activityAdapter;
-    ArrayList<Activity> transportList = new ArrayList<>();
+    ArrayList<GameItem> transportList = new ArrayList<>();
     TextView yourMoney;
     int yourMoneyInt;
     int transportPrice;
@@ -74,13 +71,13 @@ public class ChooseTransportActivity extends AppCompatActivity {
         yourHealth.setProgress(health);
         yourHunger.setProgress(hunger);
 
-        transportList.add(new Activity("Foot", 0, true));
-        transportList.add(new Activity("Shoes", 40, false));
-        transportList.add(new Activity("Bicycle", 350, false));
-        transportList.add(new Activity("Car", 5000, false));
-        transportList.add(new Activity("Large Truck", 20000, false));
-        transportList.add(new Activity("Limo", 70000, false));
-        transportList.add(new Activity("Helicopter", 200000, false));
+        transportList.add(new GameItem("Foot", 0, true));
+        transportList.add(new GameItem("Shoes", 40, false));
+        transportList.add(new GameItem("Bicycle", 350, false));
+        transportList.add(new GameItem("Car", 5000, false));
+        transportList.add(new GameItem("Large Truck", 20000, false));
+        transportList.add(new GameItem("Limo", 70000, false));
+        transportList.add(new GameItem("Helicopter", 200000, false));
 
         for(int i = 0; i <transportList.size();i++)
         {

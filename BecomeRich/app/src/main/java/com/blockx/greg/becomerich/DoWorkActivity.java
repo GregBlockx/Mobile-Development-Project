@@ -7,19 +7,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
 
 import static android.app.PendingIntent.getActivity;
@@ -27,7 +22,7 @@ import static android.app.PendingIntent.getActivity;
 public class DoWorkActivity extends AppCompatActivity {
     ListView listview;
     ActivityAdapter activityAdapter;
-    ArrayList<Activity> jobList = new ArrayList<>();
+    ArrayList<GameItem> jobList = new ArrayList<>();
     TextView yourMoney;
 
     TextView yourHealthText;
@@ -103,18 +98,18 @@ public class DoWorkActivity extends AppCompatActivity {
         listview = (ListView) findViewById(R.id.listViewJobs);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
 
-        jobList.add(new Activity("Beg", 1, array1));
-        jobList.add(new Activity("Wash Cars", 5, array2));
-        jobList.add(new Activity("Bartender", 20, array3));
-        jobList.add(new Activity("Deliver Mail", 50, array4));
-        jobList.add(new Activity("Deliver Packages", 75, array5));
-        jobList.add(new Activity("Work in Factory", 100, array6));
-        jobList.add(new Activity("Bank Clerk", 250, array7));
-        jobList.add(new Activity("Office Manager", 500, array8));
-        jobList.add(new Activity("Booze Shop Owner", 1000, array9));
-        jobList.add(new Activity("Supermarket Owner", 2000, array9));
-        jobList.add(new Activity("E-Commerce Shop Owner", 3000, array10));
-        jobList.add(new Activity("Businessman", 5000, array11));
+        jobList.add(new GameItem("Beg", 1, array1));
+        jobList.add(new GameItem("Wash Cars", 5, array2));
+        jobList.add(new GameItem("Bartender", 20, array3));
+        jobList.add(new GameItem("Deliver Mail", 50, array4));
+        jobList.add(new GameItem("Deliver Packages", 75, array5));
+        jobList.add(new GameItem("Work in Factory", 100, array6));
+        jobList.add(new GameItem("Bank Clerk", 250, array7));
+        jobList.add(new GameItem("Office Manager", 500, array8));
+        jobList.add(new GameItem("Booze Shop Owner", 1000, array9));
+        jobList.add(new GameItem("Supermarket Owner", 2000, array9));
+        jobList.add(new GameItem("E-Commerce Shop Owner", 3000, array10));
+        jobList.add(new GameItem("Businessman", 5000, array11));
 
 
         activityAdapter = new ActivityAdapter(this, R.layout.activityrow, jobList);

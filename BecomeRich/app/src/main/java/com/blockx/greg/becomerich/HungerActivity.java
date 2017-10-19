@@ -18,7 +18,7 @@ public class HungerActivity extends AppCompatActivity {
 
     ListView listview;
     ActivityAdapter activityAdapter;
-    ArrayList<Activity> foodList = new ArrayList<>();
+    ArrayList<GameItem> foodList = new ArrayList<>();
     int yourMoneyInt;
     int foodPrice;
     int age;
@@ -73,13 +73,13 @@ public class HungerActivity extends AppCompatActivity {
         listview = (ListView) findViewById(R.id.listViewFood);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
 
-        foodList.add(new Activity("Eat Trash", 0,15));
-        foodList.add(new Activity("Eat Nuts", 2,30));
-        foodList.add(new Activity("Eat Donut", 5,45));
-        foodList.add(new Activity("Eat Burger", 15,60));
-        foodList.add(new Activity("Eat Organic", 65,90));
-        foodList.add(new Activity("Eat at Restaurant", 120,120));
-        foodList.add(new Activity("Eat Internationally", 200,150));
+        foodList.add(new GameItem("Eat Trash", 0,15));
+        foodList.add(new GameItem("Eat Nuts", 2,30));
+        foodList.add(new GameItem("Eat Donut", 5,45));
+        foodList.add(new GameItem("Eat Burger", 15,60));
+        foodList.add(new GameItem("Eat Organic", 65,90));
+        foodList.add(new GameItem("Eat at Restaurant", 120,120));
+        foodList.add(new GameItem("Eat Internationally", 200,150));
 
         activityAdapter = new ActivityAdapter(this, R.layout.activityrow, foodList);
         listview.setAdapter(activityAdapter);

@@ -7,13 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -22,7 +19,7 @@ public class HealthActivity extends AppCompatActivity {
 
     ListView listview;
     ActivityAdapter activityAdapter;
-    ArrayList<Activity> healthList = new ArrayList<>();
+    ArrayList<GameItem> healthList = new ArrayList<>();
     int yourMoneyInt;
     int healthPrice;
     int age;
@@ -75,13 +72,13 @@ public class HealthActivity extends AppCompatActivity {
         listview = (ListView) findViewById(R.id.listViewHealth);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
 
-        healthList.add(new Activity("Sleep on road", 0, 15));
-        healthList.add(new Activity("Take a Pill", 2,30));
-        healthList.add(new Activity("Go to Small Clinic", 5,45));
-        healthList.add(new Activity("Go to PolyClinic", 20,60));
-        healthList.add(new Activity("Go to Local Doctor", 65,90));
-        healthList.add(new Activity("Go to Hospital", 120,120));
-        healthList.add(new Activity("Go to World Class Hospital", 200,150));
+        healthList.add(new GameItem("Sleep on road", 0, 15));
+        healthList.add(new GameItem("Take a Pill", 2,30));
+        healthList.add(new GameItem("Go to Small Clinic", 5,45));
+        healthList.add(new GameItem("Go to PolyClinic", 20,60));
+        healthList.add(new GameItem("Go to Local Doctor", 65,90));
+        healthList.add(new GameItem("Go to Hospital", 120,120));
+        healthList.add(new GameItem("Go to World Class Hospital", 200,150));
 
         activityAdapter = new ActivityAdapter(this, R.layout.activityrow, healthList);
         listview.setAdapter(activityAdapter);

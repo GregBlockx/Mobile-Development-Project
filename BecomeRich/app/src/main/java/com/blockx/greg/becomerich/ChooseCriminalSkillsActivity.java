@@ -22,7 +22,7 @@ public class ChooseCriminalSkillsActivity extends AppCompatActivity {
 
     ListView listview;
     ActivityAdapterCheckBox activityAdapter;
-    ArrayList<Activity> skillsList = new ArrayList<>();
+    ArrayList<GameItem> skillsList = new ArrayList<>();
     TextView yourMoney;
     int yourMoneyInt;
     int criminalSkillPrice;
@@ -71,12 +71,12 @@ public class ChooseCriminalSkillsActivity extends AppCompatActivity {
         yourHealth.setProgress(health);
         yourHunger.setProgress(hunger);
 
-        skillsList.add(new Activity("Weapon Skills Beginner", 100, false));
-        skillsList.add(new Activity("Weapon Skills Intermediate", 600, false));
-        skillsList.add(new Activity("Weapon Skills Advanced", 2200, false));
-        skillsList.add(new Activity("Thief Skills Beginner", 75, false));
-        skillsList.add(new Activity("Thief Skills Intermediate", 500, false));
-        skillsList.add(new Activity("Thief Skills Advanced", 2000, false));
+        skillsList.add(new GameItem("Weapon Skills Beginner", 100, false));
+        skillsList.add(new GameItem("Weapon Skills Intermediate", 600, false));
+        skillsList.add(new GameItem("Weapon Skills Advanced", 2200, false));
+        skillsList.add(new GameItem("Thief Skills Beginner", 75, false));
+        skillsList.add(new GameItem("Thief Skills Intermediate", 500, false));
+        skillsList.add(new GameItem("Thief Skills Advanced", 2000, false));
 
         for(int i = 0; i <skillsList.size();i++)
         {
