@@ -45,6 +45,7 @@ public class DoWorkActivity extends AppCompatActivity {
     private Set<String> transportOwned = new HashSet<>();
     private Set<String> educationOwned = new HashSet<>();
     private Set<String> residencyOwned = new HashSet<>();
+    private Set<String> allOwned = new HashSet<>();
 
     //Requirements to do certain jobs
     private String[] array1 = {"Foot"};
@@ -76,6 +77,9 @@ public class DoWorkActivity extends AppCompatActivity {
         transportOwned = sharedPreferences.getStringSet("transportOwned", null);
         educationOwned = sharedPreferences.getStringSet("educationOwned", null);
         residencyOwned = sharedPreferences.getStringSet("residencyOwned", null);
+        allOwned.addAll(educationOwned);
+        allOwned.addAll(transportOwned);
+        allOwned.addAll(residencyOwned);
 
 
         listview = (ListView) findViewById(R.id.listViewCriminalJobs);
@@ -125,33 +129,22 @@ public class DoWorkActivity extends AppCompatActivity {
 
                 editor = sharedPreferences.edit();
 
-
                 requirements = jobList.get(i).getRequirements();
 
                 String requirementsString = "";
-                for (int x = 0; x < requirements.length ; x++) {
-                    requirementsString += requirements[x] + "\n";
-                }
-
                 int counter = 0;
+                int counterhigh = 0;
                 for (int x = 0; x < requirements.length; x++) {
-                    for (Iterator<String> it = educationOwned.iterator(); it.hasNext(); ) {
+                    for (Iterator<String> it = allOwned.iterator(); it.hasNext(); ) {
                         String f = it.next();
                         if (f.equals(requirements[x])) {
                             counter++;
                         }
                     }
-                    for (Iterator<String> it = transportOwned.iterator(); it.hasNext(); ) {
-                        String f = it.next();
-                        if (f.equals(requirements[x])) {
-                            counter++;
-                        }
-                    }
-                    for (Iterator<String> it = residencyOwned.iterator(); it.hasNext(); ) {
-                        String f = it.next();
-                        if (f.equals(requirements[x])) {
-                            counter++;
-                        }
+                    if(counter > counterhigh){
+                        counterhigh = counter;
+                    } else {
+                        requirementsString += "\n" +requirements[x];
                     }
                 }
 
@@ -163,7 +156,7 @@ public class DoWorkActivity extends AppCompatActivity {
                     hunger -= 15;
                     age += 1;
                 } else {
-                    Toast toast = Toast.makeText(getApplicationContext(), "You Need : \n" + requirementsString, Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), "You Need : " + requirementsString, Toast.LENGTH_SHORT);
                     toast.show();
                 }
 

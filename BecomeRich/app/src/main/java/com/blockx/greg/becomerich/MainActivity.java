@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
             editor.putInt("age",AGE);
             editor.putString("residency","Sleeping bag");
             editor.putString("transport","Foot");
-            editor.putString("education","Secondary School");
+            editor.putString("education","Nothing");
             editor.putStringSet("transportOwned",transportOwned);
             editor.putStringSet("educationOwned",educationOwned);
             editor.putStringSet("weaponOwned",weaponOwned);
