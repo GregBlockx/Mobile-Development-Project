@@ -14,6 +14,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 public class ChooseEducationActivity extends AppCompatActivity {
 
@@ -32,6 +35,7 @@ public class ChooseEducationActivity extends AppCompatActivity {
     public int health;
 
     public int maxValue = 300;
+    Set<String> educationOwned = new HashSet<>();
 
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
@@ -47,6 +51,7 @@ public class ChooseEducationActivity extends AppCompatActivity {
 
         hunger = sharedPreferences.getInt("hunger",150);
         health = sharedPreferences.getInt("health",150);
+        educationOwned = sharedPreferences.getStringSet("educationOwned",educationOwned);
 
         listview = (ListView) findViewById(R.id.listViewEducation);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
@@ -73,6 +78,16 @@ public class ChooseEducationActivity extends AppCompatActivity {
         educationList.add(new Activity("College", 25000, false));
         educationList.add(new Activity("Master's Degree", 100000, false));
 
+        for(int i = 0; i <educationList.size();i++)
+        {
+            for (Iterator<String> it = educationOwned.iterator(); it.hasNext(); ) {
+                String f = it.next();
+                if (f.equals(educationList.get(i).getActivityName())){
+                    educationList.get(i).setHaveBought(true);
+                }
+            }
+        }
+
         activityAdapter = new ActivityAdapterCheckBox(this, R.layout.activityrow_checkbox, educationList);
         listview.setAdapter(activityAdapter);
 
@@ -86,6 +101,7 @@ public class ChooseEducationActivity extends AppCompatActivity {
                 if (yourMoneyInt >= educationPrice && !HaveItem.isChecked()) {
                     yourMoneyInt -= educationPrice;
                     educationList.get(i).setHaveBought(true);
+                    educationOwned.add(educationList.get(i).getActivityName());
                     HaveItem.setChecked(educationList.get(i).isHaveBought());
                 } else if (yourMoneyInt < educationPrice) {
                     Toast toast = Toast.makeText(getApplicationContext(), "You don't have enough money!", Toast.LENGTH_SHORT);
@@ -96,6 +112,7 @@ public class ChooseEducationActivity extends AppCompatActivity {
                 }
                 editor.putInt("money", yourMoneyInt);
                 editor.putString("education",educationList.get(i).getActivityName());
+                editor.putStringSet("educationOwned", educationOwned);
                 yourMoney.setText("€ " + yourMoneyInt);
                 editor.commit();
             }

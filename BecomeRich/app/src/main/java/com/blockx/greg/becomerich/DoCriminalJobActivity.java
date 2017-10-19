@@ -32,6 +32,8 @@ public class DoCriminalJobActivity extends AppCompatActivity {
     public int maxValue = 300;
     int yourMoneyInt;
 
+    String[] array = {};
+
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
 
@@ -66,14 +68,14 @@ public class DoCriminalJobActivity extends AppCompatActivity {
         yourHunger.setProgress(hunger);
 
 
-        jobList.add(new Activity("Rob Homeless Person", 20));
-        jobList.add(new Activity("Rob Local Person", 70));
-        jobList.add(new Activity("Steal Bike", 200));
-        jobList.add(new Activity("Deal Drugs", 350));
-        jobList.add(new Activity("Sell Smuggled Goods", 700));
-        jobList.add(new Activity("Kidnap Kid", 1100));
-        jobList.add(new Activity("Assassinate Target", 1800));
-        jobList.add(new Activity("Rob Rich Person", 10000));
+        jobList.add(new Activity("Rob Homeless Person", 20,array));
+        jobList.add(new Activity("Rob Local Person", 70,array));
+        jobList.add(new Activity("Steal Bike", 200,array));
+        jobList.add(new Activity("Deal Drugs", 350,array));
+        jobList.add(new Activity("Sell Smuggled Goods", 700,array));
+        jobList.add(new Activity("Kidnap Kid", 1100,array));
+        jobList.add(new Activity("Assassinate Target", 1800,array));
+        jobList.add(new Activity("Rob Rich Person", 10000,array));
 
 
         activityAdapter = new ActivityAdapter(this, R.layout.activityrow, jobList);

@@ -14,6 +14,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 public class ChooseResidencyActivity extends AppCompatActivity {
 
@@ -33,6 +36,8 @@ public class ChooseResidencyActivity extends AppCompatActivity {
 
     public int maxValue = 300;
 
+    Set<String>residencyOwned = new HashSet<>();
+
 
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
@@ -48,6 +53,7 @@ public class ChooseResidencyActivity extends AppCompatActivity {
 
         hunger = sharedPreferences.getInt("hunger",150);
         health = sharedPreferences.getInt("health",150);
+        residencyOwned = sharedPreferences.getStringSet("residencyOwned",residencyOwned);
 
         listview = (ListView) findViewById(R.id.listViewResidency);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
@@ -68,11 +74,21 @@ public class ChooseResidencyActivity extends AppCompatActivity {
         yourHunger.setProgress(hunger);
 
         residencyList.add(new Activity("Sleeping bag", 0, true));
-        residencyList.add(new Activity("Rent Basement", 70));
-        residencyList.add(new Activity("Rent Apartment", 500));
-        residencyList.add(new Activity("Buy Apartment", 40000));
-        residencyList.add(new Activity("Buy Penthouse", 150000));
-        residencyList.add(new Activity("Buy Mansion", 500000));
+        residencyList.add(new Activity("Rent Basement", 70,false));
+        residencyList.add(new Activity("Rent Apartment", 500,false));
+        residencyList.add(new Activity("Buy Apartment", 40000,false));
+        residencyList.add(new Activity("Buy Penthouse", 150000,false));
+        residencyList.add(new Activity("Buy Mansion", 500000,false));
+
+        for(int i = 0; i <residencyList.size();i++)
+        {
+            for (Iterator<String> it = residencyOwned.iterator(); it.hasNext(); ) {
+                String f = it.next();
+                if (f.equals(residencyList.get(i).getActivityName())){
+                    residencyList.get(i).setHaveBought(true);
+                }
+            }
+        }
 
         activityAdapter = new ActivityAdapterCheckBox(this, R.layout.activityrow_checkbox, residencyList);
         listview.setAdapter(activityAdapter);
@@ -87,18 +103,20 @@ public class ChooseResidencyActivity extends AppCompatActivity {
                 if(yourMoneyInt >= residencyPrice && !HaveItem.isChecked()){
                     yourMoneyInt -= residencyPrice;
                     residencyList.get(i).setHaveBought(true);
+                    residencyOwned.add(residencyList.get(i).getActivityName());
                     HaveItem.setChecked(residencyList.get(i).isHaveBought());
-                }else if(yourMoneyInt < residencyPrice){
-                    Toast toast = Toast.makeText(getApplicationContext(), "You don't have enough money!", Toast.LENGTH_SHORT);
-                    toast.show();
                 }else if(HaveItem.isChecked()){
                     Toast toast = Toast.makeText(getApplicationContext(), "You already own this residence!", Toast.LENGTH_SHORT);
+                    toast.show();
+                }else if(yourMoneyInt < residencyPrice){
+                    Toast toast = Toast.makeText(getApplicationContext(), "You don't have enough money!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
 
                 editor = sharedPreferences.edit();
                 editor.putString("residency",residencyList.get(i).getActivityName());
                 editor.putInt("money", yourMoneyInt);
+                editor.putStringSet("residencyOwned", residencyOwned);
                 yourMoney.setText("€ " + yourMoneyInt);
                 editor.commit();
             }

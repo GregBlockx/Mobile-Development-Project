@@ -14,6 +14,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 public class ChooseCriminalSkillsActivity extends AppCompatActivity {
 
@@ -32,7 +35,7 @@ public class ChooseCriminalSkillsActivity extends AppCompatActivity {
     public int health;
 
     public int maxValue = 300;
-
+    Set<String> skillsOwned = new HashSet<>();
 
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
@@ -48,6 +51,7 @@ public class ChooseCriminalSkillsActivity extends AppCompatActivity {
 
         hunger = sharedPreferences.getInt("hunger",150);
         health = sharedPreferences.getInt("health",150);
+        skillsOwned = sharedPreferences.getStringSet("skillsOwned",skillsOwned);
 
         listview = (ListView) findViewById(R.id.listViewCriminalSkills);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
@@ -74,6 +78,16 @@ public class ChooseCriminalSkillsActivity extends AppCompatActivity {
         skillsList.add(new Activity("Thief Skills Intermediate", 500, false));
         skillsList.add(new Activity("Thief Skills Advanced", 2000, false));
 
+        for(int i = 0; i <skillsList.size();i++)
+        {
+            for (Iterator<String> it = skillsOwned.iterator(); it.hasNext(); ) {
+                String f = it.next();
+                if (f.equals(skillsList.get(i).getActivityName())){
+                    skillsList.get(i).setHaveBought(true);
+                }
+            }
+        }
+
         activityAdapter = new ActivityAdapterCheckBox(this, R.layout.activityrow_checkbox, skillsList);
         listview.setAdapter(activityAdapter);
 
@@ -87,17 +101,19 @@ public class ChooseCriminalSkillsActivity extends AppCompatActivity {
                 if(yourMoneyInt >= criminalSkillPrice && !HaveItem.isChecked()){
                     yourMoneyInt -= criminalSkillPrice;
                     skillsList.get(i).setHaveBought(true);
+                    skillsOwned.add(skillsList.get(i).getActivityName());
                     HaveItem.setChecked(skillsList.get(i).isHaveBought());
-                }else if(yourMoneyInt < criminalSkillPrice){
-                    Toast toast = Toast.makeText(getApplicationContext(), "You don't have enough money!", Toast.LENGTH_SHORT);
-                    toast.show();
                 }else if(HaveItem.isChecked()){
                     Toast toast = Toast.makeText(getApplicationContext(), "You already have this skill!", Toast.LENGTH_SHORT);
+                    toast.show();
+                }else if(yourMoneyInt < criminalSkillPrice){
+                    Toast toast = Toast.makeText(getApplicationContext(), "You don't have enough money!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
 
                 editor = sharedPreferences.edit();
                 editor.putInt("money", yourMoneyInt);
+                editor.putStringSet("skillsOwned", skillsOwned);
                 yourMoney.setText("€ " + yourMoneyInt);
                 editor.commit();
             }

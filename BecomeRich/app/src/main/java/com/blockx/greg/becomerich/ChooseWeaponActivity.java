@@ -14,6 +14,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 public class ChooseWeaponActivity extends AppCompatActivity {
 
@@ -32,6 +35,7 @@ public class ChooseWeaponActivity extends AppCompatActivity {
     public int health;
 
     public int maxValue = 300;
+    Set<String> weaponOwned = new HashSet<>();
 
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
@@ -47,6 +51,7 @@ public class ChooseWeaponActivity extends AppCompatActivity {
 
         hunger = sharedPreferences.getInt("hunger",150);
         health = sharedPreferences.getInt("health",150);
+        weaponOwned = sharedPreferences.getStringSet("weaponOwned",weaponOwned);
 
         listview = (ListView) findViewById(R.id.listViewWeapons);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
@@ -73,6 +78,16 @@ public class ChooseWeaponActivity extends AppCompatActivity {
         weaponList.add(new Activity("Bullet Proof Jacket", 3000, false));
         weaponList.add(new Activity("C4-Explosives", 5000, false));
 
+        for(int i = 0; i <weaponList.size();i++)
+        {
+            for (Iterator<String> it = weaponOwned.iterator(); it.hasNext(); ) {
+                String f = it.next();
+                if (f.equals(weaponList.get(i).getActivityName())){
+                    weaponList.get(i).setHaveBought(true);
+                }
+            }
+        }
+
         activityAdapter = new ActivityAdapterCheckBox(this, R.layout.activityrow_checkbox, weaponList);
         listview.setAdapter(activityAdapter);
 
@@ -86,15 +101,17 @@ public class ChooseWeaponActivity extends AppCompatActivity {
                 if (yourMoneyInt >= weaponPrice && !HaveItem.isChecked()) {
                     yourMoneyInt -= weaponPrice;
                     weaponList.get(i).setHaveBought(true);
+                    weaponOwned.add(weaponList.get(i).getActivityName());
                     HaveItem.setChecked(weaponList.get(i).isHaveBought());
-                } else if (yourMoneyInt < weaponPrice) {
-                    Toast toast = Toast.makeText(getApplicationContext(), "You don't have enough money!", Toast.LENGTH_SHORT);
-                    toast.show();
-                } else if (HaveItem.isChecked()) {
+                }  else if (HaveItem.isChecked()) {
                     Toast toast = Toast.makeText(getApplicationContext(), "You already have this item!", Toast.LENGTH_SHORT);
+                    toast.show();
+                }  else if (yourMoneyInt < weaponPrice) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "You don't have enough money!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
                 editor.putInt("money", yourMoneyInt);
+                editor.putStringSet("weaponOwned", weaponOwned);
                 yourMoney.setText("€ " + yourMoneyInt);
                 editor.commit();
             }

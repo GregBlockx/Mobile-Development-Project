@@ -1,19 +1,23 @@
 package com.blockx.greg.becomerich;
 
+import java.lang.reflect.Array;
+
 /**
  * Created by Bryan on 10/10/2017.
  */
 
 public class Activity {
 
-    String activityName;
-    int activityAmount;
-    boolean haveBought;
-    int healthValue;
+    private String activityName;
+    private int activityAmount;
+    private boolean haveBought;
+    private int healthValue;
+    private String[] requirements;
 
-    public Activity(String activityName, int activityAmount){
+    public Activity(String activityName, int activityAmount, String[] requirements){
         this.activityName = activityName;
         this.activityAmount = activityAmount;
+        this.requirements = requirements;
     }
 
     public Activity(String activityName, int activityAmount, boolean haveBought){
@@ -26,6 +30,10 @@ public class Activity {
         this.activityName = activityName;
         this.activityAmount = activityAmount;
         this.healthValue = healthValue;
+    }
+
+    public String[] getRequirements() {
+        return requirements;
     }
 
     public int getHealthValue() {

@@ -38,6 +38,20 @@ public class DoWorkActivity extends AppCompatActivity {
     public int maxValue = 300;
 
     int yourMoneyInt;
+
+    //Requirements to do certain jobs
+    private String[] array1 = {"Foot"};
+    private String[] array2 = {"Shoes"};
+    private String[] array3 = {"Shoes","Rent Basement", "Secondary School"};
+    private String[] array4 = {"Shoes","Bicycle","Rent Basement", "Secondary School"};
+    private String[] array5 = {"Shoes","Car","Rent Basement", "Secondary School"};
+    private String[] array6 = {"Shoes","Car","Rent Basement","General Training"};
+    private String[] array7 = {"Shoes","Car","Rent Basement","College","General Training"};
+    private String[] array8 = {"Shoes","Car","Rent Apartment","College","General Training"};
+    private String[] array9 = {"Shoes","Large Truck","Buy Apartment","College","General Training"};
+    private String[] array10 = {"Shoes","Limo","Buy Penthouse","Master's Degree","General Training"};
+    private String[] array11 = {"Shoes","Helicopter","Buy Mansion","Master's Degree","General Training"};
+
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
 
@@ -74,18 +88,18 @@ public class DoWorkActivity extends AppCompatActivity {
         listview = (ListView) findViewById(R.id.listViewJobs);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
 
-        jobList.add(new Activity("Beg", 1));
-        jobList.add(new Activity("Wash Cars", 5));
-        jobList.add(new Activity("Bartender", 20));
-        jobList.add(new Activity("Deliver Mail", 50));
-        jobList.add(new Activity("Deliver Packages", 75));
-        jobList.add(new Activity("Work in Factory", 100));
-        jobList.add(new Activity("Bank Clerk", 250));
-        jobList.add(new Activity("Office Manager", 500));
-        jobList.add(new Activity("Booze Shop Owner", 1000));
-        jobList.add(new Activity("Supermarket Owner", 2000));
-        jobList.add(new Activity("E-Commerce Shop Owner", 3000));
-        jobList.add(new Activity("Businessman", 5000));
+        jobList.add(new Activity("Beg", 1,array1));
+        jobList.add(new Activity("Wash Cars", 5, array2));
+        jobList.add(new Activity("Bartender", 20, array3));
+        jobList.add(new Activity("Deliver Mail", 50, array4));
+        jobList.add(new Activity("Deliver Packages", 75, array5));
+        jobList.add(new Activity("Work in Factory", 100,array6));
+        jobList.add(new Activity("Bank Clerk", 250, array7));
+        jobList.add(new Activity("Office Manager", 500, array8));
+        jobList.add(new Activity("Booze Shop Owner", 1000, array9));
+        jobList.add(new Activity("Supermarket Owner", 2000, array9));
+        jobList.add(new Activity("E-Commerce Shop Owner", 3000, array10));
+        jobList.add(new Activity("Businessman", 5000,array11));
 
 
         activityAdapter = new ActivityAdapter(this, R.layout.activityrow,jobList);

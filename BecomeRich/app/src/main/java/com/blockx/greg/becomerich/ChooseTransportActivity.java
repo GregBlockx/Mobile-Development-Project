@@ -3,6 +3,7 @@ package com.blockx.greg.becomerich;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 public class ChooseTransportActivity extends AppCompatActivity {
 
@@ -31,6 +36,7 @@ public class ChooseTransportActivity extends AppCompatActivity {
     ProgressBar yourHunger;
     public int hunger;
     public int health;
+    Set<String> transportOwned = new HashSet<>();
 
     public int maxValue = 300;
 
@@ -48,6 +54,7 @@ public class ChooseTransportActivity extends AppCompatActivity {
 
         hunger = sharedPreferences.getInt("hunger",150);
         health = sharedPreferences.getInt("health",150);
+        transportOwned = sharedPreferences.getStringSet("transportOwned",transportOwned);
 
         listview = (ListView) findViewById(R.id.listViewTransport);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
@@ -75,6 +82,16 @@ public class ChooseTransportActivity extends AppCompatActivity {
         transportList.add(new Activity("Limo", 70000, false));
         transportList.add(new Activity("Helicopter", 200000, false));
 
+        for(int i = 0; i <transportList.size();i++)
+        {
+            for (Iterator<String> it = transportOwned.iterator(); it.hasNext(); ) {
+                String f = it.next();
+                if (f.equals(transportList.get(i).getActivityName())){
+                    transportList.get(i).setHaveBought(true);
+                }
+            }
+        }
+
         activityAdapter = new ActivityAdapterCheckBox(this, R.layout.activityrow_checkbox, transportList);
         listview.setAdapter(activityAdapter);
 
@@ -88,18 +105,19 @@ public class ChooseTransportActivity extends AppCompatActivity {
                 if(yourMoneyInt >= transportPrice && !HaveItem.isChecked()){
                     yourMoneyInt -= transportPrice;
                     transportList.get(i).setHaveBought(true);
+                    transportOwned.add(transportList.get(i).getActivityName());
                     HaveItem.setChecked(transportList.get(i).isHaveBought());
-                }else if(yourMoneyInt < transportPrice){
-                    Toast toast = Toast.makeText(getApplicationContext(), "You don't have enough money!", Toast.LENGTH_SHORT);
-                    toast.show();
-                }else if(HaveItem.isChecked()){
+                } else if(HaveItem.isChecked()){
                     Toast toast = Toast.makeText(getApplicationContext(), "You already have this item!", Toast.LENGTH_SHORT);
                     toast.show();
+                } else if(yourMoneyInt < transportPrice) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "You don't have enough money!", Toast.LENGTH_SHORT);
+                    toast.show();
                 }
-
                 editor = sharedPreferences.edit();
                 editor.putString("transport",transportList.get(i).getActivityName());
                 editor.putInt("money", yourMoneyInt);
+                editor.putStringSet("transportOwned", transportOwned);
                 yourMoney.setText("€ " + yourMoneyInt);
                 editor.commit();
             }
