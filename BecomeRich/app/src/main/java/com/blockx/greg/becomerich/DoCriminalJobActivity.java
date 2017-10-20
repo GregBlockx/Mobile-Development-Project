@@ -70,7 +70,7 @@ public class DoCriminalJobActivity extends AppCompatActivity {
         allOwned.addAll(transportOwned);allOwned.addAll(skillsOwned);
         allOwned.addAll(residencyOwned);allOwned.addAll(weaponsOwned);
 
-        listview = (ListView) findViewById(R.id.listViewCriminalJobs);
+        listview = (ListView) findViewById(R.id.listViewItems);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
         yourMoney.setText("€ " + sharedPreferences.getInt("money", 0));
 
@@ -162,7 +162,7 @@ public class DoCriminalJobActivity extends AppCompatActivity {
         });
     }
 
-    public void goBackToWork(View view) {
+    public void goBackToScreen(View view) {
         Intent startGoBackToWorkActivity = new Intent(this, WorkActivity.class);
         startActivity(startGoBackToWorkActivity);
     }

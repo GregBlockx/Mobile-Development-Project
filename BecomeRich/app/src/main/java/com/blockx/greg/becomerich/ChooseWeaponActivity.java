@@ -53,7 +53,7 @@ public class ChooseWeaponActivity extends AppCompatActivity {
         health = sharedPreferences.getInt("health",150);
         weaponOwned = sharedPreferences.getStringSet("weaponOwned",weaponOwned);
 
-        listview = (ListView) findViewById(R.id.listViewWeapons);
+        listview = (ListView) findViewById(R.id.listViewItems);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
         yourMoney.setText("€ " + sharedPreferences.getInt("money",0));
 
@@ -118,7 +118,7 @@ public class ChooseWeaponActivity extends AppCompatActivity {
         });
     }
 
-    public void goBackToMarket(View view){
+    public void goBackToScreen(View view){
         Intent startGoBackToMarketActivity = new Intent(this, MarketActivity.class);
         startActivity(startGoBackToMarketActivity);
     }

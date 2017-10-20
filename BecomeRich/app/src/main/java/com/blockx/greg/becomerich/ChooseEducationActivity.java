@@ -53,7 +53,7 @@ public class ChooseEducationActivity extends AppCompatActivity {
         health = sharedPreferences.getInt("health",150);
         educationOwned = sharedPreferences.getStringSet("educationOwned",educationOwned);
 
-        listview = (ListView) findViewById(R.id.listViewEducation);
+        listview = (ListView) findViewById(R.id.listViewItems);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
         yourMoney.setText("€ " + sharedPreferences.getInt("money",0));
 
@@ -120,7 +120,7 @@ public class ChooseEducationActivity extends AppCompatActivity {
         });
     }
 
-    public void goBackToEducation(View view){
+    public void goBackToScreen(View view){
         Intent startGoBackToEducationActivity = new Intent(this, EducationActivity.class);
         startActivity(startGoBackToEducationActivity);
     }

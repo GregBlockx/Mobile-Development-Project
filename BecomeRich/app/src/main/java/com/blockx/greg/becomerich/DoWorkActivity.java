@@ -77,7 +77,7 @@ public class DoWorkActivity extends AppCompatActivity {
         allOwned.addAll(residencyOwned);
 
 
-        listview = (ListView) findViewById(R.id.listViewCriminalJobs);
+        listview = (ListView) findViewById(R.id.listViewItems);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
         yourMoney.setText("€ " + sharedPreferences.getInt("money", 0));
 
@@ -94,9 +94,6 @@ public class DoWorkActivity extends AppCompatActivity {
 
         yourHealth.setProgress(health);
         yourHunger.setProgress(hunger);
-
-        listview = (ListView) findViewById(R.id.listViewJobs);
-        yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
 
         jobList.add(new GameItem("Beg", 1, array1));
         jobList.add(new GameItem("Wash Cars", 5, array2));
@@ -182,7 +179,7 @@ public class DoWorkActivity extends AppCompatActivity {
         });
     }
 
-    public void goBackToWork(View view) {
+    public void goBackToScreen(View view) {
         Intent startGoBackToWorkActivity = new Intent(this, WorkActivity.class);
         startActivity(startGoBackToWorkActivity);
     }

@@ -53,7 +53,7 @@ public class ChooseCriminalSkillsActivity extends AppCompatActivity {
         health = sharedPreferences.getInt("health",150);
         skillsOwned = sharedPreferences.getStringSet("skillsOwned",skillsOwned);
 
-        listview = (ListView) findViewById(R.id.listViewCriminalSkills);
+        listview = (ListView) findViewById(R.id.listViewItems);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
         yourMoney.setText("€ " + sharedPreferences.getInt("money",0));
 
@@ -120,7 +120,7 @@ public class ChooseCriminalSkillsActivity extends AppCompatActivity {
         });
     }
 
-    public void goBackToEducation(View view){
+    public void goBackToScreen(View view){
         Intent startGoBackToEducationActivity = new Intent(this, EducationActivity.class);
         startActivity(startGoBackToEducationActivity);
     }

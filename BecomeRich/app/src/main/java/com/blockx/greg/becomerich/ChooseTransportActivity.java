@@ -53,7 +53,7 @@ public class ChooseTransportActivity extends AppCompatActivity {
         health = sharedPreferences.getInt("health",150);
         transportOwned = sharedPreferences.getStringSet("transportOwned",transportOwned);
 
-        listview = (ListView) findViewById(R.id.listViewTransport);
+        listview = (ListView) findViewById(R.id.listViewItems);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
         yourMoney.setText("€ " + sharedPreferences.getInt("money",0));
 
@@ -121,7 +121,7 @@ public class ChooseTransportActivity extends AppCompatActivity {
         });
     }
 
-    public void goBackToMarket(View view){
+    public void goBackToScreen(View view){
         Intent startGoBackToMarketActivity = new Intent(this, MarketActivity.class);
         startActivity(startGoBackToMarketActivity);
     }

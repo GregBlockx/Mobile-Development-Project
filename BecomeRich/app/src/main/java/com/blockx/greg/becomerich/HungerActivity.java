@@ -51,7 +51,7 @@ public class HungerActivity extends AppCompatActivity {
         health = sharedPreferences.getInt("health",150);
         age = sharedPreferences.getInt("age",0);
 
-        listview = (ListView) findViewById(R.id.listViewCriminalJobs);
+        listview = (ListView) findViewById(R.id.listViewItems);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
         yourMoney.setText("€ " + sharedPreferences.getInt("money",0));
 
@@ -69,9 +69,6 @@ public class HungerActivity extends AppCompatActivity {
 
         yourHealth.setProgress(health);
         yourHunger.setProgress(hunger);
-
-        listview = (ListView) findViewById(R.id.listViewFood);
-        yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
 
         foodList.add(new GameItem("Eat Trash", 0,15));
         foodList.add(new GameItem("Eat Nuts", 2,30));
