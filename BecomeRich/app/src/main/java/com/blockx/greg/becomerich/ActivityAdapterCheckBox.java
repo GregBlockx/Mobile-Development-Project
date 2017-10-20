@@ -13,6 +13,8 @@ import java.util.ArrayList;
 
 /**
  * Created by Bryan on 13/10/2017.
+ * Deze klasse is een extensie van ArrayAdapter.
+ * Deze is gemaakt om in een listview een extra checkbox te kunnen toevoegen bij items.
  */
 
 public class ActivityAdapterCheckBox extends ArrayAdapter<String>{

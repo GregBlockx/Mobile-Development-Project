@@ -15,15 +15,15 @@
 
         <com.facebook.login.widget.LoginButton
             android:id="@+id/login_button"
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
+            android:layout_width="28dp"
+            android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:layout_alignBaseline="@+id/textViewName"
-            android:layout_alignBottom="@+id/textViewName"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="17dp"
-            android:layout_marginEnd="17dp" />
+            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="16dp"
+            android:layout_alignBottom="@+id/imageViewPlayer"
+            android:layout_toRightOf="@+id/imageButtonEducation" />
 
         <ImageView
             android:id="@+id/imageViewPlayer"

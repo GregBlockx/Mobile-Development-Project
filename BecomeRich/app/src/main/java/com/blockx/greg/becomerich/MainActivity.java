@@ -5,10 +5,14 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.view.ActionMode;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -26,13 +30,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import static android.graphics.BitmapFactory.decodeStream;
+
 
 public class MainActivity extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
+    private String facebookID;
     public static final String GAME_PREFERENCES = "GamePrefs";
     static int AGE = 6570;
     private SharedPreferences.Editor editor;
@@ -73,9 +83,10 @@ public class MainActivity extends AppCompatActivity {
                 });
 
                 Bundle parameters = new Bundle();
-                parameters.putString("fields", "first_name, last_name, email,id");
+                parameters.putString("fields", "last_name,id,picture");
                 graphRequest.setParameters(parameters);
                 graphRequest.executeAsync();
+
 
             }
 
@@ -116,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
             editor.putStringSet("weaponOwned",weaponOwned);
             editor.putStringSet("residencyOwned",residencyOwned);
             editor.putStringSet("skillsOwned",skillsOwned);
+            editor.putString("url",null);
             editor.commit();
         }
 
@@ -178,16 +190,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void displayUserInfo(JSONObject object) throws JSONException {
-        String firstName, lastName, Email, ID;
-        firstName = object.getString("first_name");
-        lastName = object.getString("last_name");
-        Email = object.getString("email");
-        ID = object.getString("id");
+        String  lastName, imageUrl;
+        lastName = "" + object.getString("last_name");
 
         editor.putString("playername",lastName);
         editor.commit();
         TextView lastNameTextView = (TextView) findViewById(R.id.textViewName);
         lastNameTextView.setText("Mr. " + sharedPreferences.getString("playername","Davidson"));
+
     }
 
     @Override
