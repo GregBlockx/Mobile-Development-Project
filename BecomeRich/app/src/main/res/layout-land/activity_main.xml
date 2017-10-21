@@ -35,12 +35,12 @@
             android:id="@+id/textViewName"
             android:layout_width="wrap_content"
             android:layout_height="53dp"
-            android:text="Mr. Dave"
+            android:text="Mr. Davidson"
             android:textSize="36sp"
             android:textStyle="bold"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/textViewYourTransport"
-            android:layout_toEndOf="@+id/textViewYourTransport" />
+            android:layout_toRightOf="@+id/imageViewPlayer"
+            android:layout_toEndOf="@+id/imageViewPlayer" />
 
         <TextView
             android:id="@+id/textViewHunger"
@@ -111,21 +111,29 @@
             android:text="€ 999999999"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_below="@+id/textViewYourAge"
-            android:layout_alignLeft="@+id/textViewYourAge"
-            android:layout_alignStart="@+id/textViewYourAge" />
+            android:layout_below="@+id/login_button"
+            android:layout_toRightOf="@+id/textViewYourTransport"
+            android:layout_toEndOf="@+id/textViewYourTransport" />
+        <ImageView
+            android:id="@+id/imageViewMoney"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/money_icon"
+            android:layout_below="@+id/textViewName"
+            android:layout_alignLeft="@+id/textViewName"
+            android:layout_alignStart="@+id/textViewName" />
         <TextView
             android:id="@+id/textViewYourAge"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="53dp"
             android:layout_weight="1"
             android:text="18 years"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_alignBottom="@+id/login_button"
-            android:layout_toRightOf="@+id/imageButtonWorkSmall"
-            android:layout_alignRight="@+id/imageButtonEducation"
-            android:layout_alignEnd="@+id/imageButtonEducation" />
+            android:layout_alignBaseline="@+id/textViewName"
+            android:layout_alignBottom="@+id/textViewName"
+            android:layout_alignLeft="@+id/imageViewHealth"
+            android:layout_alignStart="@+id/imageViewHealth" />
 
         <ImageView
             android:id="@+id/imageViewHouse"

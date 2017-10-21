@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 public class MarketActivity extends AppCompatActivity {
 
@@ -11,6 +12,9 @@ public class MarketActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_market);
+
+        TextView title = (TextView) findViewById(R.id.textViewTitle);
+        title.setText("Market");
     }
 
     public void goToWork(View view){
