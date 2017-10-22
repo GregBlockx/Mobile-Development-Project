@@ -2,4 +2,8 @@
     <string name="app_name">Become Rich</string>
     <string name="facebook_app_id">585522281839051</string>
     <string name="fb_login_protocol_scheme">fb585522281839051</string>
+    <string name="infoText">The goal of this game is to earn as much money as possible.\n\nYou can earn money by doing honest work or you can try and do criminal stuff.\n\nBut beware! If you decide do go on the criminal route, there is a chance to get arrested and lose everything!</string>
+    <string name="backBtnText">Back</string>
+    <string name="infoTitle">Game Info</string>
+    <string name="infoCredits">Created by : \nGreg Blockx &amp;\nBryan Deferm</string>
 </resources>

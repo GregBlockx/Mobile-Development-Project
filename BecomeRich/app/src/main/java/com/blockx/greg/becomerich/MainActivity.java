@@ -11,6 +11,8 @@ import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.view.ActionMode;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -212,5 +214,21 @@ public class MainActivity extends AppCompatActivity {
         int days = ageInDays%365;
 
         return " " + years + " years " + days + " days";
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if(id == R.id.action_info){
+            Intent startInfoActivity = new Intent(this, InfoActivity.class);
+            startActivity(startInfoActivity);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
