@@ -32,6 +32,8 @@ public class MarketActivity extends AppCompatActivity {
         startActivity(startMainActivity);
     }
 
+    public void goToMarket(View view){}
+
     public void goToChooseResidency(View view){
         Intent startChooseResidencyActivity = new Intent(this, ChooseResidencyActivity.class);
         startActivity(startChooseResidencyActivity);

@@ -39,6 +39,9 @@ public class EducationActivity extends AppCompatActivity {
         startActivity(startMainActivity);
     }
 
+    public void goToEducation(View view){
+    }
+
     public void goToChooseEducation(View view){
         Intent startChooseEducationActivity = new Intent(this, ChooseEducationActivity.class);
         startActivity(startChooseEducationActivity);

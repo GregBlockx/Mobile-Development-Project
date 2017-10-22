@@ -18,16 +18,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true">
 
-        <TextView
-            android:id="@+id/textViewTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:text="Market"
-            android:textAlignment="center"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
+        <include layout="@layout/common_menu"/>
         <ImageButton
             android:id="@+id/imageButtonResidency"
             android:layout_width="180dp"
@@ -36,8 +27,8 @@
             app:srcCompat="@drawable/gun_icon"
             android:onClick="goToChooseWeapon"
             android:layout_alignTop="@+id/imageButtonTransport"
-            android:layout_alignLeft="@+id/imageButtonEducation"
-            android:layout_alignStart="@+id/imageButtonEducation" />
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
         <ImageButton
             android:id="@+id/imageButton"
@@ -54,58 +45,12 @@
             android:id="@+id/imageButtonTransport"
             android:layout_width="180dp"
             android:layout_height="180dp"
-            android:layout_marginTop="16dp"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/car"
             android:onClick="goToChooseTransport"
-            android:layout_below="@+id/textViewTitle"
-            android:layout_centerHorizontal="true" />
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="47dp" />
 
-        <ImageButton
-            android:id="@+id/imageButtonWorkSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/briefcase_icon_pixel"
-            android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@+id/imageButtonPlayerInfo"
-            android:layout_toEndOf="@+id/imageButtonPlayerInfo"
-            android:layout_marginLeft="32dp"
-            android:layout_marginStart="32dp"
-            android:onClick="goToWork"/>
-
-        <ImageButton
-            android:id="@+id/imageButtonMarket"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/market_icon"
-            android:onClick="goToMarket"
-            android:layout_alignParentBottom="true"
-            android:layout_marginRight="32dp"
-            android:layout_toLeftOf="@+id/imageButtonEducation"
-            android:layout_toStartOf="@+id/imageButtonEducation" />
-
-        <ImageButton
-            android:id="@+id/imageButtonEducation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/education_icon_pixel"
-            android:onClick="goToEducation"
-            android:layout_marginRight="126dp"
-            android:layout_marginEnd="126dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
-
-        <ImageButton
-            android:id="@+id/imageButtonPlayerInfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/player_icon"
-            android:onClick="goToPlayerInfo"
-            android:layout_marginLeft="126dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="108dp" />
     </RelativeLayout>
 </android.widget.RelativeLayout>

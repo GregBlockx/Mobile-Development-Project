@@ -1,8 +1,10 @@
 package com.blockx.greg.becomerich;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +17,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Random;
 import java.util.Set;
 
 import static android.app.PendingIntent.getActivity;
@@ -32,6 +35,7 @@ public class DoWorkActivity extends AppCompatActivity {
     int age;
     public int hunger;
     public int health;
+
 
     public int maxValue = 300;
 
@@ -115,8 +119,7 @@ public class DoWorkActivity extends AppCompatActivity {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-               String[] requirements;
-
+                String[] requirements;
                 yourMoneyInt = sharedPreferences.getInt("money", 0);
 
                 editor = sharedPreferences.edit();
@@ -126,27 +129,25 @@ public class DoWorkActivity extends AppCompatActivity {
                 String requirementsString = "";
                 int counter = 0;
                 int counterhigh = 0;
-                for (int x = 0; x < requirements.length; x++) {
-                    for (Iterator<String> it = allOwned.iterator(); it.hasNext(); ) {
-                        String f = it.next();
-                        if (f.equals(requirements[x])) {
+                for (String requirement : requirements) {
+                    for (String f : allOwned) {
+                        if (f.equals(requirement)) {
                             counter++;
                         }
                     }
-                    if(counter > counterhigh){
+                    if (counter > counterhigh) {
                         counterhigh = counter;
                     } else {
-                        requirementsString += "\n" +requirements[x];
+                        requirementsString += "\n" + requirement;
                     }
                 }
 
                 if (counter == requirements.length) {
 
-
-                    yourMoneyInt += Integer.parseInt(adapterView.getItemAtPosition(i).toString());
-                    health -= 15;
-                    hunger -= 15;
-                    age += 1;
+                        yourMoneyInt += Integer.parseInt(adapterView.getItemAtPosition(i).toString());
+                        health -= 15;
+                        hunger -= 15;
+                        age += 1;
                 } else {
                     Toast toast = Toast.makeText(getApplicationContext(), "You Need : " + requirementsString, Toast.LENGTH_SHORT);
                     toast.show();
@@ -167,9 +168,7 @@ public class DoWorkActivity extends AppCompatActivity {
 
 
                 if (health <= 0 || hunger <= 0) {
-                    Toast toast = Toast.makeText(getApplicationContext(), "You Died! Start again!", Toast.LENGTH_SHORT);
-                    toast.show();
-                    goToPlayerInfo();
+                    showAlert("You died! Start again!");
                     editor.putInt("health", maxValue);
                     editor.putInt("hunger", maxValue);
                 }
@@ -187,6 +186,18 @@ public class DoWorkActivity extends AppCompatActivity {
     public void goToPlayerInfo() {
         Intent startMainActivity = new Intent(this, MainActivity.class);
         startActivity(startMainActivity);
+    }
+
+    private void showAlert(String displayMessage){
+        AlertDialog.Builder arrestAlert = new AlertDialog.Builder(this);
+        arrestAlert.setMessage(displayMessage)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        goToPlayerInfo();
+                    }
+                }).create();
+        arrestAlert.show();
     }
 
 }

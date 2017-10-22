@@ -42,7 +42,6 @@ import static android.graphics.BitmapFactory.decodeStream;
 
 public class MainActivity extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
-    private String facebookID;
     public static final String GAME_PREFERENCES = "GamePrefs";
     static int AGE = 6570;
     private SharedPreferences.Editor editor;
@@ -60,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        TextView title = (TextView) findViewById(R.id.textViewTitle);
+        title.setVisibility(View.INVISIBLE);
 
         loginButton = (LoginButton) findViewById(R.id.login_button);
         loginButton.setReadPermissions("email","public_profile");
