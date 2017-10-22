@@ -50,7 +50,7 @@
             android:text="300/300"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_below="@+id/textViewHealth"
+            android:layout_above="@+id/imageButtonMarket"
             android:layout_toRightOf="@+id/imageViewHunger"
             android:layout_toEndOf="@+id/imageViewHunger" />
 
@@ -147,7 +147,7 @@
             android:layout_width="50dp"
             android:layout_height="30dp"
             app:srcCompat="@drawable/car"
-            android:layout_above="@+id/imageViewHunger"
+            android:layout_below="@+id/textViewYourResidency"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
@@ -156,7 +156,7 @@
             android:layout_width="50dp"
             android:layout_height="30dp"
             app:srcCompat="@drawable/education"
-            android:layout_alignBottom="@+id/imageViewHunger"
+            android:layout_alignTop="@+id/imageViewHunger"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
@@ -177,8 +177,8 @@
             android:layout_height="50dp"
             android:onClick="goToHunger"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/hunger"
-            android:layout_below="@+id/imageViewHealth"
+            app:srcCompat="@drawable/hunger_small"
+            android:layout_below="@+id/textViewHealth"
             android:layout_alignLeft="@+id/imageButtonMarket"
             android:layout_alignStart="@+id/imageButtonMarket" />
 
@@ -192,10 +192,9 @@
             android:progressTint="#966453"
             android:progressBackgroundTint="#ffffff"
             android:layout_below="@+id/textViewHealth"
-            android:layout_alignRight="@+id/login_button"
-            android:layout_alignEnd="@+id/login_button"
-            android:layout_alignLeft="@+id/progressBarHealth"
-            android:layout_alignStart="@+id/progressBarHealth" />
+            android:layout_toRightOf="@+id/textViewHunger"
+            android:layout_alignRight="@+id/progressBarHealth"
+            android:layout_alignEnd="@+id/progressBarHealth" />
 
         <ProgressBar
             android:id="@+id/progressBarHealth"

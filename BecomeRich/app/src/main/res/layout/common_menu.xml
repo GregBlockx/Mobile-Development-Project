@@ -37,7 +37,8 @@
         app:srcCompat="@drawable/briefcase_icon_pixel"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/imageButtonPlayerInfo"
-        android:layout_toEndOf="@+id/imageButtonPlayerInfo" />
+        android:layout_toEndOf="@+id/imageButtonPlayerInfo"
+        android:onClick="goToWork"/>
 
     <ImageButton
         android:id="@+id/imageButtonMarket"
