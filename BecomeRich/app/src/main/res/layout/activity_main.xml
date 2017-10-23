@@ -237,7 +237,8 @@
             android:layout_below="@+id/textViewEductation"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="11dp" />
+            android:layout_marginTop="11dp"
+            android:backgroundTint="@color/colorRed"/>
 
         <ImageButton
             android:id="@+id/imageViewHunger"
@@ -248,7 +249,8 @@
             app:srcCompat="@drawable/hunger_small"
             android:layout_below="@+id/imageViewHealth"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:backgroundTint="@color/colorBrown"/>
 
         <ProgressBar
             android:id="@+id/progressBarHunger"
@@ -271,17 +273,22 @@
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/textViewYourEducation"
-            android:layout_alignRight="@+id/textViewYourEducation"
-            android:layout_alignTop="@+id/textViewHealth"
-            android:layout_toRightOf="@+id/textViewResidency"
             android:indeterminate="false"
             android:max="100"
             android:progress="100"
             android:progressTint="#f442e5"
-            android:progressBackgroundTint="#ffffff"/>
+            android:progressBackgroundTint="#ffffff"
+            android:layout_above="@+id/progressBarHunger"
+            android:layout_toRightOf="@+id/textViewEductation"
+            android:layout_marginBottom="11dp"
+            android:layout_alignRight="@+id/textViewYourEducation"
+            android:layout_alignEnd="@+id/textViewYourEducation"
+            android:layout_alignTop="@+id/textViewHealth" />
 
-        <include layout="@layout/common_menu"/>
+        <include layout="@layout/common_menu"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
     </RelativeLayout>
 

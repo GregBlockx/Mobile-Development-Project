@@ -15,22 +15,24 @@
         android:padding="5dp">
 
         <ImageButton
-            android:id="@+id/imageButtonResidency"
+            android:id="@+id/imageButtonWeapon"
             android:layout_width="0dp"
             android:layout_height="200dp"
             android:layout_weight=".33333"
             android:onClick="goToChooseWeapon"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/gun_icon" />
+            app:srcCompat="@drawable/gun_icon"
+            android:backgroundTint="@color/colorOrange"/>
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/imageButtonResidency"
             android:layout_width="0dp"
             android:layout_height="200dp"
             android:layout_weight=".33333"
             android:onClick="goToChooseResidency"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/house" />
+            app:srcCompat="@drawable/house"
+            android:backgroundTint="@color/colorLightGreen"/>
 
         <ImageButton
             android:id="@+id/imageButtonTransport"
@@ -39,7 +41,8 @@
             android:layout_weight=".33333"
             android:onClick="goToChooseTransport"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/car" />
+            app:srcCompat="@drawable/car"
+            android:backgroundTint="@color/colorLightBlue"/>
 
     </LinearLayout>
 </android.widget.RelativeLayout>

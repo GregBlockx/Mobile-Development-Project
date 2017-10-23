@@ -26,14 +26,14 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:background="@color/colorPrimary">
+            android:background="@color/colorGreen">
 
             <ImageButton
                 android:id="@+id/imageButtonPlayerInfo"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight=".25"
-                android:backgroundTint="@color/colorPrimaryDark"
+                android:backgroundTint="@color/colorDarkGreen"
                 android:onClick="goToPlayerInfo"
                 app:srcCompat="@drawable/player_icon" />
 
@@ -42,7 +42,7 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight=".25"
-                android:backgroundTint="@color/colorPrimaryDark"
+                android:backgroundTint="@color/colorDarkGreen"
                 android:onClick="goToWork"
                 app:srcCompat="@drawable/briefcase_icon_pixel" />
 
@@ -51,7 +51,7 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight=".25"
-                android:backgroundTint="@color/colorPrimaryDark"
+                android:backgroundTint="@color/colorDarkGreen"
                 android:onClick="goToMarket"
                 app:srcCompat="@drawable/market_icon" />
 
@@ -60,7 +60,7 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight=".25"
-                android:backgroundTint="@color/colorPrimaryDark"
+                android:backgroundTint="@color/colorDarkGreen"
                 android:onClick="goToEducation"
                 app:srcCompat="@drawable/education_icon_pixel" />
 

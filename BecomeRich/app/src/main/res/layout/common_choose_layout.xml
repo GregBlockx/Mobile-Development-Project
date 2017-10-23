@@ -151,7 +151,8 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:onClick="goBackToScreen"/>
+            android:onClick="goBackToScreen"
+            android:backgroundTint="@color/colorDarkGreen"/>
 
     </RelativeLayout>
 </android.widget.RelativeLayout>

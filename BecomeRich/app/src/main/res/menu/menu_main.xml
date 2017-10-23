@@ -8,5 +8,4 @@
         android:title="How to Play"
         android:orderInCategory="100"
         app:showAsAction="never"/>
-
 </menu>

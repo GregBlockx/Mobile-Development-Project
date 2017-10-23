@@ -22,7 +22,8 @@
             android:layout_weight=".5"
             android:onClick="goToDoCriminalActivity"
             android:scaleType="fitEnd"
-            app:srcCompat="@drawable/criminal_icon" />
+            app:srcCompat="@drawable/criminal_icon"
+            android:backgroundTint="@color/colorLightBlue"/>
 
         <ImageButton
             android:id="@+id/imageButtonWork"
@@ -31,7 +32,8 @@
             android:layout_weight=".5"
             android:onClick="goToDoWork"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/briefcase_icon" />
+            app:srcCompat="@drawable/briefcase_icon"
+            android:backgroundTint="@color/colorOrange"/>
 
     </LinearLayout>
 
@@ -49,7 +51,8 @@
             android:layout_weight=".5"
             android:onClick="goToBank"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/bank_icon" />
+            app:srcCompat="@drawable/bank_icon"
+            android:backgroundTint="@color/colorLightGreen"/>
 
         <ImageButton
             android:id="@+id/invisbutton"

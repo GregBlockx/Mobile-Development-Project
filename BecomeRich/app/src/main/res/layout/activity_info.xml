@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.blockx.greg.becomerich.InfoActivity"
-    android:background="#abcdef">
+    android:background="@color/colorLightGreen">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -65,6 +65,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentStart="true"
             android:onClick="goBackToScreen"
+            android:background="@color/colorDarkGreen"
             android:text="@string/backBtnText" />
 
     </RelativeLayout>
