@@ -191,6 +191,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(startHealthActivity);
     }
 
+    public void goToPlayerInfo(View view){}
+
     public void displayUserInfo(JSONObject object) throws JSONException {
         String  lastName, imageUrl;
         lastName = "" + object.getString("last_name");

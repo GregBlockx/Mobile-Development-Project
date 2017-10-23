@@ -6,46 +6,39 @@
     android:layout_height="match_parent"
     tools:context="com.blockx.greg.becomerich.WorkActivity">
 
-    <RelativeLayout
-        android:layout_width="368dp"
-        android:layout_height="495dp"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true">
+    <include layout="@layout/common_menu" />
 
-        <include layout="@layout/common_menu"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:padding="5dp">
 
         <ImageButton
             android:id="@+id/imageButtonCriminal"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
-            android:scaleType="fitEnd"
-            app:srcCompat="@drawable/criminal_icon"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_weight=".33333"
             android:onClick="goToDoCriminalActivity"
-            android:layout_marginLeft="78dp"
-            android:layout_marginStart="78dp"
-            android:layout_alignTop="@+id/imageButtonWork"
-            android:layout_toRightOf="@+id/imageButtonWork"
-            android:layout_toEndOf="@+id/imageButtonWork" />
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/criminal_icon" />
 
         <ImageButton
             android:id="@+id/imageButtonWork"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/briefcase_icon"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_weight=".33333"
             android:onClick="goToDoWork"
-            android:layout_marginLeft="65dp"
-            android:layout_marginStart="65dp"
-            android:layout_marginTop="49dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/briefcase_icon" />
 
-    </RelativeLayout>
+        <ImageButton
+            android:id="@+id/imageButtonBank"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_weight=".33333"
+            android:onClick="goToBank"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/bank_icon" />
+    </LinearLayout>
 </android.widget.RelativeLayout>

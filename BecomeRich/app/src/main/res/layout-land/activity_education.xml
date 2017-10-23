@@ -6,46 +6,37 @@
     android:layout_height="match_parent"
     tools:context="com.blockx.greg.becomerich.EducationActivity">
 
-    <RelativeLayout
-        android:layout_width="368dp"
-        android:layout_height="495dp"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true">
+    <include layout="@layout/common_menu" />
 
-       <include layout="@layout/common_menu" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:padding="5dp">
 
         <ImageButton
             android:id="@+id/imageButtonEducation"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
-            android:scaleType="fitEnd"
-            app:srcCompat="@drawable/education"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_weight=".33333"
             android:onClick="goToChooseEducation"
-            android:layout_alignTop="@+id/imageButtonCriminalSkills"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="76dp"
-            android:layout_marginStart="76dp" />
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/education" />
 
         <ImageButton
             android:id="@+id/imageButtonCriminalSkills"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
-            android:layout_marginTop="36dp"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/criminal_icon"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_weight=".33333"
             android:onClick="goToChooseCriminalSkills"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/imageButtonEducation"
-            android:layout_toEndOf="@+id/imageButtonEducation"
-            android:layout_marginLeft="75dp"
-            android:layout_marginStart="75dp" />
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/criminal_icon" />
 
-    </RelativeLayout>
+        <ImageButton
+            android:id="@+id/invisbutton"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_weight=".33333"
+            android:visibility="invisible" />
+    </LinearLayout>
 </android.widget.RelativeLayout>

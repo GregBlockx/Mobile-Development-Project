@@ -6,51 +6,40 @@
     android:layout_height="match_parent"
     tools:context="com.blockx.greg.becomerich.MarketActivity">
 
-    <RelativeLayout
-        android:layout_width="368dp"
-        android:layout_height="495dp"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true">
+    <include layout="@layout/common_menu" />
 
-        <include layout="@layout/common_menu"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:padding="5dp">
+
         <ImageButton
             android:id="@+id/imageButtonResidency"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/gun_icon"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_weight=".33333"
             android:onClick="goToChooseWeapon"
-            android:layout_alignTop="@+id/imageButtonTransport"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/gun_icon" />
 
         <ImageButton
             android:id="@+id/imageButton"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignTop="@+id/imageButtonTransport"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_weight=".33333"
             android:onClick="goToChooseResidency"
-            android:scaleType="fitEnd"
+            android:scaleType="fitCenter"
             app:srcCompat="@drawable/house" />
 
         <ImageButton
             android:id="@+id/imageButtonTransport"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/car"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_weight=".33333"
             android:onClick="goToChooseTransport"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="47dp" />
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/car" />
 
-    </RelativeLayout>
+    </LinearLayout>
 </android.widget.RelativeLayout>

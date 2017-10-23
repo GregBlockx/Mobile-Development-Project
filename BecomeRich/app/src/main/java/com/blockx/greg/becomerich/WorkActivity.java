@@ -43,4 +43,9 @@ public class WorkActivity extends AppCompatActivity {
         Intent startDoCriminalJobActivity = new Intent(this, DoCriminalJobActivity.class);
         startActivity(startDoCriminalJobActivity);
     }
+
+    public void goToBank(View view){
+        Intent startGoToBankActivity = new Intent(this,BankActivity.class);
+        startActivity(startGoToBankActivity);
+    }
 }

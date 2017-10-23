@@ -1,81 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="314dp"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/textViewTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:padding="5dp"
             android:text="Lorem Ipsum"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold" />
 
-        <ImageButton
-            android:id="@+id/imageButtonWorkSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/briefcase_icon_pixel"
-            android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@+id/imageButtonPlayerInfo"
-            android:layout_toEndOf="@+id/imageButtonPlayerInfo"
-            android:layout_marginLeft="32dp"
-            android:layout_marginStart="32dp"
-            android:onClick="goToWork"/>
-
-        <ImageButton
-            android:id="@+id/imageButtonMarket"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/market_icon"
-            android:onClick="goToMarket"
-            android:layout_alignParentBottom="true"
-            android:layout_marginRight="32dp"
-            android:layout_toLeftOf="@+id/imageButtonEducationSmall"
-            android:layout_toStartOf="@+id/imageButtonEducationSmall" />
-
-        <ImageButton
-            android:id="@+id/imageButtonEducationSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/education_icon_pixel"
-            android:onClick="goToEducation"
-            android:layout_marginRight="126dp"
-            android:layout_marginEnd="126dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
-
-        <ImageButton
-            android:id="@+id/imageButtonPlayerInfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/player_icon"
-            android:onClick="goToPlayerInfo"
-            android:layout_marginLeft="126dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="108dp" />
+            android:background="@color/colorPrimary">
+
+            <ImageButton
+                android:id="@+id/imageButtonPlayerInfo"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight=".25"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:onClick="goToPlayerInfo"
+                app:srcCompat="@drawable/player_icon" />
+
+            <ImageButton
+                android:id="@+id/imageButtonWorkSmall"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight=".25"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:onClick="goToWork"
+                app:srcCompat="@drawable/briefcase_icon_pixel" />
+
+            <ImageButton
+                android:id="@+id/imageButtonMarket"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight=".25"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:onClick="goToMarket"
+                app:srcCompat="@drawable/market_icon" />
+
+            <ImageButton
+                android:id="@+id/imageButtonEducationSmall"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight=".25"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:onClick="goToEducation"
+                app:srcCompat="@drawable/education_icon_pixel" />
 
 
+        </LinearLayout>
     </RelativeLayout>
-
 </merge>
