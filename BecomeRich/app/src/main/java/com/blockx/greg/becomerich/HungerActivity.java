@@ -19,23 +19,25 @@ public class HungerActivity extends AppCompatActivity {
     ListView listview;
     ActivityAdapter activityAdapter;
     ArrayList<GameItem> foodList = new ArrayList<>();
-    int yourMoneyInt;
-    int foodPrice;
-    int age;
+    public int yourMoneyInt;
+    public int foodPrice;
+    public int age;
 
-    TextView yourHealthText;
-    TextView yourHungerText;
-    ProgressBar yourHealth;
-    ProgressBar yourHunger;
+    public TextView yourHealthText;
+    public TextView yourHungerText;
+    public ProgressBar yourHealth;
+    public ProgressBar yourHunger;
     public int hunger;
     public int health;
 
     public int maxValue = 300;
 
-    TextView yourMoney;
+    public TextView yourMoney;
 
-    private SharedPreferences sharedPreferences;
-    private SharedPreferences.Editor editor;
+    public SharedPreferences sharedPreferences;
+    public SharedPreferences.Editor editor;
+
+    private Service service;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +53,7 @@ public class HungerActivity extends AppCompatActivity {
         health = sharedPreferences.getInt("health",150);
         age = sharedPreferences.getInt("age",0);
 
-        listview = (ListView) findViewById(R.id.listViewItems);
+
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
         yourMoney.setText("€ " + sharedPreferences.getInt("money",0));
 
@@ -70,6 +72,7 @@ public class HungerActivity extends AppCompatActivity {
         yourHealth.setProgress(health);
         yourHunger.setProgress(hunger);
 
+        listview = (ListView) findViewById(R.id.listViewItems);
         foodList.add(new GameItem("Eat Trash", 0,15));
         foodList.add(new GameItem("Eat Nuts", 2,30));
         foodList.add(new GameItem("Eat Donut", 5,45));
