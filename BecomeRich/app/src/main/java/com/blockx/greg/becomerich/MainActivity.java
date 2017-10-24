@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
     static int AGE = 6570;
     private SharedPreferences.Editor editor;
     private static int maxHealthAndHunger = 300;
-    private static int RESULT_LOAD_IMAGE = 1;
     LoginButton loginButton;
     CallbackManager callbackManager;
     Set<String> transportOwned = new HashSet<>();
