@@ -21,7 +21,8 @@
             android:layout_weight=".33333"
             android:onClick="goToDoCriminalActivity"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/criminal_icon" />
+            app:srcCompat="@drawable/criminal_icon"
+            android:backgroundTint="@color/colorLightBlue"/>
 
         <ImageButton
             android:id="@+id/imageButtonWork"
@@ -30,7 +31,8 @@
             android:layout_weight=".33333"
             android:onClick="goToDoWork"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/briefcase_icon" />
+            app:srcCompat="@drawable/briefcase_icon"
+            android:backgroundTint="@color/colorOrange"/>
 
         <ImageButton
             android:id="@+id/imageButtonBank"
@@ -39,6 +41,7 @@
             android:layout_weight=".33333"
             android:onClick="goToBank"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/bank_icon" />
+            app:srcCompat="@drawable/bank_icon"
+            android:backgroundTint="@color/colorLightGreen"/>
     </LinearLayout>
 </android.widget.RelativeLayout>

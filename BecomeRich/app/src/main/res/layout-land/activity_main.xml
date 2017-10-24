@@ -169,7 +169,8 @@
             app:srcCompat="@drawable/hearth"
             android:layout_centerVertical="true"
             android:layout_alignLeft="@+id/imageViewHunger"
-            android:layout_alignStart="@+id/imageViewHunger" />
+            android:layout_alignStart="@+id/imageViewHunger"
+            android:backgroundTint="@color/colorRed"/>
 
         <ImageButton
             android:id="@+id/imageViewHunger"
@@ -180,7 +181,8 @@
             app:srcCompat="@drawable/hunger_small"
             android:layout_below="@+id/textViewHealth"
             android:layout_alignLeft="@+id/imageButtonMarket"
-            android:layout_alignStart="@+id/imageButtonMarket" />
+            android:layout_alignStart="@+id/imageButtonMarket"
+            android:backgroundTint="@color/colorBrown"/>
 
         <ProgressBar
             android:id="@+id/progressBarHunger"
@@ -265,4 +267,5 @@
             android:layout_marginStart="108dp" />
     </RelativeLayout>
 
+    <include layout="@layout/common_menu" />
 </android.widget.RelativeLayout>

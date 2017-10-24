@@ -22,7 +22,8 @@
                 android:layout_weight=".5"
                 android:scaleType="fitXY"
                 app:srcCompat="@drawable/education"
-                android:onClick="goToChooseEducation"/>
+                android:onClick="goToChooseEducation"
+                android:backgroundTint="@color/colorLightGreen"/>
             <ImageButton
                 android:id="@+id/imageButtonCriminalSkills"
                 android:layout_width="0dp"
@@ -30,6 +31,7 @@
                 android:layout_weight=".5"
                 android:scaleType="fitXY"
                 app:srcCompat="@drawable/criminal_icon"
-                android:onClick="goToChooseCriminalSkills" />
+                android:onClick="goToChooseCriminalSkills"
+                android:backgroundTint="@color/colorRed"/>
         </LinearLayout>
     </RelativeLayout>

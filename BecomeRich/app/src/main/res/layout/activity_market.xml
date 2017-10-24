@@ -23,7 +23,8 @@
             android:layout_weight=".5"
             android:onClick="goToChooseResidency"
             android:scaleType="fitEnd"
-            app:srcCompat="@drawable/house" />
+            app:srcCompat="@drawable/house"
+            android:backgroundTint="@color/colorLightGreen"/>
 
         <ImageButton
             android:id="@+id/imageButtonTransport"
@@ -32,7 +33,8 @@
             android:layout_weight=".5"
             android:onClick="goToChooseTransport"
             android:scaleType="fitEnd"
-            app:srcCompat="@drawable/car" />
+            app:srcCompat="@drawable/car"
+            android:backgroundTint="@color/colorLightBlue"/>
     </LinearLayout>
 
     <LinearLayout
@@ -43,13 +45,14 @@
         android:layout_marginTop="235dp">
 
         <ImageButton
-            android:id="@+id/imageButtonResidency"
+            android:id="@+id/imageButtonWeapon"
             android:layout_width="0dp"
             android:layout_height="200dp"
             android:layout_weight=".5"
             android:onClick="goToChooseWeapon"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/gun_icon"/>
+            app:srcCompat="@drawable/gun_icon"
+            android:backgroundTint="@color/colorOrange"/>
         <ImageButton
             android:id="@+id/invisbutton"
             android:layout_width="0dp"
