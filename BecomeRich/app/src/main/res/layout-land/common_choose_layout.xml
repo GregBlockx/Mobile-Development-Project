@@ -44,7 +44,7 @@
                             android:layout_width="50dp"
                             android:layout_height="match_parent"
                             android:scaleType="fitCenter"
-                            app:srcCompat="@drawable/hearth" />
+                            app:srcCompat="@mipmap/health_icon" />
 
                         <TextView
                             android:id="@+id/textViewHealth"
@@ -82,7 +82,7 @@
                             android:layout_width="50dp"
                             android:layout_height="match_parent"
                             android:scaleType="fitCenter"
-                            app:srcCompat="@drawable/hunger_small" />
+                            app:srcCompat="@mipmap/hunger_icon" />
 
                         <TextView
                             android:id="@+id/textViewHunger"
@@ -124,7 +124,7 @@
                         android:layout_height="30dp"
                         android:layout_gravity="center"
                         android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/money_icon" />
+                        app:srcCompat="@mipmap/money_icon" />
 
                     <TextView
                         android:id="@+id/textViewMoney"
@@ -165,131 +165,4 @@
                 android:text="@string/backBtnText" />
         </LinearLayout>
     </LinearLayout>
-    <!--
-    <ImageView
-        android:id="@+id/imageViewHealth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/hearth_small"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp" />
-
-    <TextView
-        android:id="@+id/textViewHealth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageViewHealth"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="53dp"
-        android:layout_marginStart="53dp"
-        android:text="300/300"
-        android:textAlignment="center"
-        android:textSize="30sp" />
-
-    <ProgressBar
-        android:id="@+id/progressBarHealth"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textViewHealth"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="12dp"
-        android:layout_marginStart="12dp"
-        android:layout_toRightOf="@+id/textViewHealth"
-        android:indeterminate="false"
-        android:max="100"
-        android:progress="100"
-        android:progressBackgroundTint="#ffffff"
-        android:progressTint="#f442e5" />
-
-    <ImageView
-        android:id="@+id/imageViewHunger"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="44dp"
-        app:srcCompat="@drawable/hunger_small" />
-
-    <TextView
-        android:id="@+id/textViewHunger"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="300/300"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        android:layout_alignTop="@+id/imageViewHunger"
-        android:layout_alignLeft="@+id/textViewHealth"
-        android:layout_alignStart="@+id/textViewHealth" />
-
-    <ProgressBar
-        android:id="@+id/progressBarHunger"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:max="100"
-        android:progress="100"
-        android:progressTint="#966453"
-        android:progressBackgroundTint="#ffffff"
-        android:layout_alignBottom="@+id/imageViewHunger"
-        android:layout_alignLeft="@+id/progressBarHealth"
-        android:layout_alignStart="@+id/progressBarHealth"
-        android:layout_alignRight="@+id/progressBarHealth"
-        android:layout_alignEnd="@+id/progressBarHealth" />
-
-    <ImageView
-        android:id="@+id/imageViewMoney"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="18dp"
-        android:layout_marginStart="18dp"
-        app:srcCompat="@drawable/money_icon"
-        android:layout_alignBottom="@+id/textViewYourMoney"
-        android:layout_toRightOf="@+id/progressBarHealth"
-        android:layout_toEndOf="@+id/progressBarHealth" />
-
-    <TextView
-        android:id="@+id/textViewYourMoney"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="€ 0"
-        android:textSize="30sp"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/imageViewMoney"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-    <ListView
-        android:id="@+id/listViewItems"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_above="@+id/buttonBack"
-        android:layout_below="@+id/textViewHunger" />
-
-    <Button
-        android:id="@+id/buttonBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="@string/backBtnText"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:onClick="goBackToScreen"
-        android:backgroundTint="@color/colorDarkGreen"/>
-
-        -->
-
 </android.widget.RelativeLayout>

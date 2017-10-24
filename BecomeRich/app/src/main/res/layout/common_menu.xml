@@ -36,7 +36,8 @@
                 android:backgroundTint="@color/colorDarkGreen"
                 android:onClick="goToPlayerInfo"
                 android:tint="@color/colorWhite"
-                app:srcCompat="@drawable/player_icon" />
+                android:scaleType="fitCenter"
+                app:srcCompat="@mipmap/user_icon" />
 
             <ImageButton
                 android:id="@+id/imageButtonWorkSmall"

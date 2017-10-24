@@ -21,7 +21,7 @@
             android:layout_weight=".33333"
             android:onClick="goToChooseEducation"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/education"
+            app:srcCompat="@mipmap/education_icon"
             android:backgroundTint="@color/colorLightGreen"/>
 
         <ImageButton
@@ -31,7 +31,7 @@
             android:layout_weight=".33333"
             android:onClick="goToChooseCriminalSkills"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/criminal_icon"
+            app:srcCompat="@mipmap/criminal_icon"
             android:backgroundTint="@color/colorRed"/>
 
         <ImageButton

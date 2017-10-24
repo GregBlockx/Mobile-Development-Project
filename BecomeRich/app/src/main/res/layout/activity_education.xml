@@ -21,7 +21,7 @@
                 android:layout_height="200dp"
                 android:layout_weight=".5"
                 android:scaleType="fitXY"
-                app:srcCompat="@drawable/education"
+                app:srcCompat="@mipmap/education_icon"
                 android:onClick="goToChooseEducation"
                 android:backgroundTint="@color/colorLightGreen"/>
             <ImageButton
@@ -30,7 +30,7 @@
                 android:layout_height="200dp"
                 android:layout_weight=".5"
                 android:scaleType="fitXY"
-                app:srcCompat="@drawable/criminal_icon"
+                app:srcCompat="@mipmap/criminal_icon"
                 android:onClick="goToChooseCriminalSkills"
                 android:backgroundTint="@color/colorRed"/>
         </LinearLayout>

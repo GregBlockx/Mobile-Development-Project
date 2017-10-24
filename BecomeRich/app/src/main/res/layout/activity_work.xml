@@ -22,7 +22,7 @@
             android:layout_weight=".5"
             android:onClick="goToDoCriminalActivity"
             android:scaleType="fitEnd"
-            app:srcCompat="@drawable/criminal_icon"
+            app:srcCompat="@mipmap/criminal_icon"
             android:backgroundTint="@color/colorLightBlue"/>
 
         <ImageButton
@@ -31,8 +31,8 @@
             android:layout_height="200dp"
             android:layout_weight=".5"
             android:onClick="goToDoWork"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/briefcase_icon"
+            android:scaleType="fitCenter"
+            app:srcCompat="@mipmap/work_icon"
             android:backgroundTint="@color/colorOrange"/>
 
     </LinearLayout>
@@ -50,8 +50,8 @@
             android:layout_height="200dp"
             android:layout_weight=".5"
             android:onClick="goToBank"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/bank_icon"
+            android:scaleType="fitCenter"
+            app:srcCompat="@mipmap/bank_icon"
             android:backgroundTint="@color/colorLightGreen"/>
 
         <ImageButton

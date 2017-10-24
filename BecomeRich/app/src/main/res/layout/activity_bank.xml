@@ -25,7 +25,7 @@
                 android:id="@+id/imageMoney"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                app:srcCompat="@drawable/money_icon" />
+                app:srcCompat="@mipmap/money_icon" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -61,7 +61,7 @@
                 android:id="@+id/imageBank"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                app:srcCompat="@drawable/bank_icon" />
+                app:srcCompat="@mipmap/bank_icon" />
 
             <TextView
                 android:id="@+id/textView3"

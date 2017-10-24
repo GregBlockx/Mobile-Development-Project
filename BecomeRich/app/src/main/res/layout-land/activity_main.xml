@@ -37,7 +37,7 @@
                         android:id="@+id/imageViewPlayer"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
-                        app:srcCompat="@drawable/player_icon" />
+                        app:srcCompat="@mipmap/user_icon" />
 
                     <TextView
                         android:id="@+id/textViewName"
@@ -83,7 +83,7 @@
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/money_icon" />
+                        app:srcCompat="@mipmap/money_icon" />
 
                     <TextView
                         android:id="@+id/textView2"
@@ -117,7 +117,7 @@
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/bank_icon" />
+                        app:srcCompat="@mipmap/bank_icon" />
 
                     <TextView
                         android:id="@+id/textView3"

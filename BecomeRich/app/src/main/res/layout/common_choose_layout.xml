@@ -38,7 +38,7 @@
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
                         android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/hearth" />
+                        app:srcCompat="@mipmap/health_icon" />
 
                     <TextView
                         android:id="@+id/textViewHealth"
@@ -76,7 +76,7 @@
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
                         android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/hunger_small" />
+                        app:srcCompat="@mipmap/hunger_icon" />
 
                     <TextView
                         android:id="@+id/textViewHunger"
@@ -115,7 +115,7 @@
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
                         android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/money_icon" />
+                        app:srcCompat="@mipmap/money_icon" />
 
                     <TextView
                         android:id="@+id/textViewMoney"

@@ -23,7 +23,7 @@
             android:layout_weight=".5"
             android:onClick="goToChooseResidency"
             android:scaleType="fitEnd"
-            app:srcCompat="@drawable/house"
+            app:srcCompat="@mipmap/house_icon"
             android:backgroundTint="@color/colorLightGreen"/>
 
         <ImageButton
@@ -32,8 +32,8 @@
             android:layout_height="200dp"
             android:layout_weight=".5"
             android:onClick="goToChooseTransport"
-            android:scaleType="fitEnd"
-            app:srcCompat="@drawable/car"
+            android:scaleType="fitCenter"
+            app:srcCompat="@mipmap/car_icon"
             android:backgroundTint="@color/colorLightBlue"/>
     </LinearLayout>
 
@@ -51,7 +51,7 @@
             android:layout_weight=".5"
             android:onClick="goToChooseWeapon"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/gun_icon"
+            app:srcCompat="@mipmap/gun_icon"
             android:backgroundTint="@color/colorOrange"/>
         <ImageButton
             android:id="@+id/invisbutton"
