@@ -353,12 +353,6 @@
 
 
     </LinearLayout>
-    <include layout="@layout/common_menu"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="395dp"
-        android:layout_marginEnd="395dp"
-        android:layout_marginBottom="73dp" />
+    <include layout="@layout/common_menu"/>
 
 </android.widget.RelativeLayout>
