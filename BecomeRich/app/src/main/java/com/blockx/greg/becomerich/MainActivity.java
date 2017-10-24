@@ -117,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
             residencyOwned.add("Sleeping bag");
 
             editor.putInt("money", 200);
+            editor.putInt("bankmoney",0);
             editor.putInt("health", 300);
             editor.putInt("hunger",300);
             editor.putString("playername","Davidson");

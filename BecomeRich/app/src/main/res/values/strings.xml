@@ -6,4 +6,8 @@
     <string name="backBtnText">Back</string>
     <string name="infoTitle">Game Info</string>
     <string name="infoCredits">Created by : \nGreg Blockx &amp;\nBryan Deferm</string>
+    <string name="bankScreenCash">Cash : </string>
+    <string name="bankScreenBank">Bank : </string>
+    <string name="bankScreenDeposit">DEPOSIT</string>
+    <string name="bankScreenWithdraw">WITHDRAW</string>
 </resources>
