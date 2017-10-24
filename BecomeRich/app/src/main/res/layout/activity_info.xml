@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.blockx.greg.becomerich.InfoActivity"
-    android:background="@color/colorLightGreen">
+    android:background="@color/colorGray">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
+        android:padding="5dp">
 
         <TextView
             android:id="@+id/infoTitle"
@@ -31,42 +31,43 @@
             android:id="@+id/textViewInfo"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/textView"
-            android:layout_margin="5dp"
             android:background="#FFFFFF"
             android:padding="7dp"
             android:text="@string/infoCredits"
             android:textAlignment="center"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_below="@+id/textView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="12dp" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
-            android:layout_height="220dp"
+            android:layout_height="230dp"
             android:layout_below="@+id/infoTitle"
-            android:layout_margin="5dp"
             android:background="#FFFFFF"
             android:padding="7dp"
             android:text="@string/infoText"
             android:textSize="18sp"
             app:layout_constraintLeft_toLeftOf="parent"
-            tools:layout_editor_absoluteY="39dp" />
+            tools:layout_editor_absoluteY="39dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp" />
 
         <Button
             android:id="@+id/buttonBack"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
+
             android:onClick="goBackToScreen"
             android:background="@color/colorDarkGreen"
-            android:text="@string/backBtnText" />
+            android:text="@string/backBtnText"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
     </RelativeLayout>
 </RelativeLayout>

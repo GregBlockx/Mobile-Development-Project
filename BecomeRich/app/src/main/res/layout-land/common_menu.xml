@@ -33,6 +33,7 @@
                 android:layout_height="50dp"
                 android:layout_weight=".25"
                 android:backgroundTint="@color/colorDarkGreen"
+                android:tint="@color/colorWhite"
                 android:onClick="goToPlayerInfo"
                 app:srcCompat="@drawable/player_icon" />
 
@@ -42,6 +43,7 @@
                 android:layout_height="50dp"
                 android:layout_weight=".25"
                 android:backgroundTint="@color/colorDarkGreen"
+                android:tint="@color/colorWhite"
                 android:onClick="goToWork"
                 app:srcCompat="@drawable/briefcase_icon_pixel" />
 
@@ -51,6 +53,7 @@
                 android:layout_height="50dp"
                 android:layout_weight=".25"
                 android:backgroundTint="@color/colorDarkGreen"
+                android:tint="@color/colorWhite"
                 android:onClick="goToMarket"
                 app:srcCompat="@drawable/market_icon" />
 
@@ -60,6 +63,7 @@
                 android:layout_height="50dp"
                 android:layout_weight=".25"
                 android:backgroundTint="@color/colorDarkGreen"
+                android:tint="@color/colorWhite"
                 android:onClick="goToEducation"
                 app:srcCompat="@drawable/education_icon_pixel" />
 
