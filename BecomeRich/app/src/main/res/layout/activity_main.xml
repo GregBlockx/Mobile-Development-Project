@@ -31,7 +31,8 @@
                     android:id="@+id/imageViewPlayer"
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
-                    app:srcCompat="@drawable/player_icon" />
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@mipmap/user_icon" />
 
                 <TextView
                     android:id="@+id/textViewName"
@@ -93,7 +94,7 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/money_icon" />
+                    app:srcCompat="@mipmap/money_icon" />
 
                 <TextView
                     android:id="@+id/textView2"
@@ -128,7 +129,7 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/bank_icon" />
+                    app:srcCompat="@mipmap/bank_icon" />
 
                 <TextView
                     android:id="@+id/textView3"
@@ -170,7 +171,7 @@
                         android:layout_width="40dp"
                         android:layout_height="match_parent"
                         android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/house" />
+                        app:srcCompat="@mipmap/house_icon" />
 
                     <TextView
                         android:id="@+id/textViewResidency"
@@ -205,7 +206,7 @@
                         android:layout_width="40dp"
                         android:layout_height="match_parent"
                         android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/car" />
+                        app:srcCompat="@mipmap/car_icon" />
 
 
                     <TextView
@@ -240,7 +241,7 @@
                         android:layout_width="40dp"
                         android:layout_height="match_parent"
                         android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/education" />
+                        app:srcCompat="@mipmap/education_icon" />
 
                     <TextView
                         android:id="@+id/textViewEductation"
@@ -281,7 +282,7 @@
                     android:layout_height="match_parent"
                     android:onClick="goToHealth"
                     android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/hearth" />
+                    app:srcCompat="@mipmap/health_icon" />
 
                 <TextView
                     android:id="@+id/textViewHealth"
@@ -323,7 +324,7 @@
                     android:layout_height="match_parent"
                     android:onClick="goToHunger"
                     android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/hunger_small" />
+                    app:srcCompat="@mipmap/hunger_icon" />
 
                 <TextView
                     android:id="@+id/textViewHunger"

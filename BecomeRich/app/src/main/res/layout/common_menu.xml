@@ -35,7 +35,8 @@
                 android:layout_weight=".25"
                 android:backgroundTint="@color/colorDarkGreen"
                 android:onClick="goToPlayerInfo"
-                app:srcCompat="@drawable/player_icon" />
+                android:scaleType="fitCenter"
+                app:srcCompat="@mipmap/user_icon" />
 
             <ImageButton
                 android:id="@+id/imageButtonWorkSmall"
@@ -44,7 +45,8 @@
                 android:layout_weight=".25"
                 android:backgroundTint="@color/colorDarkGreen"
                 android:onClick="goToWork"
-                app:srcCompat="@drawable/briefcase_icon_pixel" />
+                android:scaleType="fitCenter"
+                app:srcCompat="@mipmap/work_icon" />
 
             <ImageButton
                 android:id="@+id/imageButtonMarket"
@@ -53,7 +55,8 @@
                 android:layout_weight=".25"
                 android:backgroundTint="@color/colorDarkGreen"
                 android:onClick="goToMarket"
-                app:srcCompat="@drawable/market_icon" />
+                android:scaleType="fitCenter"
+                app:srcCompat="@mipmap/market_icon" />
 
             <ImageButton
                 android:id="@+id/imageButtonEducation"
@@ -62,7 +65,8 @@
                 android:layout_weight=".25"
                 android:backgroundTint="@color/colorDarkGreen"
                 android:onClick="goToEducation"
-                app:srcCompat="@drawable/education_icon_pixel" />
+                android:scaleType="fitCenter"
+                app:srcCompat="@mipmap/education_icon" />
 
 
         </LinearLayout>
