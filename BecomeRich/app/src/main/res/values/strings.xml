@@ -18,4 +18,10 @@
     <string name="marketScreenResidency">RESIDENCY</string>
     <string name="marketScreenTransport">TRANSPORT</string>
     <string name="marketScreenWeapons">WEAPONS</string>
+    <string name="workScreenWork">JOBS</string>
+    <string name="workScreenCriminal">CRIMINAL</string>
+    <string name="workScreenBank">BANK</string>
+    <string name="educationSreenSkills">SKILLS</string>
+    <string name="educationScreenSchool">SCHOOL</string>
+
 </resources>

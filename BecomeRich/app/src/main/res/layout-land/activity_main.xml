@@ -21,10 +21,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_marginBottom="5dp"
                 android:layout_weight=".7"
-                android:orientation="vertical"
                 android:background="@color/colorWhite"
-                android:layout_marginBottom="5dp">
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -72,7 +72,8 @@
                             android:gravity="center|right" />
                     </LinearLayout>
                 </LinearLayout>
-            <LinearLayout
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight=".33333"
@@ -87,7 +88,7 @@
 
                     <TextView
                         android:id="@+id/textView2"
-                        android:layout_width="50dp"
+                        android:layout_width="60dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="5dp"
                         android:gravity="center|left"
@@ -106,6 +107,7 @@
                         android:textStyle="bold" />
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -121,7 +123,7 @@
 
                     <TextView
                         android:id="@+id/textView3"
-                        android:layout_width="50dp"
+                        android:layout_width="60dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="5dp"
                         android:gravity="center|left"
@@ -145,18 +147,19 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight=".5"
                 android:layout_marginBottom="50dp"
-                android:orientation="horizontal">
+                android:layout_weight=".5"
+                android:orientation="horizontal"
+                android:baselineAligned="false">
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_marginRight="5dp"
                     android:layout_weight=".5"
-                    android:padding="5dp"
                     android:background="@color/colorWhite"
                     android:orientation="vertical"
-                    android:layout_marginRight="5dp">
+                    android:padding="5dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -274,8 +277,9 @@
                         <ProgressBar
                             android:id="@+id/progressBarHealth"
                             style="?android:attr/progressBarStyleHorizontal"
-                            android:layout_width="130dp"
+                            android:layout_width="180dp"
                             android:layout_height="match_parent"
+                            android:layout_marginRight="10dp"
                             android:indeterminate="false"
                             android:max="100"
                             android:progress="100"
@@ -316,8 +320,9 @@
                         <ProgressBar
                             android:id="@+id/progressBarHunger"
                             style="?android:attr/progressBarStyleHorizontal"
-                            android:layout_width="130dp"
+                            android:layout_width="180dp"
                             android:layout_height="match_parent"
+                            android:layout_marginRight="10dp"
                             android:max="100"
                             android:progress="100"
                             android:progressBackgroundTint="#ffffff"

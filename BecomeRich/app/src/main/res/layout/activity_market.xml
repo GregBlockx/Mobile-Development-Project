@@ -17,9 +17,10 @@
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:layout_weight=".5"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <FrameLayout
                 android:layout_width="0dp"
@@ -37,11 +38,11 @@
                     app:srcCompat="@mipmap/house_icon" />
 
                 <TextView
-                    android:padding="2dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|bottom"
                     android:clickable="false"
+                    android:padding="2dp"
                     android:text="@string/marketScreenResidency"
                     android:textColor="@color/colorMidGreen"
                     android:textSize="30sp"
@@ -64,11 +65,11 @@
                     app:srcCompat="@mipmap/car_icon" />
 
                 <TextView
-                    android:padding="2dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|bottom"
                     android:clickable="false"
+                    android:padding="2dp"
                     android:text="@string/marketScreenTransport"
                     android:textColor="@color/colorDarkBlue"
                     android:textSize="30sp"
@@ -79,7 +80,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginBottom="50dp"
             android:layout_weight=".5"
             android:orientation="horizontal">
 
@@ -98,12 +98,13 @@
                     android:scaleType="fitStart"
                     android:tint="@color/colorOrangeDark"
                     app:srcCompat="@mipmap/gun_icon" />
+
                 <TextView
-                    android:padding="2dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|bottom"
                     android:clickable="false"
+                    android:padding="2dp"
                     android:text="@string/marketScreenWeapons"
                     android:textColor="@color/colorOrangeDark"
                     android:textSize="30sp"
@@ -113,9 +114,16 @@
             <ImageButton
                 android:id="@+id/invisbutton"
                 android:layout_width="0dp"
-                android:layout_height="200dp"
+                android:layout_height="match_parent"
                 android:layout_weight=".5"
                 android:visibility="invisible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".4">
+
         </LinearLayout>
     </LinearLayout>
 

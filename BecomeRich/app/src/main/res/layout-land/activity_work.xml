@@ -10,38 +10,94 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:padding="5dp">
+        android:layout_height="250dp"
+        android:layout_marginTop="25dp"
+        android:padding="5dp"
+        android:baselineAligned="false">
 
-        <ImageButton
-            android:id="@+id/imageButtonCriminal"
+        <FrameLayout
             android:layout_width="0dp"
-            android:layout_height="200dp"
-            android:layout_weight=".33333"
-            android:onClick="goToDoCriminalActivity"
-            android:scaleType="fitCenter"
-            app:srcCompat="@mipmap/criminal_icon"
-            android:backgroundTint="@color/colorLightBlue"/>
+            android:layout_height="match_parent"
+            android:layout_weight=".333333">
 
-        <ImageButton
-            android:id="@+id/imageButtonWork"
-            android:layout_width="0dp"
-            android:layout_height="200dp"
-            android:layout_weight=".33333"
-            android:onClick="goToDoWork"
-            android:scaleType="fitCenter"
-            app:srcCompat="@mipmap/work_icon"
-            android:backgroundTint="@color/colorOrange"/>
+            <ImageButton
+                android:id="@+id/imageButtonWork"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:backgroundTint="@color/colorOrange"
+                android:onClick="goToDoWork"
+                android:padding="30dp"
+                android:scaleType="fitStart"
+                android:tint="@color/colorOrangeDark"
+                app:srcCompat="@mipmap/work_icon" />
 
-        <ImageButton
-            android:id="@+id/imageButtonBank"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|bottom"
+                android:clickable="false"
+                android:padding="2dp"
+                android:text="@string/workScreenWork"
+                android:textColor="@color/colorOrangeDark"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+        <FrameLayout
             android:layout_width="0dp"
-            android:layout_height="200dp"
-            android:layout_weight=".33333"
-            android:onClick="goToBank"
-            android:scaleType="fitCenter"
-            app:srcCompat="@mipmap/bank_icon"
-            android:backgroundTint="@color/colorLightGreen"/>
+            android:layout_height="match_parent"
+            android:layout_weight=".333333">
+
+            <ImageButton
+                android:id="@+id/imageButtonCriminal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:backgroundTint="@color/colorLightBlue"
+                android:onClick="goToDoCriminalActivity"
+                android:padding="30dp"
+                android:scaleType="fitStart"
+                android:tint="@color/colorDarkBlue"
+                app:srcCompat="@mipmap/criminal_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|bottom"
+                android:clickable="false"
+                android:padding="2dp"
+                android:text="@string/workScreenCriminal"
+                android:textColor="@color/colorDarkBlue"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".333333">
+
+            <ImageButton
+                android:id="@+id/imageButtonBank"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:backgroundTint="@color/colorLightGreen"
+                android:onClick="goToBank"
+                android:padding="30dp"
+                android:scaleType="fitStart"
+                android:tint="@color/colorMidGreen"
+                app:srcCompat="@mipmap/bank_icon" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|bottom"
+                android:clickable="false"
+                android:padding="2dp"
+                android:text="@string/workScreenBank"
+                android:textColor="@color/colorMidGreen"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+        </FrameLayout>
     </LinearLayout>
 </android.widget.RelativeLayout>
