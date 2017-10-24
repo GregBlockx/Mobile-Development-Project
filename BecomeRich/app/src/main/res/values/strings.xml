@@ -10,4 +10,8 @@
     <string name="bankScreenBank">Bank : </string>
     <string name="bankScreenDeposit">DEPOSIT</string>
     <string name="bankScreenWithdraw">WITHDRAW</string>
+    <string name="mainScreenAge">Age :</string>
+    <string name="mainScreenResidency">Residency :</string>
+    <string name="mainScreenTransport">Transport :</string>
+    <string name="mainScreenEducation">Education :</string>
 </resources>
