@@ -37,8 +37,6 @@ public class HungerActivity extends AppCompatActivity {
     public SharedPreferences sharedPreferences;
     public SharedPreferences.Editor editor;
 
-    private Service service;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
