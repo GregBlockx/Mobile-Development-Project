@@ -15,4 +15,7 @@
     <string name="mainScreenTransport">Transport :</string>
     <string name="mainScreenEducation">Education :</string>
     <string name="money">Money :</string>
+    <string name="marketScreenResidency">RESIDENCY</string>
+    <string name="marketScreenTransport">TRANSPORT</string>
+    <string name="marketScreenWeapons">WEAPONS</string>
 </resources>
