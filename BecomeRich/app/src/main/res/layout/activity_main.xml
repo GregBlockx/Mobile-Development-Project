@@ -4,382 +4,365 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E5E5E7"
-    android:padding="8dp"
+
     tools:context="com.blockx.greg.becomerich.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="#FFFFFF"
-            android:orientation="horizontal"
-            android:padding="5dp">
-
-            <ImageView
-                android:id="@+id/imageViewPlayer"
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                app:srcCompat="@drawable/player_icon" />
-
-            <TextView
-                android:id="@+id/textViewName"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Mr. Dave"
-                android:textSize="36sp"
-                android:textStyle="bold" />
-        </LinearLayout>
+        android:background="@color/colorGray"
+        android:orientation="vertical"
+        android:padding="8dp">
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:background="@color/colorWhite"
-            android:orientation="horizontal"
-            android:padding="5dp">
-
-            <TextView
-                android:id="@+id/textViewAge"
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:text="@string/mainScreenAge"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textViewYourAge"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="18 years"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:background="@color/colorWhite"
-            android:padding="5dp">
-
-            <ImageView
-                android:id="@+id/imageMoney"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/money_icon" />
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
-                android:gravity="center|left"
-                android:text="@string/bankScreenCash"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textViewYourMoney"
-                android:layout_width="150dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
-                android:gravity="center|left"
-                android:text=""
-                android:textSize="18sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:background="@color/colorWhite"
-            android:padding="5dp">
-
-            <ImageView
-                android:id="@+id/imageBank"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/bank_icon" />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
-                android:gravity="center|left"
-                android:text="@string/bankScreenBank"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textViewBankMoney"
-                android:layout_width="150dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
-                android:gravity="center|left"
-                android:text=""
-                android:textSize="18sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginTop="8dp"
-            android:background="@color/colorWhite"
-            android:orientation="vertical"
-            android:padding="5dp">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:orientation="horizontal">
+                android:background="@color/colorWhite"
+                android:orientation="horizontal"
+                android:padding="5dp">
 
                 <ImageView
-                    android:id="@+id/imageViewHouse"
-                    android:layout_width="40dp"
+                    android:id="@+id/imageViewPlayer"
+                    android:layout_width="50dp"
                     android:layout_height="match_parent"
-                    android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/house" />
+                    app:srcCompat="@drawable/player_icon" />
 
                 <TextView
-                    android:id="@+id/textViewResidency"
+                    android:id="@+id/textViewName"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight=".3"
-                    android:gravity="center|left"
-                    android:text="@string/mainScreenResidency"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/textViewYourResidency"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
                     android:layout_weight=".5"
-                    android:gravity="center|left"
-                    android:text="Streets"
+                    android:text="Mr. Dave"
+                    android:textSize="36sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".3"
+                    android:gravity="center">
+
+                    <com.facebook.login.widget.LoginButton
+                        android:id="@+id/login_button"
+                        android:layout_width="28dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center|right" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@color/colorWhite"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <TextView
+                    android:id="@+id/textViewAge"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:text="@string/mainScreenAge"
                     android:textSize="18sp"
                     android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textViewYourAge"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="18 years"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@color/colorWhite"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/imageMoney"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/money_icon" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center|left"
+                    android:text="@string/bankScreenCash"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/textViewYourMoney"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center|left"
+                    android:text=""
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal">
+                android:layout_height="35dp"
+                android:background="@color/colorWhite"
+                android:padding="5dp">
 
                 <ImageView
-                    android:id="@+id/imageViewCar"
-                    android:layout_width="40dp"
-                    android:layout_height="match_parent"
+                    android:id="@+id/imageBank"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/car" />
-
-
-                <TextView
-                    android:id="@+id/textViewTransport"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight=".3"
-                    android:gravity="center|left"
-                    android:text="@string/mainScreenTransport"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    app:srcCompat="@drawable/bank_icon" />
 
                 <TextView
-                    android:id="@+id/textViewYourTransport"
-                    android:layout_width="0dp"
+                    android:id="@+id/textView3"
+                    android:layout_width="50dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
-                    android:layout_weight=".5"
                     android:gravity="center|left"
-                    android:text="Foot"
+                    android:text="@string/bankScreenBank"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/textViewBankMoney"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center|left"
+                    android:text=""
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp">
+                android:layout_height="150dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorWhite"
+                android:orientation="vertical"
+                android:padding="5dp">
 
-                <ImageView
-                    android:id="@+id/imageViewEducation"
-                    android:layout_width="40dp"
-                    android:layout_height="match_parent"
-                    app:srcCompat="@drawable/education"
-                    android:scaleType="fitCenter"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageViewHouse"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/house" />
+
+                    <TextView
+                        android:id="@+id/textViewResidency"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight=".3"
+                        android:gravity="center|left"
+                        android:text="@string/mainScreenResidency"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textViewYourResidency"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight=".5"
+                        android:gravity="center|left"
+                        android:text="Streets"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageViewCar"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/car" />
+
+
+                    <TextView
+                        android:id="@+id/textViewTransport"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight=".3"
+                        android:gravity="center|left"
+                        android:text="@string/mainScreenTransport"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textViewYourTransport"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight=".5"
+                        android:gravity="center|left"
+                        android:text="Foot"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <ImageView
+                        android:id="@+id/imageViewEducation"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/education" />
+
+                    <TextView
+                        android:id="@+id/textViewEductation"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight=".3"
+                        android:gravity="center|left"
+                        android:text="@string/mainScreenEducation"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textViewYourEducation"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight=".5"
+                        android:gravity="center|left"
+                        android:text="Secondary School"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
             </LinearLayout>
 
-        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:background="#FFFFFF"
+                android:orientation="horizontal"
+                android:paddingRight="5dp">
 
+                <ImageButton
+                    android:id="@+id/imageViewHealth"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:onClick="goToHealth"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/hearth" />
 
-        <!--
-           <com.facebook.login.widget.LoginButton
-               android:id="@+id/login_button"
-               android:layout_width="28dp"
-               android:layout_height="match_parent"
-               android:layout_gravity="center_horizontal"
-               android:layout_marginLeft="30dp"
-               android:layout_marginStart="30dp"
-               tools:layout_editor_absoluteX="16dp"
-               tools:layout_editor_absoluteY="16dp"
-               android:layout_alignBottom="@+id/imageViewPlayer"
-               android:layout_toRightOf="@+id/textViewYourAge"
-               android:layout_toEndOf="@+id/textViewYourAge" />
-           <TextView
-               android:id="@+id/textViewEductation"
-               android:layout_width="wrap_content"
-               android:layout_height="53dp"
-               android:layout_alignLeft="@+id/textViewTransport"
-               android:layout_alignStart="@+id/textViewTransport"
-               android:layout_below="@+id/textViewTransport"
-               android:layout_weight="1"
-               android:text="Education:"
-               android:textSize="18sp"
-               android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/textViewHealth"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="17dp"
+                    android:layout_marginStart="17dp"
+                    android:layout_toEndOf="@+id/imageViewHealth"
+                    android:layout_toRightOf="@+id/imageViewHealth"
+                    android:layout_weight="0.51"
+                    android:gravity="center|left"
+                    android:text="300/300"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-           <TextView
-               android:id="@+id/textViewYourEducation"
-               android:layout_width="wrap_content"
-               android:layout_height="53dp"
-               android:layout_weight="1"
-               android:text="Secondary School"
-               android:textSize="18sp"
-               android:textStyle="bold"
-               android:layout_alignBaseline="@+id/textViewEductation"
-               android:layout_alignBottom="@+id/textViewEductation"
-               android:layout_alignLeft="@+id/textViewYourResidency"
-               android:layout_alignStart="@+id/textViewYourResidency" />
+                <ProgressBar
+                    android:id="@+id/progressBarHealth"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:indeterminate="false"
+                    android:max="100"
+                    android:progress="100"
+                    android:progressBackgroundTint="#ffffff"
+                    android:progressTint="#f442e5" />
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#FFFFFF"
+                android:orientation="horizontal"
+                android:paddingRight="5dp">
 
+                <ImageButton
+                    android:id="@+id/imageViewHunger"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:onClick="goToHunger"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/hunger_small" />
 
+                <TextView
+                    android:id="@+id/textViewHunger"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="17dp"
+                    android:layout_marginStart="17dp"
+                    android:layout_toEndOf="@+id/imageViewHunger"
+                    android:layout_toRightOf="@+id/imageViewHunger"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:text="300/300"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-           <TextView
-               android:id="@+id/textViewYourMoney"
-               android:layout_width="wrap_content"
-               android:layout_height="53dp"
-               android:layout_weight="1"
-               android:text="€ 999999999"
-               android:textSize="18sp"
-               android:textStyle="bold"
-               android:layout_below="@+id/textViewYourAge"
-               android:layout_toRightOf="@+id/textViewMoney"
-               android:layout_toEndOf="@+id/textViewMoney" />
+                <ProgressBar
+                    android:id="@+id/progressBarHunger"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:max="100"
+                    android:progress="100"
+                    android:progressBackgroundTint="#ffffff"
+                    android:progressTint="#966453" />
 
-           <TextView
-               android:id="@+id/textViewMoney"
-               android:layout_width="wrap_content"
-               android:layout_height="53dp"
-               android:layout_weight="1"
-               android:text="Money:"
-               android:textSize="18sp"
-               android:textStyle="bold"
-               android:layout_below="@+id/textViewYourAge"
-               android:layout_alignLeft="@+id/textViewAge"
-               android:layout_alignStart="@+id/textViewAge" />
+            </LinearLayout>
 
-
-
-
-
-    -->
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="8dp"
-            android:background="#FFFFFF"
-            android:orientation="horizontal"
-            android:paddingRight="5dp">
-
-            <ImageButton
-                android:id="@+id/imageViewHealth"
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:onClick="goToHealth"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/hearth" />
-
-            <TextView
-                android:id="@+id/textViewHealth"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="17dp"
-                android:layout_marginStart="17dp"
-                android:layout_toEndOf="@+id/imageViewHealth"
-                android:layout_toRightOf="@+id/imageViewHealth"
-                android:layout_weight="0.51"
-                android:gravity="center|left"
-                android:text="300/300"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <ProgressBar
-                android:id="@+id/progressBarHealth"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="200dp"
-                android:layout_height="match_parent"
-                android:indeterminate="false"
-                android:max="100"
-                android:progress="100"
-                android:progressBackgroundTint="#ffffff"
-                android:progressTint="#f442e5" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="#FFFFFF"
-            android:orientation="horizontal"
-            android:paddingRight="5dp">
-
-            <ImageButton
-                android:id="@+id/imageViewHunger"
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:onClick="goToHunger"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/hunger_small" />
-
-            <TextView
-                android:id="@+id/textViewHunger"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="17dp"
-                android:layout_marginStart="17dp"
-                android:layout_toEndOf="@+id/imageViewHunger"
-                android:layout_toRightOf="@+id/imageViewHunger"
-                android:layout_weight="1"
-                android:gravity="center|left"
-                android:text="300/300"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <ProgressBar
-                android:id="@+id/progressBarHunger"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="200dp"
-                android:layout_height="match_parent"
-                android:max="100"
-                android:progress="100"
-                android:progressBackgroundTint="#ffffff"
-                android:progressTint="#966453" />
 
         </LinearLayout>
 
-        <!--       <include layout="@layout/common_menu"/> -->
 
     </LinearLayout>
+    <include layout="@layout/common_menu"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="395dp"
+        android:layout_marginEnd="395dp"
+        android:layout_marginBottom="73dp" />
 
 </android.widget.RelativeLayout>
