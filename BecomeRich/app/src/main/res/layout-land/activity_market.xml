@@ -11,14 +11,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="30dp"
         android:padding="5dp"
         android:baselineAligned="false">
 
         <FrameLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight=".333333">
+            android:layout_weight=".333333"
+            android:padding="1dp"
+            android:background="@color/colorMidGreen"
+            android:layout_marginRight="5dp">
 
             <ImageButton
                 android:id="@+id/imageButtonResidency"
@@ -47,7 +50,10 @@
         <FrameLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight=".333333">
+            android:layout_weight=".333333"
+            android:padding="1dp"
+            android:background="@color/colorDarkBlue"
+            android:layout_marginRight="5dp">
 
             <ImageButton
                 android:id="@+id/imageButtonTransport"
@@ -74,7 +80,9 @@
         <FrameLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight=".333333">
+            android:layout_weight=".333333"
+            android:padding="1dp"
+            android:background="@color/colorOrangeDark">
 
             <ImageButton
                 android:id="@+id/imageButtonWeapon"
