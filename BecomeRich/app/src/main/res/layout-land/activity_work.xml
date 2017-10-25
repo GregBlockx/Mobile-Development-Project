@@ -42,7 +42,7 @@
                 android:padding="2dp"
                 android:text="@string/workScreenWork"
                 android:textColor="@color/colorOrangeDark"
-                android:textSize="30sp"
+                android:textSize="@dimen/buttonTextSize"
                 android:textStyle="bold" />
         </FrameLayout>
 
@@ -73,7 +73,7 @@
                 android:padding="2dp"
                 android:text="@string/workScreenCriminal"
                 android:textColor="@color/colorDarkBlue"
-                android:textSize="30sp"
+                android:textSize="@dimen/buttonTextSize"
                 android:textStyle="bold" />
         </FrameLayout>
 
@@ -104,7 +104,7 @@
                 android:padding="2dp"
                 android:text="@string/workScreenBank"
                 android:textColor="@color/colorMidGreen"
-                android:textSize="30sp"
+                android:textSize="@dimen/buttonTextSize"
                 android:textStyle="bold" />
         </FrameLayout>
     </LinearLayout>

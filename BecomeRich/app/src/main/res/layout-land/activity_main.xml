@@ -149,8 +149,8 @@
                 android:layout_height="0dp"
                 android:layout_marginBottom="50dp"
                 android:layout_weight=".5"
-                android:orientation="horizontal"
-                android:baselineAligned="false">
+                android:baselineAligned="false"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -253,38 +253,14 @@
 
                         <ImageButton
                             android:id="@+id/imageViewHealth"
-                            android:layout_width="40dp"
+                            android:layout_width="0dp"
                             android:layout_height="match_parent"
+                            android:layout_weight=".2"
                             android:onClick="goToHealth"
                             android:scaleType="fitCenter"
                             app:srcCompat="@mipmap/health_icon" />
 
-                        <TextView
-                            android:id="@+id/textViewHealth"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentTop="true"
-                            android:layout_marginLeft="17dp"
-                            android:layout_marginStart="17dp"
-                            android:layout_toEndOf="@+id/imageViewHealth"
-                            android:layout_toRightOf="@+id/imageViewHealth"
-                            android:layout_weight="0.51"
-                            android:gravity="center|left"
-                            android:text="300/300"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                        <ProgressBar
-                            android:id="@+id/progressBarHealth"
-                            style="?android:attr/progressBarStyleHorizontal"
-                            android:layout_width="180dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginRight="10dp"
-                            android:indeterminate="false"
-                            android:max="100"
-                            android:progress="100"
-                            android:progressBackgroundTint="#ffffff"
-                            android:progressTint="#f442e5" />
+                        <include layout="@layout/progressbar_health" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -296,37 +272,14 @@
 
                         <ImageButton
                             android:id="@+id/imageViewHunger"
-                            android:layout_width="40dp"
+                            android:layout_width="0dp"
                             android:layout_height="match_parent"
+                            android:layout_weight=".2"
                             android:onClick="goToHunger"
                             android:scaleType="fitCenter"
                             app:srcCompat="@mipmap/hunger_icon" />
 
-                        <TextView
-                            android:id="@+id/textViewHunger"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentTop="true"
-                            android:layout_marginLeft="17dp"
-                            android:layout_marginStart="17dp"
-                            android:layout_toEndOf="@+id/imageViewHunger"
-                            android:layout_toRightOf="@+id/imageViewHunger"
-                            android:layout_weight="1"
-                            android:gravity="center|left"
-                            android:text="300/300"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                        <ProgressBar
-                            android:id="@+id/progressBarHunger"
-                            style="?android:attr/progressBarStyleHorizontal"
-                            android:layout_width="180dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginRight="10dp"
-                            android:max="100"
-                            android:progress="100"
-                            android:progressBackgroundTint="#ffffff"
-                            android:progressTint="#966453" />
+                        <include layout="@layout/progressbar_hunger" />
 
                     </LinearLayout>
                 </LinearLayout>

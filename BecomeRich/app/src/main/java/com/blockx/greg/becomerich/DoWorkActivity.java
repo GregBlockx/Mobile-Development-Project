@@ -1,5 +1,6 @@
 package com.blockx.greg.becomerich;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -8,6 +9,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -99,18 +101,18 @@ public class DoWorkActivity extends AppCompatActivity {
         yourHealth.setProgress(health);
         yourHunger.setProgress(hunger);
 
-        jobList.add(new GameItem("Beg", 1, array1));
-        jobList.add(new GameItem("Wash Cars", 5, array2));
-        jobList.add(new GameItem("Bartender", 20, array3));
-        jobList.add(new GameItem("Deliver Mail", 50, array4));
-        jobList.add(new GameItem("Deliver Packages", 75, array5));
-        jobList.add(new GameItem("Work in Factory", 100, array6));
-        jobList.add(new GameItem("Bank Clerk", 250, array7));
-        jobList.add(new GameItem("Office Manager", 500, array8));
-        jobList.add(new GameItem("Booze Shop Owner", 1000, array9));
-        jobList.add(new GameItem("Supermarket Owner", 2000, array9));
-        jobList.add(new GameItem("E-Commerce Shop Owner", 3000, array10));
-        jobList.add(new GameItem("Businessman", 5000, array11));
+        jobList.add(new GameItem("Beg", 1, 5, array1));
+        jobList.add(new GameItem("Wash Cars", 5, 7, array2));
+        jobList.add(new GameItem("Bartender", 20, 9, array3));
+        jobList.add(new GameItem("Deliver Mail", 50, 9, array4));
+        jobList.add(new GameItem("Deliver Packages", 75, 10, array5));
+        jobList.add(new GameItem("Work in Factory", 100, 11, array6));
+        jobList.add(new GameItem("Bank Clerk", 250, 11, array7));
+        jobList.add(new GameItem("Office Manager", 500, 11, array8));
+        jobList.add(new GameItem("Booze Shop Owner", 1000, 12, array9));
+        jobList.add(new GameItem("Supermarket Owner", 2000, 13, array9));
+        jobList.add(new GameItem("E-Commerce Shop Owner", 3000, 14, array10));
+        jobList.add(new GameItem("Businessman", 5000, 15, array11));
 
 
         activityAdapter = new ActivityAdapter(this, R.layout.activityrow, jobList);
@@ -144,10 +146,10 @@ public class DoWorkActivity extends AppCompatActivity {
 
                 if (counter == requirements.length) {
 
-                        yourMoneyInt += Integer.parseInt(adapterView.getItemAtPosition(i).toString());
-                        health -= 15;
-                        hunger -= 15;
-                        age += 1;
+                    yourMoneyInt += Integer.parseInt(adapterView.getItemAtPosition(i).toString());
+                    health -= Integer.parseInt(activityAdapter.getDamage(i).toString());
+                    hunger -= Integer.parseInt(activityAdapter.getDamage(i).toString());
+                    age++;
                 } else {
                     Toast toast = Toast.makeText(getApplicationContext(), "You Need : " + requirementsString, Toast.LENGTH_SHORT);
                     toast.show();
@@ -168,7 +170,7 @@ public class DoWorkActivity extends AppCompatActivity {
 
 
                 if (health <= 0 || hunger <= 0) {
-                    showAlert("You died! Start again!");
+                    showAlert("YOU DIED", "You worked too hard, better luck in your next life!");
                     editor.putInt("health", maxValue);
                     editor.putInt("hunger", maxValue);
                 }
@@ -188,16 +190,20 @@ public class DoWorkActivity extends AppCompatActivity {
         startActivity(startMainActivity);
     }
 
-    private void showAlert(String displayMessage){
+    private void showAlert(String title, String displayMessage) {
         AlertDialog.Builder arrestAlert = new AlertDialog.Builder(this);
-        arrestAlert.setMessage(displayMessage)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        goToPlayerInfo();
-                    }
-                }).create();
+        arrestAlert.setMessage(displayMessage);
+        arrestAlert.setTitle(title);
+        arrestAlert.setPositiveButton("RESTART", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                goToPlayerInfo();
+            }
+        });
+        arrestAlert.setCancelable(false);
+        arrestAlert.create();
         arrestAlert.show();
+
     }
 
 }

@@ -23,5 +23,7 @@
     <string name="workScreenBank">BANK</string>
     <string name="educationSreenSkills">SKILLS</string>
     <string name="educationScreenSchool">SCHOOL</string>
+    <string name="dialogDead">You can revive, but you will start over.</string>
+
 
 </resources>

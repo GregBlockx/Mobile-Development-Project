@@ -45,13 +45,13 @@ public class DoCriminalJobActivity extends AppCompatActivity {
     private Set<String> allOwned = new HashSet<>();
 
     //Requirements to do certain jobs
-    private String[] array1 = {"Shoes", "Pocket Knife","Thief Skills Beginner"};
-    private String[] array2 = {"Shoes", "Pistol","Thief Skills Beginner","Weapon Skills Beginner"};
-    private String[] array3 = {"Shoes", "Rent Apartment", "Pistol","Weapon Skills Intermediate"};
-    private String[] array4 = {"Shoes", "Rent Apartment", "Pistol", "Weapon Skills Intermediate","Thief Skills Intermediate"};
-    private String[] array5 = {"Buy Apartment", "Car", "Pistol", "Weapon Skills Intermediate","Thief Skills Intermediate"};
-    private String[] array6 = {"Buy Apartment", "Shoes", "Sniper Rifle", "Bullet Proof Jacket","Thief Skills Advanced","Weapon Skills Advanced"};
-    private String[] array7 = {"Buy Penthouse","Shoes","Car", "Sniper Rifle", "C4-Explosives", "Bullet Proof Jacket","Thief Skills Advanced","Weapon Skills Advanced"};
+    private String[] array1 = {"Shoes", "Pocket Knife", "Thief Skills Beginner"};
+    private String[] array2 = {"Shoes", "Pistol", "Thief Skills Beginner", "Weapon Skills Beginner"};
+    private String[] array3 = {"Shoes", "Rent Apartment", "Pistol", "Weapon Skills Intermediate"};
+    private String[] array4 = {"Shoes", "Rent Apartment", "Pistol", "Weapon Skills Intermediate", "Thief Skills Intermediate"};
+    private String[] array5 = {"Buy Apartment", "Car", "Pistol", "Weapon Skills Intermediate", "Thief Skills Intermediate"};
+    private String[] array6 = {"Buy Apartment", "Shoes", "Sniper Rifle", "Bullet Proof Jacket", "Thief Skills Advanced", "Weapon Skills Advanced"};
+    private String[] array7 = {"Buy Penthouse", "Shoes", "Car", "Sniper Rifle", "C4-Explosives", "Bullet Proof Jacket", "Thief Skills Advanced", "Weapon Skills Advanced"};
 
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
@@ -71,8 +71,10 @@ public class DoCriminalJobActivity extends AppCompatActivity {
         skillsOwned = sharedPreferences.getStringSet("skillsOwned", null);
         residencyOwned = sharedPreferences.getStringSet("residencyOwned", null);
         weaponsOwned = sharedPreferences.getStringSet("weaponOwned", null);
-        allOwned.addAll(transportOwned);allOwned.addAll(skillsOwned);
-        allOwned.addAll(residencyOwned);allOwned.addAll(weaponsOwned);
+        allOwned.addAll(transportOwned);
+        allOwned.addAll(skillsOwned);
+        allOwned.addAll(residencyOwned);
+        allOwned.addAll(weaponsOwned);
 
         listview = (ListView) findViewById(R.id.listViewItems);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
@@ -93,14 +95,14 @@ public class DoCriminalJobActivity extends AppCompatActivity {
         yourHunger.setProgress(hunger);
 
 
-        jobList.add(new GameItem("Rob Homeless Person", 20,array1));
-        jobList.add(new GameItem("Rob Local Person", 70,array2));
-        jobList.add(new GameItem("Steal Bike", 200,array2));
-        jobList.add(new GameItem("Deal Drugs", 350,array3));
-        jobList.add(new GameItem("Sell Smuggled Goods", 700,array4));
-        jobList.add(new GameItem("Kidnap Kid", 1100,array5));
-        jobList.add(new GameItem("Assassinate Target", 1800,array6));
-        jobList.add(new GameItem("Rob Rich Person", 10000,array7));
+        jobList.add(new GameItem("Rob Homeless Person", 20, 8, array1));
+        jobList.add(new GameItem("Rob Local Person", 70, 8, array2));
+        jobList.add(new GameItem("Steal Bike", 200, 10, array2));
+        jobList.add(new GameItem("Deal Drugs", 350, 10, array3));
+        jobList.add(new GameItem("Sell Smuggled Goods", 700, 12, array4));
+        jobList.add(new GameItem("Kidnap Kid", 1100, 12, array5));
+        jobList.add(new GameItem("Assassinate Target", 1800, 14, array6));
+        jobList.add(new GameItem("Rob Rich Person", 10000, 15, array7));
 
 
         activityAdapter = new ActivityAdapter(this, R.layout.activityrow, jobList);
@@ -133,13 +135,13 @@ public class DoCriminalJobActivity extends AppCompatActivity {
                 }
 
                 if (counter == requirements.length) {
-                    if(chance < 90) {
+                    if (chance < 90) {
                         yourMoneyInt += Integer.parseInt(adapterView.getItemAtPosition(i).toString());
-                        health -= 15;
-                        hunger -= 15;
-                        age += 1;
+                        health -= Integer.parseInt(activityAdapter.getDamage(i).toString());
+                        hunger -= Integer.parseInt(activityAdapter.getDamage(i).toString());
+                        age++;
                     } else {
-                        showAlert("You have been arrested, your weapons and money have been seized!");
+                        showAlert("ARRESTED", "You have been arrested, your weapons and money have been seized!");
                         yourMoneyInt = 0;
                         weaponsOwned = null;
                     }
@@ -149,11 +151,11 @@ public class DoCriminalJobActivity extends AppCompatActivity {
                 }
 
                 editor.putInt("money", yourMoneyInt);
-                editor.putStringSet("weaponOwned",weaponsOwned);
+                editor.putStringSet("weaponOwned", weaponsOwned);
                 yourMoney.setText("€ " + yourMoneyInt);
                 editor.putInt("health", health);
                 editor.putInt("hunger", hunger);
-                editor.putInt("age",age);
+                editor.putInt("age", age);
 
                 yourHealthText.setText(health + "/" + maxValue);
                 yourHungerText.setText(hunger + "/" + maxValue);
@@ -162,7 +164,7 @@ public class DoCriminalJobActivity extends AppCompatActivity {
                 yourHunger.setProgress(hunger);
 
                 if (health <= 0 || hunger <= 0) {
-                   showAlert("You died! Start again!");
+                    showAlert("YOU DIED", "You worked too hard, better luck in your next life!");
                     editor.putInt("health", maxValue);
                     editor.putInt("hunger", maxValue);
                 }
@@ -181,15 +183,19 @@ public class DoCriminalJobActivity extends AppCompatActivity {
         startActivity(startMainActivity);
     }
 
-    private void showAlert(String displayMessage){
+    private void showAlert(String title, String displayMessage) {
         AlertDialog.Builder arrestAlert = new AlertDialog.Builder(this);
-        arrestAlert.setMessage(displayMessage)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        goToPlayerInfo();
-                    }
-                }).create();
+        arrestAlert.setMessage(displayMessage);
+        arrestAlert.setTitle(title);
+        arrestAlert.setPositiveButton("RESTART", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                goToPlayerInfo();
+            }
+        });
+        arrestAlert.setCancelable(false);
+        arrestAlert.create();
         arrestAlert.show();
+
     }
 }

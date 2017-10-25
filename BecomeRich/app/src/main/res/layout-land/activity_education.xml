@@ -39,7 +39,7 @@
                 android:padding="2dp"
                 android:text="@string/educationScreenSchool"
                 android:textColor="@color/colorMidGreen"
-                android:textSize="30sp"
+                android:textSize="@dimen/buttonTextSize"
                 android:textStyle="bold" />
         </FrameLayout>
 
@@ -69,7 +69,7 @@
                 android:padding="2dp"
                 android:text="@string/educationSreenSkills"
                 android:textColor="@color/colorDarkRed"
-                android:textSize="30sp"
+                android:textSize="@dimen/buttonTextSize"
                 android:textStyle="bold" />
         </FrameLayout>
 

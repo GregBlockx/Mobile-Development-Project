@@ -54,5 +54,9 @@ public class ActivityAdapter extends ArrayAdapter<String> {
     public String getHealth(int position){
         return String.valueOf(items.get(position).getHealthValue());
     }
+    @Nullable
+    public String getDamage(int position){
+        return String.valueOf(items.get(position).getDamage());
+    }
 }
 

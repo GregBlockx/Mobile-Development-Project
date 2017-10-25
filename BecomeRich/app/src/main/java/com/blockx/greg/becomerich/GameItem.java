@@ -13,11 +13,13 @@ public class GameItem {
     private boolean haveBought;
     private int healthValue;
     private String[] requirements;
+    private int damage;
 
-    public GameItem(String activityName, int activityAmount, String[] requirements){
+    public GameItem(String activityName, int activityAmount,int damage, String[] requirements){
         this.activityName = activityName;
         this.activityAmount = activityAmount;
         this.requirements = requirements;
+        this.damage = damage;
     }
 
     public GameItem(String activityName, int activityAmount, boolean haveBought){
@@ -26,10 +28,15 @@ public class GameItem {
         this.haveBought = haveBought;
     }
 
-    public GameItem(String activityName, int activityAmount, int healthValue){
+    public GameItem(String activityName, int activityAmount, int healthValue, int damage){
         this.activityName = activityName;
         this.activityAmount = activityAmount;
         this.healthValue = healthValue;
+        this.damage = damage;
+    }
+
+    public int getDamage() {
+        return damage;
     }
 
     public String[] getRequirements() {
