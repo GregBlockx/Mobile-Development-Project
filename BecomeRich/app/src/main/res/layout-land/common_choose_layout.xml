@@ -23,8 +23,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:orientation="horizontal"
-                android:baselineAligned="false">
+                android:baselineAligned="false"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -46,9 +46,9 @@
                             android:layout_height="match_parent"
                             android:layout_weight=".2"
                             android:scaleType="fitCenter"
-                            app:srcCompat="@mipmap/health_icon" />
+                            app:srcCompat="@drawable/health_icon" />
 
-                        <include layout="@layout/progressbar_health"/>
+                        <include layout="@layout/progressbar_health" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -65,9 +65,9 @@
                             android:layout_height="match_parent"
                             android:layout_weight=".2"
                             android:scaleType="fitCenter"
-                            app:srcCompat="@mipmap/hunger_icon" />
+                            app:srcCompat="@drawable/hunger_icon" />
 
-                        <include layout="@layout/progressbar_hunger"/>
+                        <include layout="@layout/progressbar_hunger" />
 
 
                     </LinearLayout>
@@ -84,17 +84,18 @@
 
                     <ImageView
                         android:id="@+id/imageViewMoney"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center"
+                        android:layout_weight=".1"
                         android:scaleType="fitCenter"
-                        app:srcCompat="@mipmap/money_icon" />
+                        app:srcCompat="@drawable/cash_icon" />
 
                     <TextView
                         android:id="@+id/textViewMoney"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight=".2"
+                        android:layout_weight=".3"
                         android:gravity="center|left"
                         android:paddingLeft="5dp"
                         android:text="@string/money"
@@ -104,7 +105,7 @@
                         android:id="@+id/textViewYourMoney"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight=".3"
+                        android:layout_weight=".8"
                         android:gravity="center|left"
                         android:text="€ 0"
                         android:textSize="20sp" />

@@ -11,83 +11,82 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="120dp"
         android:background="#FFFFFF"
         android:orientation="vertical"
-        android:padding="12dp">
+        android:padding="8dp">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="0dp"
+            android:layout_weight=".5"
             android:background="#FFFFFF">
 
             <ImageView
                 android:id="@+id/imageMoney"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                app:srcCompat="@mipmap/money_icon" />
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".2"
+                app:srcCompat="@drawable/cash_icon" />
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="50dp"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="12dp"
-                android:layout_marginStart="12dp"
-                android:layout_toEndOf="@+id/imageMoney"
-                android:layout_toRightOf="@+id/imageMoney"
-                android:gravity="center|left"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="0.22"
+                android:gravity="center"
                 android:text="@string/bankScreenCash"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/textViewMoney"
-                android:layout_width="150dp"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_toEndOf="@+id/textView2"
-                android:layout_toRightOf="@+id/textView2"
+                android:layout_weight=".8"
                 android:gravity="center|left"
                 android:text=""
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textStyle="bold"/>
 
-        </RelativeLayout>
+        </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp">
+            android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight=".5">
 
             <ImageView
                 android:id="@+id/imageBank"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                app:srcCompat="@mipmap/bank_icon" />
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".2"
+                app:srcCompat="@drawable/bank_icon" />
 
             <TextView
                 android:id="@+id/textView3"
-                android:layout_width="50dp"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="12dp"
-                android:layout_marginStart="12dp"
-                android:layout_toEndOf="@+id/imageBank"
-                android:layout_toRightOf="@+id/imageBank"
-                android:gravity="center|left"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="0.22"
+                android:gravity="center"
                 android:text="@string/bankScreenBank"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/textViewBankMoney"
-                android:layout_width="150dp"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_toEndOf="@+id/textView3"
-                android:layout_toRightOf="@+id/textView3"
+                android:layout_weight=".8"
                 android:gravity="center|left"
                 android:text=""
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textStyle="bold"/>
 
-        </RelativeLayout>
+        </LinearLayout>
 
     </LinearLayout>
 

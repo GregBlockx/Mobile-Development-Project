@@ -10,10 +10,14 @@
     <color name="colorLightGreen">#4fff6f</color>
     <color name="colorRed">#f45642</color>
     <color name="colorDarkRed">#c1200b</color>
-    <color name="colorBrown">#996565</color>
+    <color name="colorLightBrown">#996565</color>
     <color name="colorLightBlue">#22BCD4</color>
     <color name="colorDarkBlue">#157584</color>
     <color name="colorOrangeDark">#ad5c05</color>
     <color name="colorOrange">#F7850A</color>
     <color name="colorGray">#E5E5E7</color>
+    <color name="colorDarkBrown">#422c24</color>
+    <color name="colorDarkPink">#910885</color>
+    <color name="colorLightPink">#f442e5</color>
+
 </resources>

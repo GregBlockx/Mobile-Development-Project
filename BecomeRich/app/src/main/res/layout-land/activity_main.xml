@@ -81,16 +81,17 @@
 
                     <ImageView
                         android:id="@+id/imageMoney"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".07"
                         android:scaleType="fitCenter"
-                        app:srcCompat="@mipmap/money_icon" />
+                        app:srcCompat="@drawable/cash_icon" />
 
                     <TextView
                         android:id="@+id/textView2"
-                        android:layout_width="60dp"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="5dp"
+                        android:layout_weight=".08"
                         android:gravity="center|left"
                         android:text="@string/bankScreenCash"
                         android:textSize="18sp"
@@ -98,9 +99,9 @@
 
                     <TextView
                         android:id="@+id/textViewYourMoney"
-                        android:layout_width="150dp"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="5dp"
+                        android:layout_weight=".8"
                         android:gravity="center|left"
                         android:text=""
                         android:textSize="18sp"
@@ -116,16 +117,17 @@
 
                     <ImageView
                         android:id="@+id/imageBank"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".07"
                         android:scaleType="fitCenter"
-                        app:srcCompat="@mipmap/bank_icon" />
+                        app:srcCompat="@drawable/bank_icon" />
 
                     <TextView
                         android:id="@+id/textView3"
-                        android:layout_width="60dp"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="5dp"
+                        android:layout_weight=".08"
                         android:gravity="center|left"
                         android:text="@string/bankScreenBank"
                         android:textSize="18sp"
@@ -133,9 +135,9 @@
 
                     <TextView
                         android:id="@+id/textViewBankMoney"
-                        android:layout_width="150dp"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="5dp"
+                        android:layout_weight=".8"
                         android:gravity="center|left"
                         android:text=""
                         android:textSize="18sp"
@@ -256,8 +258,10 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight=".2"
+                            android:backgroundTint="@color/colorLightPink"
                             android:onClick="goToHealth"
                             android:scaleType="fitCenter"
+                            android:tint="@color/colorDarkPink"
                             app:srcCompat="@mipmap/health_icon" />
 
                         <include layout="@layout/progressbar_health" />
@@ -275,8 +279,10 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight=".2"
+                            android:backgroundTint="@color/colorLightBrown"
                             android:onClick="goToHunger"
                             android:scaleType="fitCenter"
+                            android:tint="@color/colorDarkBrown"
                             app:srcCompat="@mipmap/hunger_icon" />
 
                         <include layout="@layout/progressbar_hunger" />
