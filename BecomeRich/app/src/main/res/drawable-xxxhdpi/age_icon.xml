@@ -6,7 +6,7 @@
             android:padding="50dp"
             android:shape="rectangle">
             <corners android:radius="75dp" />
-            <solid android:color="@color/colorLightBlue" />
+            <solid android:color="@color/colorRed" />
         </shape>
     </item>
     <item
@@ -14,7 +14,7 @@
         android:top="50dp"
         android:left="50dp"
         android:right="50dp">
-        <bitmap android:src="@drawable/car"
-            android:tint="@color/colorDarkBlue"/>
+        <bitmap android:src="@drawable/age"
+            android:tint="@color/colorDarkRed"/>
     </item>
 </layer-list>
