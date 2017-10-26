@@ -139,10 +139,14 @@ public class HungerActivity extends AppCompatActivity {
     public void goBackToScreen(View view) {
         Intent startGoBackToScreenActivity = new Intent(this, MainActivity.class);
         startActivity(startGoBackToScreenActivity);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        finish();
     }
 
     public void goToPlayerInfo() {
         Intent startMainActivity = new Intent(this, MainActivity.class);
         startActivity(startMainActivity);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        finish();
     }
 }

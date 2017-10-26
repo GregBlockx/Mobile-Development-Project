@@ -172,11 +172,15 @@ public class DoWorkActivity extends AppCompatActivity {
     public void goBackToScreen(View view) {
         Intent startGoBackToWorkActivity = new Intent(this, WorkActivity.class);
         startActivity(startGoBackToWorkActivity);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        finish();
     }
 
     public void goToPlayerInfo() {
         Intent startMainActivity = new Intent(this, MainActivity.class);
         startActivity(startMainActivity);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        finish();
     }
 
     private void showAlert(String title, String displayMessage) {

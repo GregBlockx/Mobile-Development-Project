@@ -1,36 +1,25 @@
 package com.blockx.greg.becomerich;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.media.Image;
-import android.net.Uri;
-import android.provider.MediaStore;
+import android.content.res.Configuration;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.view.ActionMode;
 import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
-import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
-import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.ads.AdRequest;
@@ -39,22 +28,14 @@ import com.google.android.gms.ads.MobileAds;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-
-import static android.graphics.BitmapFactory.decodeStream;
-import static android.support.v4.content.ContextCompat.startActivity;
-
 
 public class MainActivity extends AppCompatActivity implements GestureDetector.OnGestureListener {
     private SharedPreferences sharedPreferences;
     public static final String GAME_PREFERENCES = "GamePrefs";
+    public static final String AD_ID = "ca-app-pub-8105138302379586~1001667350";
     static int AGE = 6570;
     private SharedPreferences.Editor editor;
     LoginButton loginButton;
@@ -66,12 +47,13 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     Set<String> skillsOwned = new HashSet<>();
     private GestureDetectorCompat gestureObject;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        MobileAds.initialize(this, "ca-app-pub-8105138302379586~1001667350");
+        MobileAds.initialize(this, AD_ID);
 
         gestureObject = new GestureDetectorCompat(this, this);
 
@@ -132,6 +114,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
             editor.putInt("bankmoney", 0);
             editor.putInt("health", 300);
             editor.putInt("hunger", 300);
+            editor.putInt("adcounter",0);
             editor.putString("playername", "Davidson");
             editor.putInt("age", AGE);
             editor.putString("residency", "Sleeping bag");
@@ -185,34 +168,42 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+
     }
 
     public void goToWork(View view) {
         Intent startWorkActivity = new Intent(this, WorkActivity.class);
         startActivity(startWorkActivity);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        finish();
     }
 
     public void goToMarket(View view) {
         Intent startMarketActivity = new Intent(this, MarketActivity.class);
         startActivity(startMarketActivity);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        finish();
     }
 
     public void goToEducation(View view) {
         Intent startEducationActivity = new Intent(this, EducationActivity.class);
         startActivity(startEducationActivity);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        finish();
     }
 
     public void goToHunger(View view) {
         Intent startHungerActivity = new Intent(this, HungerActivity.class);
         startActivity(startHungerActivity);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        finish();
     }
 
     public void goToHealth(View view) {
         Intent startHealthActivity = new Intent(this, HealthActivity.class);
         startActivity(startHealthActivity);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        finish();
     }
 
     public void goToPlayerInfo(View view) {
@@ -307,6 +298,13 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
 
         return true;
     }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        // TODO Auto-generated method stub
+        super.onConfigurationChanged(newConfig);
+    }
+
 
 }
 

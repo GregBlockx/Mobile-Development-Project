@@ -44,6 +44,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight=".5"
+                        android:layout_marginTop="6dp"
                         android:text="Mr. Dave"
                         android:textSize="36sp"
                         android:textStyle="bold" />
@@ -167,6 +168,8 @@
                         android:textStyle="bold" />
 
                 </LinearLayout>
+
+
             </LinearLayout>
 
             <LinearLayout
@@ -323,4 +326,19 @@
 
 
     <include layout="@layout/common_menu" />
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        android:layout_marginRight="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="105dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:visibility="invisible"/>
+
 </android.widget.RelativeLayout>

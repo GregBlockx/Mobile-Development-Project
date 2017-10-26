@@ -35,18 +35,21 @@ public class EducationActivity extends AppCompatActivity implements GestureDetec
         Intent startWorkActivity = new Intent(this, WorkActivity.class);
         startActivity(startWorkActivity);
         overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_righ);
+        finish();
     }
 
     public void goToMarket(View view){
         Intent startMarketActivity = new Intent(this, MarketActivity.class);
         startActivity(startMarketActivity);
         overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_righ);
+        finish();
     }
 
     public void goToPlayerInfo(View view){
         Intent startMainActivity = new Intent(this, MainActivity.class);
         startActivity(startMainActivity);
         overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_righ);
+        finish();
     }
 
     public void goToEducation(View view){
@@ -55,11 +58,15 @@ public class EducationActivity extends AppCompatActivity implements GestureDetec
     public void goToChooseEducation(View view){
         Intent startChooseEducationActivity = new Intent(this, ChooseEducationActivity.class);
         startActivity(startChooseEducationActivity);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        finish();
     }
 
     public void goToChooseCriminalSkills(View view){
         Intent startChooseCriminalSkillActivity = new Intent(this, ChooseCriminalSkillsActivity.class);
         startActivity(startChooseCriminalSkillActivity);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        finish();
     }
 
 

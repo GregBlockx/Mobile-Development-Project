@@ -27,20 +27,21 @@ public class MarketActivity extends AppCompatActivity implements GestureDetector
         Intent startWorkActivity = new Intent(this, WorkActivity.class);
         startActivity(startWorkActivity);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_righ);
-
+        finish();
     }
 
     public void goToEducation(View view) {
         Intent startEducationActivity = new Intent(this, EducationActivity.class);
         startActivity(startEducationActivity);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-
+        finish();
     }
 
     public void goToPlayerInfo(View view) {
         Intent startMainActivity = new Intent(this, MainActivity.class);
         startActivity(startMainActivity);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_righ);
+        finish();
     }
 
     public void goToMarket(View view) {
@@ -49,16 +50,22 @@ public class MarketActivity extends AppCompatActivity implements GestureDetector
     public void goToChooseResidency(View view) {
         Intent startChooseResidencyActivity = new Intent(this, ChooseResidencyActivity.class);
         startActivity(startChooseResidencyActivity);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        finish();
     }
 
     public void goToChooseTransport(View view) {
         Intent startChooseTransportActivity = new Intent(this, ChooseTransportActivity.class);
         startActivity(startChooseTransportActivity);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        finish();
     }
 
     public void goToChooseWeapon(View view) {
         Intent startChooseWeaponActivity = new Intent(this, ChooseWeaponActivity.class);
         startActivity(startChooseWeaponActivity);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        finish();
     }
 
     @Override

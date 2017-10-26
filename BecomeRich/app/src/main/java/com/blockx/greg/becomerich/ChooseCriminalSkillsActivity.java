@@ -123,5 +123,7 @@ public class ChooseCriminalSkillsActivity extends AppCompatActivity {
     public void goBackToScreen(View view){
         Intent startGoBackToEducationActivity = new Intent(this, EducationActivity.class);
         startActivity(startGoBackToEducationActivity);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        finish();
     }
 }

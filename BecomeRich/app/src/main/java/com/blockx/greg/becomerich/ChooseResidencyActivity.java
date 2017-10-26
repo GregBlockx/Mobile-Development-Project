@@ -125,5 +125,7 @@ public class ChooseResidencyActivity extends AppCompatActivity {
     public void goBackToScreen(View view){
         Intent startGoBackToMarketActivity = new Intent(this, MarketActivity.class);
         startActivity(startGoBackToMarketActivity);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        finish();
     }
 }

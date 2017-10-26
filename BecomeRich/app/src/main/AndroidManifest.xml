@@ -24,14 +24,16 @@
             android:xlargeScreens="true" />
 
         <activity android:name=".SplashActivity"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/SplashTheme"
+            android:configChanges="orientation|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:configChanges="orientation|keyboardHidden"/>
         <activity android:name=".WorkActivity" />
         <activity android:name=".MarketActivity" />
         <activity android:name=".EducationActivity" />
@@ -68,7 +70,8 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".FirebaseMessagingService">
+        <service android:name=".FirebaseMessagingService"
+            android:permission="">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>

@@ -5,15 +5,15 @@
         <shape
             android:padding="50dp"
             android:shape="rectangle">
-            <corners android:radius="10.5dp" />
+            <corners android:radius="11dp" />
             <solid android:color="@color/colorLightBrown" />
         </shape>
     </item>
     <item
-        android:bottom="5dp"
-        android:left="5dp"
-        android:right="5dp"
-        android:top="5dp">
+        android:bottom="10dp"
+        android:left="10dp"
+        android:right="10dp"
+        android:top="10dp">
         <bitmap
             android:src="@drawable/hunger"
             android:tint="@color/colorDarkBrown" />

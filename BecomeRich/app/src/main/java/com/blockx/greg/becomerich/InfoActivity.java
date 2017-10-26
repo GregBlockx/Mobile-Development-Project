@@ -16,5 +16,7 @@ public class InfoActivity extends AppCompatActivity {
     public void goBackToScreen(View view){
         Intent startGoBackToMainActivity = new Intent(this, MainActivity.class);
         startActivity(startGoBackToMainActivity);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        finish();
     }
 }

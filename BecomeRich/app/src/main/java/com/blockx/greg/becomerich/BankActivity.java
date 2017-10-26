@@ -38,6 +38,8 @@ public class BankActivity extends AppCompatActivity {
     public void goBackToScreen(View view) {
         Intent startGoBackToWorkActivity = new Intent(this, WorkActivity.class);
         startActivity(startGoBackToWorkActivity);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        finish();
     }
 
     public void Deposit(View view) {
