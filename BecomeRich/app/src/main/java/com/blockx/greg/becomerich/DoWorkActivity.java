@@ -29,7 +29,6 @@ public class DoWorkActivity extends AppCompatActivity {
     ActivityAdapter activityAdapter;
     ArrayList<GameItem> jobList = new ArrayList<>();
     TextView yourMoney;
-
     TextView yourHealthText;
     TextView yourHungerText;
     ProgressBar yourHealth;
@@ -37,12 +36,8 @@ public class DoWorkActivity extends AppCompatActivity {
     int age;
     public int hunger;
     public int health;
-
-
     public int maxValue = 300;
-
     int yourMoneyInt;
-
     private Set<String> transportOwned = new HashSet<>();
     private Set<String> educationOwned = new HashSet<>();
     private Set<String> residencyOwned = new HashSet<>();
@@ -82,7 +77,6 @@ public class DoWorkActivity extends AppCompatActivity {
         allOwned.addAll(transportOwned);
         allOwned.addAll(residencyOwned);
 
-
         listview = (ListView) findViewById(R.id.listViewItems);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
         yourMoney.setText("€ " + sharedPreferences.getInt("money", 0));
@@ -114,7 +108,6 @@ public class DoWorkActivity extends AppCompatActivity {
         jobList.add(new GameItem("E-Commerce Shop Owner", 3000, 14, array10));
         jobList.add(new GameItem("Businessman", 5000, 15, array11));
 
-
         activityAdapter = new ActivityAdapter(this, R.layout.activityrow, jobList);
         listview.setAdapter(activityAdapter);
 
@@ -145,7 +138,6 @@ public class DoWorkActivity extends AppCompatActivity {
                 }
 
                 if (counter == requirements.length) {
-
                     yourMoneyInt += Integer.parseInt(adapterView.getItemAtPosition(i).toString());
                     health -= Integer.parseInt(activityAdapter.getDamage(i).toString());
                     hunger -= Integer.parseInt(activityAdapter.getDamage(i).toString());
@@ -154,8 +146,6 @@ public class DoWorkActivity extends AppCompatActivity {
                     Toast toast = Toast.makeText(getApplicationContext(), "You Need : " + requirementsString, Toast.LENGTH_SHORT);
                     toast.show();
                 }
-
-
                 yourMoney.setText("€ " + yourMoneyInt);
                 editor.putInt("money", yourMoneyInt);
                 editor.putInt("age", age);
@@ -167,7 +157,6 @@ public class DoWorkActivity extends AppCompatActivity {
 
                 yourHealth.setProgress(health);
                 yourHunger.setProgress(hunger);
-
 
                 if (health <= 0 || hunger <= 0) {
                     showAlert("YOU DIED", "You worked too hard, better luck in your next life!");

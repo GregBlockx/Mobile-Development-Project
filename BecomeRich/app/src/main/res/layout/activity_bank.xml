@@ -38,7 +38,7 @@
                 android:gravity="center"
                 android:text="@string/bankScreenCash"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewMoney"
@@ -48,7 +48,7 @@
                 android:gravity="center|left"
                 android:text=""
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -74,7 +74,7 @@
                 android:gravity="center"
                 android:text="@string/bankScreenBank"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewBankMoney"
@@ -84,7 +84,7 @@
                 android:gravity="center|left"
                 android:text=""
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
         </LinearLayout>
 

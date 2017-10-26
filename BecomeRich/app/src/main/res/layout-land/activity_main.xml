@@ -22,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginBottom="5dp"
-                android:layout_weight=".7"
+                android:layout_weight=".6"
                 android:background="@color/colorWhite"
                 android:orientation="vertical">
 
@@ -171,10 +171,11 @@
 
                         <ImageView
                             android:id="@+id/imageViewHouse"
-                            android:layout_width="40dp"
+                            android:layout_width="0dp"
+                            android:layout_weight=".1"
                             android:layout_height="match_parent"
                             android:scaleType="fitCenter"
-                            app:srcCompat="@mipmap/house_icon" />
+                            app:srcCompat="@drawable/house_icon" />
 
                         <TextView
                             android:id="@+id/textViewYourResidency"
@@ -192,14 +193,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight=".33333"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:layout_marginTop="2dp">
 
                         <ImageView
                             android:id="@+id/imageViewCar"
-                            android:layout_width="40dp"
+                            android:layout_width="0dp"
+                            android:layout_weight=".1"
                             android:layout_height="match_parent"
                             android:scaleType="fitCenter"
-                            app:srcCompat="@mipmap/car_icon" />
+                            app:srcCompat="@drawable/transport_icon" />
 
                         <TextView
                             android:id="@+id/textViewYourTransport"
@@ -216,14 +219,16 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight=".33333">
+                        android:layout_weight=".33333"
+                        android:layout_marginTop="2dp">
 
                         <ImageView
                             android:id="@+id/imageViewEducation"
-                            android:layout_width="40dp"
+                            android:layout_width="0dp"
+                            android:layout_weight=".1"
                             android:layout_height="match_parent"
                             android:scaleType="fitCenter"
-                            app:srcCompat="@mipmap/education_icon" />
+                            app:srcCompat="@drawable/education_icon" />
 
                         <TextView
                             android:id="@+id/textViewYourEducation"

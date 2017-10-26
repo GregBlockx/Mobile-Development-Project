@@ -34,10 +34,8 @@ public class DoCriminalJobActivity extends AppCompatActivity {
     public int hunger;
     public int health;
     Random rand = new Random();
-
     public int maxValue = 300;
     int yourMoneyInt;
-
     private Set<String> transportOwned = new HashSet<>();
     private Set<String> weaponsOwned = new HashSet<>();
     private Set<String> residencyOwned = new HashSet<>();
@@ -52,7 +50,6 @@ public class DoCriminalJobActivity extends AppCompatActivity {
     private String[] array5 = {"Buy Apartment", "Car", "Pistol", "Weapon Skills Intermediate", "Thief Skills Intermediate"};
     private String[] array6 = {"Buy Apartment", "Shoes", "Sniper Rifle", "Bullet Proof Jacket", "Thief Skills Advanced", "Weapon Skills Advanced"};
     private String[] array7 = {"Buy Penthouse", "Shoes", "Car", "Sniper Rifle", "C4-Explosives", "Bullet Proof Jacket", "Thief Skills Advanced", "Weapon Skills Advanced"};
-
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
 
@@ -94,7 +91,6 @@ public class DoCriminalJobActivity extends AppCompatActivity {
         yourHealth.setProgress(health);
         yourHunger.setProgress(hunger);
 
-
         jobList.add(new GameItem("Rob Homeless Person", 20, 8, array1));
         jobList.add(new GameItem("Rob Local Person", 70, 8, array2));
         jobList.add(new GameItem("Steal Bike", 200, 10, array2));
@@ -103,7 +99,6 @@ public class DoCriminalJobActivity extends AppCompatActivity {
         jobList.add(new GameItem("Kidnap Kid", 1100, 12, array5));
         jobList.add(new GameItem("Assassinate Target", 1800, 14, array6));
         jobList.add(new GameItem("Rob Rich Person", 10000, 15, array7));
-
 
         activityAdapter = new ActivityAdapter(this, R.layout.activityrow, jobList);
         listview.setAdapter(activityAdapter);
