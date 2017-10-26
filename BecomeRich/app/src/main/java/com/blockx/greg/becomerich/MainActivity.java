@@ -33,6 +33,9 @@ import com.facebook.GraphResponse;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -68,8 +71,9 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        gestureObject = new GestureDetectorCompat(this, this);
+        MobileAds.initialize(this, "ca-app-pub-8105138302379586~1001667350");
 
+        gestureObject = new GestureDetectorCompat(this, this);
 
         TextView title = (TextView) findViewById(R.id.textViewTitle);
         title.setVisibility(View.INVISIBLE);
@@ -98,8 +102,6 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
                 parameters.putString("fields", "last_name,id,picture");
                 graphRequest.setParameters(parameters);
                 graphRequest.executeAsync();
-
-
             }
 
             @Override
@@ -179,6 +181,10 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         ProgressBar hungerBar = (ProgressBar) findViewById(R.id.progressBarHunger);
         hungerBar.setMax(maxHealthAndHunger);
         hungerBar.setProgress(sharedPreferences.getInt("hunger", 0));
+
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     public void goToWork(View view) {

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@mipmap/splash_background"
+    tools:context="com.blockx.greg.becomerich.SplashActivity">
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".2"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:shadowColor="@color/colorMidGreen"
+        android:shadowDx="1.5"
+        android:shadowDy="1.3"
+        android:shadowRadius="15"
+        android:text="Become Rich"
+        android:textColor="@color/colorWhite"
+        android:textSize="60sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageViewSplash"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".5"
+        app:srcCompat="@drawable/splash_image"/>
+
+</LinearLayout>

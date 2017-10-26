@@ -28,7 +28,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight=".2"
+                    android:layout_weight=".24"
                     android:background="@color/colorWhite"
                     android:orientation="horizontal"
                     android:padding="5dp">
@@ -45,16 +45,16 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="5dp"
-                        android:layout_weight=".5"
+                        android:layout_weight=".6"
                         android:gravity="center|left"
-                        android:text="Mr. Dave"
+                        android:text="Mr Deg"
                         android:textSize="36sp"
                         android:textStyle="bold" />
 
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight=".3"
+                        android:layout_weight=".2"
                         android:gravity="center">
 
                         <com.facebook.login.widget.LoginButton
@@ -72,20 +72,35 @@
                     android:layout_weight=".2"
                     android:background="@color/colorWhite"
                     android:orientation="horizontal"
-                    android:padding="5dp">
+                    android:padding="2dp">
+
+                    <ImageView
+                        android:id="@+id/imageAge"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="3dp"
+                        android:layout_weight=".1"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/age_icon" />
+
 
                     <TextView
                         android:id="@+id/textViewAge"
-                        android:layout_width="50dp"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight=".15"
+                        android:gravity="center|left"
                         android:text="@string/mainScreenAge"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/textViewYourAge"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_weight=".65"
+                        android:gravity="center|left"
                         android:text="18 years"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -113,7 +128,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="5dp"
-                        android:layout_weight=".3"
+                        android:layout_weight=".15"
                         android:gravity="center|left"
                         android:text="@string/bankScreenCash"
                         android:textSize="18sp"
@@ -123,7 +138,7 @@
                         android:id="@+id/textViewYourMoney"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight=".5"
+                        android:layout_weight=".65"
                         android:gravity="center|left"
                         android:text=""
                         android:textSize="18sp"
@@ -152,7 +167,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="5dp"
-                        android:layout_weight=".3"
+                        android:layout_weight=".15"
                         android:gravity="center|left"
                         android:text="@string/bankScreenBank"
                         android:textSize="18sp"
@@ -162,7 +177,7 @@
                         android:id="@+id/textViewBankMoney"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight=".5"
+                        android:layout_weight=".65"
                         android:gravity="center|left"
                         android:text=""
                         android:textSize="18sp"
@@ -337,6 +352,17 @@
 
                 <include layout="@layout/progressbar_hunger" />
             </LinearLayout>
+
+            <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/adView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                ads:adSize="BANNER"
+                ads:adUnitId="ca-app-pub-3940256099942544/6300978111" />
 
 
         </LinearLayout>
