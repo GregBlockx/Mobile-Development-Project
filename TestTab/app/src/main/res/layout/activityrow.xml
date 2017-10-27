@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:id="@+id/textViewActivity"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_weight="0.99"
+        android:layout_gravity="center_vertical"
+        android:gravity="left|center"
+        android:padding="5dp"
+        tools:text="test" />
+
+    <TextView
+        android:id="@+id/textViewMoney"
+        android:layout_width="72dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:gravity="right|center"
+        android:padding="5dp"
+        android:textAllCaps="false"
+        tools:text="TEST T" />
+
+</LinearLayout>

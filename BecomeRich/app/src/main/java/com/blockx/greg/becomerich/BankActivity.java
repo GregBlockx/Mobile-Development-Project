@@ -24,10 +24,10 @@ public class BankActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bank);
 
+        //Roept sharedpreferences aan, haalt waardes eruit en steekt deze in lokale variabelen
         Context context = getApplicationContext();
         sharedPreferences = context.getSharedPreferences(GAME_PREFERENCES, context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
-
         yourMoney = sharedPreferences.getInt("money", 0);
         yourBankMoney = sharedPreferences.getInt("bankmoney", 0);
 
@@ -35,6 +35,7 @@ public class BankActivity extends AppCompatActivity {
 
     }
 
+    //Druk op de back knop en roept de vorige klasse aan, gevolgd door een animatie
     public void goBackToScreen(View view) {
         Intent startGoBackToWorkActivity = new Intent(this, WorkActivity.class);
         startActivity(startGoBackToWorkActivity);
@@ -42,6 +43,7 @@ public class BankActivity extends AppCompatActivity {
         finish();
     }
 
+    //Bij het drukken op Deposit word de value gechecked of hij niet groter is dan de huidige cash, anders wordt er een toast geshowt
     public void Deposit(View view) {
         int value = 0;
         EditText input = (EditText) findViewById(R.id.bankInput);
@@ -67,6 +69,7 @@ public class BankActivity extends AppCompatActivity {
         }
     }
 
+    //Bij het drukken op Withdraw wordt de value gechecked of hij niet groter is dan de huidige bankwaarde
     public void Withdraw(View view) {
         int value = 0;
         EditText input = (EditText) findViewById(R.id.bankInput);
@@ -92,6 +95,7 @@ public class BankActivity extends AppCompatActivity {
         }
     }
 
+    //Steek de lokale waardes in de textviews
     private void setTextViews() {
         TextView money = (TextView) findViewById(R.id.textViewMoney);
         money.setText(" € " + sharedPreferences.getInt("money", 0));

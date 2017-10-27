@@ -1,0 +1,139 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/lib/com.example.bryan.testtab"
+    tools:context="layout.Tab1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="30dp"
+            android:layout_weight=".5"
+            android:orientation="horizontal"
+            android:baselineAligned="false"
+            android:padding="5dp">
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".5"
+                android:padding="1dp"
+                android:background="@color/colorMidGreen"
+                android:layout_marginRight="5dp">
+
+                <ImageButton
+                    android:id="@+id/imageButton"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:backgroundTint="@color/colorLightGreen"
+                    android:onClick="goToChooseResidency"
+                    android:scaleType="fitStart"
+                    android:tint="@color/colorMidGreen"
+                    app:srcCompat="@mipmap/house_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|bottom"
+                    android:clickable="false"
+                    android:padding="2dp"
+                    android:text="@string/marketScreenResidency"
+                    android:textColor="@color/colorMidGreen"
+                    android:textSize="@dimen/buttonTextSize"
+                    android:textStyle="bold" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".5"
+                android:padding="1dp"
+                android:background="@color/colorDarkBlue">
+
+                <ImageButton
+                    android:id="@+id/imageButtonTransport"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@color/colorLightBlue"
+                    android:onClick="goToChooseTransport"
+                    android:scaleType="fitStart"
+                    android:tint="@color/colorDarkBlue"
+                    app:srcCompat="@mipmap/car_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|bottom"
+                    android:clickable="false"
+                    android:padding="2dp"
+                    android:text="@string/marketScreenTransport"
+                    android:textColor="@color/colorDarkBlue"
+                    android:textSize="@dimen/buttonTextSize"
+                    android:textStyle="bold" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".5"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".5"
+                android:padding="1dp"
+                android:background="@color/colorOrangeDark"
+                android:layout_marginRight="5dp">
+
+                <ImageButton
+                    android:id="@+id/imageButtonWeapon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".5"
+                    android:backgroundTint="@color/colorOrange"
+                    android:onClick="goToChooseWeapon"
+                    android:scaleType="fitStart"
+                    android:tint="@color/colorOrangeDark"
+                    app:srcCompat="@mipmap/gun_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|bottom"
+                    android:clickable="false"
+                    android:padding="2dp"
+                    android:text="@string/marketScreenWeapons"
+                    android:textColor="@color/colorOrangeDark"
+                    android:textSize="@dimen/buttonTextSize"
+                    android:textStyle="bold" />
+            </FrameLayout>
+
+            <ImageButton
+                android:id="@+id/invisbutton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".5"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".4">
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

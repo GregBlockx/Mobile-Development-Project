@@ -54,21 +54,22 @@ public class ChooseCriminalSkillsActivity extends AppCompatActivity {
         skillsOwned = sharedPreferences.getStringSet("skillsOwned",skillsOwned);
 
         listview = (ListView) findViewById(R.id.listViewItems);
+
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
         yourMoney.setText("€ " + sharedPreferences.getInt("money",0));
 
         yourHealthText = (TextView) findViewById(R.id.textViewHealth);
         yourHealthText.setText(health + "/300");
+
         yourHungerText = (TextView) findViewById(R.id.textViewHunger);
         yourHungerText.setText(hunger + "/300");
 
         yourHealth = (ProgressBar) findViewById(R.id.progressBarHealth);
-        yourHunger = (ProgressBar) findViewById(R.id.progressBarHunger);
-
         yourHealth.setMax(maxValue);
-        yourHunger.setMax(maxValue);
-
         yourHealth.setProgress(health);
+
+        yourHunger = (ProgressBar) findViewById(R.id.progressBarHunger);
+        yourHunger.setMax(maxValue);
         yourHunger.setProgress(hunger);
 
         skillsList.add(new GameItem("Weapon Skills Beginner", 100, false));

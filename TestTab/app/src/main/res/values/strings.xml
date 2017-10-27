@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">TestTab</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="facebook_app_id">585522281839051</string>
+    <string name="fb_login_protocol_scheme">fb585522281839051</string>
+    <string name="infoText">The goal of this game is to earn as much money as possible.\n\nYou can earn money by doing honest work or you can try and do criminal stuff.\n\nBut beware! If you decide do go on the criminal route, there is a chance to get arrested and lose everything!</string>
+    <string name="backBtnText">Back</string>
+    <string name="infoTitle">Game Info</string>
+    <string name="infoCredits">Created by : \nGreg Blockx &amp;\nBryan Deferm</string>
+    <string name="bankScreenCash">Cash : </string>
+    <string name="bankScreenBank">Bank : </string>
+    <string name="bankScreenDeposit">DEPOSIT</string>
+    <string name="bankScreenWithdraw">WITHDRAW</string>
+    <string name="mainScreenAge">Age :</string>
+    <string name="mainScreenResidency">Residency :</string>
+    <string name="mainScreenTransport">Transport :</string>
+    <string name="mainScreenEducation">Education :</string>
+    <string name="money">Money :</string>
+    <string name="marketScreenResidency">RESIDENCY</string>
+    <string name="marketScreenTransport">TRANSPORT</string>
+    <string name="marketScreenWeapons">WEAPONS</string>
+    <string name="workScreenWork">JOBS</string>
+    <string name="workScreenCriminal">CRIMINAL</string>
+    <string name="workScreenBank">BANK</string>
+    <string name="educationSreenSkills">SKILLS</string>
+    <string name="educationScreenSchool">SCHOOL</string>
+    <string name="dialogDead">You can revive, but you will start over.</string>
+</resources>

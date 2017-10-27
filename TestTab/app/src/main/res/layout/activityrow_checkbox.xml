@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:id="@+id/textViewActivity_CheckBox"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_weight="0.76"
+        android:layout_gravity="center_vertical"
+        android:gravity="left|center"
+        android:padding="5dp"
+        tools:text="test" />
+
+    <TextView
+        android:id="@+id/textViewMoney_CheckBox"
+        android:layout_width="72dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:gravity="right|center"
+        android:padding="5dp"
+        android:textAllCaps="false"
+        tools:text="TEST T"
+        android:layout_weight="0.21" />
+
+    <CheckBox
+        android:id="@+id/checkBoxHaveItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:checked="false"
+        android:clickable="false"
+        android:gravity="left|center"
+        android:focusable="false"/>
+
+</LinearLayout>

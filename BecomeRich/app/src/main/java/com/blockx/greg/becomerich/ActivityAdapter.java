@@ -11,7 +11,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 /**
- * Created by Bryan on 10/10/2099.
+ * Created by Bryan on 10/10/2017.
+ * Deze klasse is een extensie van arrayadapter,
+ * met de bedoeling 2 items in 1 row te kunnen steken
  */
 
 public class ActivityAdapter extends ArrayAdapter<String> {

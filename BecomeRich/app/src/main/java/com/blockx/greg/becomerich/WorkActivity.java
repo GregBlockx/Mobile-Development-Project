@@ -42,7 +42,7 @@ public class WorkActivity extends AppCompatActivity implements GestureDetector.O
         sharedPreferences = context.getSharedPreferences(MainActivity.GAME_PREFERENCES, context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
-        adCounter = sharedPreferences.getInt("adcounter",0);
+        adCounter = sharedPreferences.getInt("adcounter", 0);
 
         mInterstitialAd = new InterstitialAd(this);
         mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
@@ -91,15 +91,14 @@ public class WorkActivity extends AppCompatActivity implements GestureDetector.O
         if (mInterstitialAd.isLoaded() && adCounter >= 5) {
             mInterstitialAd.show();
             adCounter = 0;
-            editor.putInt("adcounter",adCounter);
+            editor.putInt("adcounter", adCounter);
             editor.commit();
         } else {
             adCounter++;
-            editor.putInt("adcounter",adCounter);
+            editor.putInt("adcounter", adCounter);
             editor.commit();
             startActivity(startDoWorkActivity);
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-            Log.d("Dit is een hele lange tag aajfijfkdfdkfjdkf", ""+ adCounter);
             finish();
         }
     }
