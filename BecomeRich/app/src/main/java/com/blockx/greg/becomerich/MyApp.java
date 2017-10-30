@@ -2,8 +2,12 @@ package com.blockx.greg.becomerich;
 
 import android.app.Application;
 
+import com.google.android.gms.ads.MobileAds;
+
 import java.util.HashMap;
 import java.util.Map;
+
+import static com.blockx.greg.becomerich.MainFragment.AD_ID;
 
 /**
  * Created by Bryan on 17/10/2017.
@@ -17,6 +21,7 @@ public class MyApp extends Application{
     public void onCreate() {
         super.onCreate();
         mData = new HashMap<String, Object>();
+        MobileAds.initialize(getApplicationContext(), AD_ID);
     }
 
     public Object get(String key){

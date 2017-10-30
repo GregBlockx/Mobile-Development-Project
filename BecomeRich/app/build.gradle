@@ -26,8 +26,10 @@ dependencies {
     compile 'com.google.android.gms:play-services-ads:11.2.0'
     compile 'com.facebook.android:facebook-login:[4,5)'
     compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support:design:23.0.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.google.firebase:firebase-messaging:11.2.0'
+    compile 'com.android.support:support-v4:26.+'
     testCompile 'junit:junit:4.12'
 }
 

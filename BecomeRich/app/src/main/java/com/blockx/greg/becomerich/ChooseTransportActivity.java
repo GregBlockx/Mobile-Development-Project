@@ -122,7 +122,7 @@ public class ChooseTransportActivity extends AppCompatActivity {
     }
 
     public void goBackToScreen(View view){
-        Intent startGoBackToMarketActivity = new Intent(this, MarketActivity.class);
+        Intent startGoBackToMarketActivity = new Intent(this, MainActivity.class);
         startActivity(startGoBackToMarketActivity);
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         finish();
