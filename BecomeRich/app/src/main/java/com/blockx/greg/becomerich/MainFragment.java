@@ -42,6 +42,7 @@ public class MainFragment extends Fragment {
     Set<String> weaponOwned = new HashSet<>();
     Set<String> residencyOwned = new HashSet<>();
     Set<String> skillsOwned = new HashSet<>();
+    private TextView name;
 
     public MainFragment() {
     }
@@ -85,6 +86,7 @@ public class MainFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
+       name = view.findViewById(R.id.textViewName);
 
         loginButton = view.findViewById(R.id.login_button);
         loginButton.setReadPermissions("email", "public_profile");
@@ -123,6 +125,8 @@ public class MainFragment extends Fragment {
             }
         });
 
+
+
         TextView yourResidency =  view.findViewById(R.id.textViewYourResidency);
         yourResidency.setText(sharedPreferences.getString("residency", null));
 
@@ -135,8 +139,7 @@ public class MainFragment extends Fragment {
         TextView ageTextView =  view.findViewById(R.id.textViewYourAge);
         ageTextView.setText(getAge(sharedPreferences.getInt("age", AGE)));
 
-        TextView lastNameTextView =  view.findViewById(R.id.textViewName);
-        lastNameTextView.setText("Mr. " + sharedPreferences.getString("playername", "Davidson"));
+        //name.setText("Mr. " + sharedPreferences.getString("playername", "Davidson"));
 
         TextView money =  view.findViewById(R.id.textViewYourMoney);
         money.setText(" € " + sharedPreferences.getInt("money", 0));
@@ -172,10 +175,11 @@ public class MainFragment extends Fragment {
 
         editor.putString("playername", lastName);
         editor.commit();
-        TextView lastNameTextView = getView().findViewById(R.id.textViewName);
-        lastNameTextView.setText("Mr. " + sharedPreferences.getString("playername", "Davidson"));
+
+        name.setText("Mr. " + sharedPreferences.getString("playername", "Davidson"));
 
     }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.os.Handler;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v4.app.Fragment;
@@ -18,10 +19,22 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
     private int adCounter;
+    private Boolean exit = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(startDoWorkActivity);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 mInterstitialAd.loadAd(new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build());
-                finish();
             }
         });
 
@@ -85,6 +98,8 @@ public class MainActivity extends AppCompatActivity {
         }else if(position=="3"){
             viewPager.setCurrentItem(3,true);
         }
+
+
     }
 
     private void setupTabIcons() {
@@ -187,7 +202,6 @@ public class MainActivity extends AppCompatActivity {
             editor.commit();
             startActivity(startDoWorkActivity);
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-            finish();
         }
     }
 
@@ -197,7 +211,6 @@ public class MainActivity extends AppCompatActivity {
         Intent startDoCriminalJobActivity = new Intent(this, DoCriminalJobActivity.class);
         startActivity(startDoCriminalJobActivity);
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-        finish();
     }
 
     public void goToBank(View view) {
@@ -206,7 +219,6 @@ public class MainActivity extends AppCompatActivity {
         Intent startGoToBankActivity = new Intent(this, BankActivity.class);
         startActivity(startGoToBankActivity);
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-        finish();
     }
 
     public void goToChooseResidency(View view) {
@@ -215,7 +227,6 @@ public class MainActivity extends AppCompatActivity {
         Intent startChooseResidencyActivity = new Intent(this, ChooseResidencyActivity.class);
         startActivity(startChooseResidencyActivity);
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-        finish();
     }
 
     public void goToChooseTransport(View view) {
@@ -224,7 +235,6 @@ public class MainActivity extends AppCompatActivity {
         Intent startChooseTransportActivity = new Intent(this, ChooseTransportActivity.class);
         startActivity(startChooseTransportActivity);
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-        finish();
     }
 
     public void goToChooseWeapon(View view) {
@@ -233,7 +243,6 @@ public class MainActivity extends AppCompatActivity {
         Intent startChooseWeaponActivity = new Intent(this, ChooseWeaponActivity.class);
         startActivity(startChooseWeaponActivity);
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-        finish();
     }
 
     public void goToChooseEducation(View view){
@@ -242,7 +251,6 @@ public class MainActivity extends AppCompatActivity {
         Intent startChooseEducationActivity = new Intent(this, ChooseEducationActivity.class);
         startActivity(startChooseEducationActivity);
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-        finish();
     }
 
     public void goToChooseCriminalSkills(View view){
@@ -251,6 +259,25 @@ public class MainActivity extends AppCompatActivity {
         Intent startChooseCriminalSkillActivity = new Intent(this, ChooseCriminalSkillsActivity.class);
         startActivity(startChooseCriminalSkillActivity);
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-        finish();
     }
+
+    @Override
+    public void onBackPressed() {
+        if (exit) {
+            finish(); // finish activity
+        } else {
+            Toast.makeText(this, "Press Back again to Exit.",
+                    Toast.LENGTH_SHORT).show();
+            exit = true;
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    exit = false;
+                }
+            }, 3 * 1000);
+
+        }
+
+    }
+
 }
