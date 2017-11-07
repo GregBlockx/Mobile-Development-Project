@@ -14,6 +14,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -59,6 +60,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         viewPager = (ViewPager) findViewById(R.id.container);
         setupViewPager(viewPager);
 
@@ -89,14 +93,19 @@ public class MainActivity extends AppCompatActivity {
         String position = sharedPreferences.getString("tab_opened", null);
         if(position==null){
             viewPager.setCurrentItem(0,true);
+            toolbar.setTitle("Main");
         }else if(position=="0"){
             viewPager.setCurrentItem(0,true);
+            toolbar.setTitle("Main");
         }else if(position=="1"){
             viewPager.setCurrentItem(1,true);
+            toolbar.setTitle("Work");
         }else if(position=="2"){
             viewPager.setCurrentItem(2,true);
+            toolbar.setTitle("Market");
         }else if(position=="3"){
             viewPager.setCurrentItem(3,true);
+            toolbar.setTitle("Education");
         }
 
 
