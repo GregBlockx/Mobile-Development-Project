@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".MyApp"
+        android:name=".Util.MyApp"
         android:allowBackup="true"
         android:icon="@drawable/app_icon"
         android:label="@string/app_name"
@@ -23,7 +23,7 @@
             android:smallScreens="true"
             android:xlargeScreens="true" />
 
-        <activity android:name=".SplashActivity"
+        <activity android:name=".Activities.SplashActivity"
             android:theme="@style/SplashTheme"
             android:configChanges="orientation|keyboardHidden">
             <intent-filter>
@@ -32,19 +32,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"
+        <activity android:name=".Activities.MainActivity"
             android:configChanges="orientation|keyboardHidden"/>
-        <activity android:name=".DoWorkActivity" />
-        <activity android:name=".HungerActivity" />
-        <activity android:name=".DoCriminalJobActivity" />
-        <activity android:name=".ChooseResidencyActivity" />
-        <activity android:name=".ChooseTransportActivity" />
-        <activity android:name=".ChooseEducationActivity" />
-        <activity android:name=".ChooseCriminalSkillsActivity" />
-        <activity android:name=".HealthActivity" />
-        <activity android:name=".ChooseWeaponActivity" />
-        <activity android:name=".InfoActivity" />
-        <activity android:name=".BankActivity" />
+        <activity android:name=".Activities.DoWorkActivity" />
+        <activity android:name=".Activities.HungerActivity" />
+        <activity android:name=".Activities.DoCriminalJobActivity" />
+        <activity android:name=".Activities.ChooseResidencyActivity" />
+        <activity android:name=".Activities.ChooseTransportActivity" />
+        <activity android:name=".Activities.ChooseEducationActivity" />
+        <activity android:name=".Activities.ChooseCriminalSkillsActivity" />
+        <activity android:name=".Activities.HealthActivity" />
+        <activity android:name=".Activities.ChooseWeaponActivity" />
+        <activity android:name=".Activities.InfoActivity" />
+        <activity android:name=".Activities.BankActivity" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -67,7 +67,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".FirebaseMessagingService"
+        <service android:name=".Util.FirebaseMessagingService"
             android:permission="">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

@@ -1,4 +1,4 @@
-package com.blockx.greg.becomerich;
+package com.blockx.greg.becomerich.Util;
 
 import java.lang.reflect.Array;
 

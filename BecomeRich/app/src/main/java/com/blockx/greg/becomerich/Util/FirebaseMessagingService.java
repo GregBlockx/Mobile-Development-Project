@@ -1,4 +1,4 @@
-package com.blockx.greg.becomerich;
+package com.blockx.greg.becomerich.Util;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -9,10 +9,13 @@ import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
+import com.blockx.greg.becomerich.Activities.MainActivity;
+import com.blockx.greg.becomerich.R;
 import com.google.firebase.messaging.RemoteMessage;
 
 /**
  * Created by Bryan on 19/10/2017.
+ * Zorgt voor de notificaties via firebase
  */
 
 public class FirebaseMessagingService extends com.google.firebase.messaging.FirebaseMessagingService {

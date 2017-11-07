@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.blockx.greg.becomerich.MainFragment">
+    tools:context="com.blockx.greg.becomerich.Fragments.MainFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

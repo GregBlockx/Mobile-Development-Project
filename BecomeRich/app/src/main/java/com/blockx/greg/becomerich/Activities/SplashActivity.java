@@ -1,5 +1,5 @@
-package com.blockx.greg.becomerich;
-
+package com.blockx.greg.becomerich.Activities;
+//Dit is het splashscreen
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Handler;
@@ -9,6 +9,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.blockx.greg.becomerich.R;
 
 public class SplashActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.blockx.greg.becomerich;
+package com.blockx.greg.becomerich.Activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,49 +12,52 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.blockx.greg.becomerich.Util.GameItem;
+import com.blockx.greg.becomerich.R;
+
 import java.util.ArrayList;
 
-public class HungerActivity extends AppCompatActivity {
+public class HealthActivity extends AppCompatActivity {
+
 
     ListView listview;
     ActivityAdapter activityAdapter;
-    ArrayList<GameItem> foodList = new ArrayList<>();
-    public int yourMoneyInt;
-    public int foodPrice;
-    public int age;
+    ArrayList<GameItem> healthList = new ArrayList<>();
+    int yourMoneyInt;
+    int healthPrice;
+    int age;
 
-    public TextView yourHealthText;
-    public TextView yourHungerText;
-    public ProgressBar yourHealth;
-    public ProgressBar yourHunger;
+    TextView yourHealthText;
+    TextView yourHungerText;
+    ProgressBar yourHealth;
+    ProgressBar yourHunger;
     public int hunger;
     public int health;
 
     public int maxValue = 300;
 
-    public TextView yourMoney;
+    TextView yourMoney;
 
-    public SharedPreferences sharedPreferences;
-    public SharedPreferences.Editor editor;
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.common_choose_layout);
 
+        //Roept sharedpreferences aan, haalt waardes eruit en steekt deze in lokale variabelen
         Context context = getApplicationContext();
         sharedPreferences = context.getSharedPreferences(MainActivity.GAME_PREFERENCES, context.MODE_PRIVATE);
-
         editor = sharedPreferences.edit();
 
         hunger = sharedPreferences.getInt("hunger", 150);
         health = sharedPreferences.getInt("health", 150);
         age = sharedPreferences.getInt("age", 0);
 
-
+        listview = (ListView) findViewById(R.id.listViewItems);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
         yourMoney.setText("€ " + sharedPreferences.getInt("money", 0));
-
 
         yourHealthText = (TextView) findViewById(R.id.textViewHealth);
         yourHealthText.setText(health + "/300");
@@ -70,47 +73,47 @@ public class HungerActivity extends AppCompatActivity {
         yourHealth.setProgress(health);
         yourHunger.setProgress(hunger);
 
-        listview = (ListView) findViewById(R.id.listViewItems);
-        foodList.add(new GameItem("Eat Trash", 0, 10, 5));
-        foodList.add(new GameItem("Eat Nuts", 2, 15, 5));
-        foodList.add(new GameItem("Eat Donut", 5, 20, 5));
-        foodList.add(new GameItem("Eat Burger", 15, 40, 4));
-        foodList.add(new GameItem("Eat Organic", 65, 120, 4));
-        foodList.add(new GameItem("Eat at Restaurant", 120, 150, 3));
-        foodList.add(new GameItem("Eat Internationally", 200, 200, 1));
+        healthList.add(new GameItem("Sleep on road", 0, 10, 5));
+        healthList.add(new GameItem("Take a Pill", 2, 15, 5));
+        healthList.add(new GameItem("Go to Small Clinic", 5, 20, 5));
+        healthList.add(new GameItem("Go to PolyClinic", 20, 40, 4));
+        healthList.add(new GameItem("Go to Local Doctor", 65, 120, 4));
+        healthList.add(new GameItem("Go to Hospital", 120, 150, 3));
+        healthList.add(new GameItem("Go to World Class Hospital", 200, 200, 1));
 
-        activityAdapter = new ActivityAdapter(this, R.layout.activityrow, foodList);
+        activityAdapter = new ActivityAdapter(this, R.layout.activityrow, healthList);
         listview.setAdapter(activityAdapter);
 
+        //Als je op een item klikt dan gaat je geld en hunger omlaag maar health omhoog
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                if (hunger < 300) {
-                    hunger += Integer.parseInt(activityAdapter.getHealth(i).toString());
-                    if (hunger >= 300) {
-                        hunger = 300;
+                if (health < 300) {
+                    health += Integer.parseInt(activityAdapter.getHealth(i).toString());
+                    if (health >= 300) {
+                        health = 300;
                     }
 
                     yourMoneyInt = sharedPreferences.getInt("money", 0);
-                    foodPrice = Integer.parseInt(adapterView.getItemAtPosition(i).toString());
+                    healthPrice = Integer.parseInt(adapterView.getItemAtPosition(i).toString());
 
-                    if (yourMoneyInt >= foodPrice) {
-                        yourMoneyInt -= foodPrice;
-                    } else if (yourMoneyInt < foodPrice) {
+                    if (yourMoneyInt >= healthPrice) {
+                        yourMoneyInt -= healthPrice;
+                    } else if (yourMoneyInt < healthPrice) {
                         Toast toast = Toast.makeText(getApplicationContext(), "You don't have enough money!", Toast.LENGTH_SHORT);
                         toast.show();
                     }
 
                     yourMoney.setText("€ " + yourMoneyInt);
                     editor.putInt("money", yourMoneyInt);
-                    health -= Integer.parseInt(activityAdapter.getDamage(i).toString());
-                    age ++;
+                    hunger -= Integer.parseInt(activityAdapter.getDamage(i).toString());
+                    age++;
 
                 } else {
-                    hunger = 300;
+                    health = 300;
 
-                    Toast toast = Toast.makeText(getApplicationContext(), "Hunger is full!", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), "Health is full!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
 
@@ -136,6 +139,7 @@ public class HungerActivity extends AppCompatActivity {
         });
     }
 
+    //Ga terug naar main screen
     public void goBackToScreen(View view) {
         Intent startGoBackToScreenActivity = new Intent(this, MainActivity.class);
         startActivity(startGoBackToScreenActivity);
@@ -143,6 +147,7 @@ public class HungerActivity extends AppCompatActivity {
         finish();
     }
 
+    //Ga naar player info
     public void goToPlayerInfo() {
         Intent startMainActivity = new Intent(this, MainActivity.class);
         startActivity(startMainActivity);

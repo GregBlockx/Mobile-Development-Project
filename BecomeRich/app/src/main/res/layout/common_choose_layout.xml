@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorGray"
     android:padding="8dp"
-    tools:context="com.blockx.greg.becomerich.MainActivity">
+    tools:context="com.blockx.greg.becomerich.Activities.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

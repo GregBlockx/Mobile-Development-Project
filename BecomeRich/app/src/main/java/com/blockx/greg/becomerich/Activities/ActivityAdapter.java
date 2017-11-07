@@ -1,4 +1,4 @@
-package com.blockx.greg.becomerich;
+package com.blockx.greg.becomerich.Activities;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -7,6 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import com.blockx.greg.becomerich.Util.GameItem;
+import com.blockx.greg.becomerich.R;
 
 import java.util.ArrayList;
 

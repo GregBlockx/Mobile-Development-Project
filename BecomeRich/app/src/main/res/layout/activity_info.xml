@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorGray"
-    tools:context="com.blockx.greg.becomerich.InfoActivity">
+    tools:context="com.blockx.greg.becomerich.Activities.InfoActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

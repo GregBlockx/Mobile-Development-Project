@@ -1,4 +1,4 @@
-package com.blockx.greg.becomerich;
+package com.blockx.greg.becomerich.Activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,19 +13,22 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.blockx.greg.becomerich.Util.GameItem;
+import com.blockx.greg.becomerich.R;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-public class ChooseEducationActivity extends AppCompatActivity {
+public class ChooseWeaponActivity extends AppCompatActivity {
 
     ListView listview;
     ActivityAdapterCheckBox activityAdapter;
-    ArrayList<GameItem> educationList = new ArrayList<>();
+    ArrayList<GameItem> weaponList = new ArrayList<>();
     TextView yourMoney;
     int yourMoneyInt;
-    int educationPrice;
+    int weaponPrice;
 
     TextView yourHealthText;
     TextView yourHungerText;
@@ -35,7 +38,7 @@ public class ChooseEducationActivity extends AppCompatActivity {
     public int health;
 
     public int maxValue = 300;
-    Set<String> educationOwned = new HashSet<>();
+    Set<String> weaponOwned = new HashSet<>();
 
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
@@ -45,13 +48,14 @@ public class ChooseEducationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.common_choose_layout);
 
+        //Roept sharedpreferences aan, haalt waardes eruit en steekt deze in lokale variabelen
         Context context = getApplicationContext();
         sharedPreferences = context.getSharedPreferences(MainActivity.GAME_PREFERENCES,context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
         hunger = sharedPreferences.getInt("hunger",150);
         health = sharedPreferences.getInt("health",150);
-        educationOwned = sharedPreferences.getStringSet("educationOwned",educationOwned);
+        weaponOwned = sharedPreferences.getStringSet("weaponOwned",weaponOwned);
 
         listview = (ListView) findViewById(R.id.listViewItems);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
@@ -71,58 +75,58 @@ public class ChooseEducationActivity extends AppCompatActivity {
         yourHealth.setProgress(health);
         yourHunger.setProgress(hunger);
 
-        educationList.add(new GameItem("Nothing", 0, true));
-        educationList.add(new GameItem("Secondary School", 100, false));
-        educationList.add(new GameItem("High School", 7500, false));
-        educationList.add(new GameItem("General Training", 15000, false));
-        educationList.add(new GameItem("College", 25000, false));
-        educationList.add(new GameItem("Master's Degree", 100000, false));
+        weaponList.add(new GameItem("Pocket Knife", 20, false));
+        weaponList.add(new GameItem("Pistol", 300, false));
+        weaponList.add(new GameItem("AK-47", 800, false));
+        weaponList.add(new GameItem("Sniper Rifle", 1200, false));
+        weaponList.add(new GameItem("Bullet Proof Jacket", 3000, false));
+        weaponList.add(new GameItem("C4-Explosives", 5000, false));
 
-        for(int i = 0; i <educationList.size();i++)
+        for(int i = 0; i <weaponList.size();i++)
         {
-            for (Iterator<String> it = educationOwned.iterator(); it.hasNext(); ) {
+            for (Iterator<String> it = weaponOwned.iterator(); it.hasNext(); ) {
                 String f = it.next();
-                if (f.equals(educationList.get(i).getActivityName())){
-                    educationList.get(i).setHaveBought(true);
+                if (f.equals(weaponList.get(i).getActivityName())){
+                    weaponList.get(i).setHaveBought(true);
                 }
             }
         }
 
-        activityAdapter = new ActivityAdapterCheckBox(this, R.layout.activityrow_checkbox, educationList);
+        activityAdapter = new ActivityAdapterCheckBox(this, R.layout.activityrow_checkbox, weaponList);
         listview.setAdapter(activityAdapter);
 
+        //Als je op een wapen klikt zal je geld verminderen en krijg je een nieuw wapen
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 yourMoneyInt = sharedPreferences.getInt("money", 0);
-                educationPrice = Integer.parseInt(adapterView.getItemAtPosition(i).toString());
+                weaponPrice = Integer.parseInt(adapterView.getItemAtPosition(i).toString());
                 CheckBox HaveItem = view.findViewById(R.id.checkBoxHaveItem);
 
-                if (yourMoneyInt >= educationPrice && !HaveItem.isChecked()) {
-                    yourMoneyInt -= educationPrice;
-                    educationList.get(i).setHaveBought(true);
-                    educationOwned.add(educationList.get(i).getActivityName());
-                    editor.putString("education",educationList.get(i).getActivityName());
-                    HaveItem.setChecked(educationList.get(i).isHaveBought());
-                } else if (yourMoneyInt < educationPrice) {
-                    Toast toast = Toast.makeText(getApplicationContext(), "You don't have enough money!", Toast.LENGTH_SHORT);
+                if (yourMoneyInt >= weaponPrice && !HaveItem.isChecked()) {
+                    yourMoneyInt -= weaponPrice;
+                    weaponList.get(i).setHaveBought(true);
+                    weaponOwned.add(weaponList.get(i).getActivityName());
+                    HaveItem.setChecked(weaponList.get(i).isHaveBought());
+                }  else if (HaveItem.isChecked()) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "You already have this item!", Toast.LENGTH_SHORT);
                     toast.show();
-                } else if (HaveItem.isChecked()) {
-                    Toast toast = Toast.makeText(getApplicationContext(), "You already have this education!", Toast.LENGTH_SHORT);
+                }  else if (yourMoneyInt < weaponPrice) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "You don't have enough money!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
                 editor.putInt("money", yourMoneyInt);
-
-                editor.putStringSet("educationOwned", educationOwned);
+                editor.putStringSet("weaponOwned", weaponOwned);
                 yourMoney.setText("€ " + yourMoneyInt);
                 editor.commit();
             }
         });
     }
 
+    //Ga terug naar market screen
     public void goBackToScreen(View view){
-        Intent startGoBackToEducationActivity = new Intent(this, MainActivity.class);
-        startActivity(startGoBackToEducationActivity);
+        Intent startGoBackToMarketActivity = new Intent(this, MainActivity.class);
+        startActivity(startGoBackToMarketActivity);
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         finish();
     }

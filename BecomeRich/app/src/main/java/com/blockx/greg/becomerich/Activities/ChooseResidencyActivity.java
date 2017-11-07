@@ -1,4 +1,4 @@
-package com.blockx.greg.becomerich;
+package com.blockx.greg.becomerich.Activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,19 +13,22 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.blockx.greg.becomerich.Util.GameItem;
+import com.blockx.greg.becomerich.R;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-public class ChooseTransportActivity extends AppCompatActivity {
+public class ChooseResidencyActivity extends AppCompatActivity {
 
     ListView listview;
     ActivityAdapterCheckBox activityAdapter;
-    ArrayList<GameItem> transportList = new ArrayList<>();
+    ArrayList<GameItem> residencyList = new ArrayList<>();
     TextView yourMoney;
     int yourMoneyInt;
-    int transportPrice;
+    int residencyPrice;
 
     TextView yourHealthText;
     TextView yourHungerText;
@@ -33,9 +36,11 @@ public class ChooseTransportActivity extends AppCompatActivity {
     ProgressBar yourHunger;
     public int hunger;
     public int health;
-    Set<String> transportOwned = new HashSet<>();
 
     public int maxValue = 300;
+
+    Set<String>residencyOwned = new HashSet<>();
+
 
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
@@ -45,13 +50,14 @@ public class ChooseTransportActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.common_choose_layout);
 
+        //Roept sharedpreferences aan, haalt waardes eruit en steekt deze in lokale variabelen
         Context context = getApplicationContext();
         sharedPreferences = context.getSharedPreferences(MainActivity.GAME_PREFERENCES,context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
         hunger = sharedPreferences.getInt("hunger",150);
         health = sharedPreferences.getInt("health",150);
-        transportOwned = sharedPreferences.getStringSet("transportOwned",transportOwned);
+        residencyOwned = sharedPreferences.getStringSet("residencyOwned",residencyOwned);
 
         listview = (ListView) findViewById(R.id.listViewItems);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
@@ -71,56 +77,57 @@ public class ChooseTransportActivity extends AppCompatActivity {
         yourHealth.setProgress(health);
         yourHunger.setProgress(hunger);
 
-        transportList.add(new GameItem("Foot", 0, true));
-        transportList.add(new GameItem("Shoes", 40, false));
-        transportList.add(new GameItem("Bicycle", 350, false));
-        transportList.add(new GameItem("Car", 5000, false));
-        transportList.add(new GameItem("Large Truck", 20000, false));
-        transportList.add(new GameItem("Limo", 70000, false));
-        transportList.add(new GameItem("Helicopter", 200000, false));
+        residencyList.add(new GameItem("Sleeping bag", 0, true));
+        residencyList.add(new GameItem("Rent Basement", 70,false));
+        residencyList.add(new GameItem("Rent Apartment", 500,false));
+        residencyList.add(new GameItem("Buy Apartment", 40000,false));
+        residencyList.add(new GameItem("Buy Penthouse", 150000,false));
+        residencyList.add(new GameItem("Buy Mansion", 500000,false));
 
-        for(int i = 0; i <transportList.size();i++)
+        for(int i = 0; i <residencyList.size();i++)
         {
-            for (Iterator<String> it = transportOwned.iterator(); it.hasNext(); ) {
+            for (Iterator<String> it = residencyOwned.iterator(); it.hasNext(); ) {
                 String f = it.next();
-                if (f.equals(transportList.get(i).getActivityName())){
-                    transportList.get(i).setHaveBought(true);
+                if (f.equals(residencyList.get(i).getActivityName())){
+                    residencyList.get(i).setHaveBought(true);
                 }
             }
         }
 
-        activityAdapter = new ActivityAdapterCheckBox(this, R.layout.activityrow_checkbox, transportList);
+        activityAdapter = new ActivityAdapterCheckBox(this, R.layout.activityrow_checkbox, residencyList);
         listview.setAdapter(activityAdapter);
 
+        //Als je op een residency klikt dan zal je geld verminderen en krijg je een nieuwe residency
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 yourMoneyInt = sharedPreferences.getInt("money", 0);
-                transportPrice = Integer.parseInt(adapterView.getItemAtPosition(i).toString());
+                residencyPrice = Integer.parseInt(adapterView.getItemAtPosition(i).toString());
                 CheckBox HaveItem = view.findViewById(R.id.checkBoxHaveItem);
 
-                if(yourMoneyInt >= transportPrice && !HaveItem.isChecked()){
-                    yourMoneyInt -= transportPrice;
-                    transportList.get(i).setHaveBought(true);
-                    transportOwned.add(transportList.get(i).getActivityName());
-                    editor.putString("transport",transportList.get(i).getActivityName());
-                    HaveItem.setChecked(transportList.get(i).isHaveBought());
-                } else if(HaveItem.isChecked()){
-                    Toast toast = Toast.makeText(getApplicationContext(), "You already have this item!", Toast.LENGTH_SHORT);
+                if(yourMoneyInt >= residencyPrice && !HaveItem.isChecked()){
+                    yourMoneyInt -= residencyPrice;
+                    residencyList.get(i).setHaveBought(true);
+                    residencyOwned.add(residencyList.get(i).getActivityName());
+                    editor.putString("residency",residencyList.get(i).getActivityName());
+                    HaveItem.setChecked(residencyList.get(i).isHaveBought());
+                }else if(HaveItem.isChecked()){
+                    Toast toast = Toast.makeText(getApplicationContext(), "You already own this residence!", Toast.LENGTH_SHORT);
                     toast.show();
-                } else if(yourMoneyInt < transportPrice) {
+                }else if(yourMoneyInt < residencyPrice){
                     Toast toast = Toast.makeText(getApplicationContext(), "You don't have enough money!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
 
                 editor.putInt("money", yourMoneyInt);
-                editor.putStringSet("transportOwned", transportOwned);
+                editor.putStringSet("residencyOwned", residencyOwned);
                 yourMoney.setText("€ " + yourMoneyInt);
                 editor.commit();
             }
         });
     }
 
+    //Ga terug naar market screen
     public void goBackToScreen(View view){
         Intent startGoBackToMarketActivity = new Intent(this, MainActivity.class);
         startActivity(startGoBackToMarketActivity);

@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@mipmap/splash_background"
-    tools:context="com.blockx.greg.becomerich.SplashActivity">
+    tools:context="com.blockx.greg.becomerich.Activities.SplashActivity">
 
     <TextView
         android:id="@+id/textViewTitle"

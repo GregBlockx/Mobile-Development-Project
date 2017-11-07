@@ -1,4 +1,4 @@
-package com.blockx.greg.becomerich;
+package com.blockx.greg.becomerich.Util;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

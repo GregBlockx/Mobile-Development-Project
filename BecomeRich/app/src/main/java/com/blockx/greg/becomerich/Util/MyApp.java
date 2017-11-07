@@ -1,4 +1,4 @@
-package com.blockx.greg.becomerich;
+package com.blockx.greg.becomerich.Util;
 
 import android.app.Application;
 
@@ -7,7 +7,7 @@ import com.google.android.gms.ads.MobileAds;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.blockx.greg.becomerich.MainFragment.AD_ID;
+import static com.blockx.greg.becomerich.Fragments.MainFragment.AD_ID;
 
 /**
  * Created by Bryan on 17/10/2017.

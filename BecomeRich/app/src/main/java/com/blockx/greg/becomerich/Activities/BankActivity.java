@@ -1,4 +1,4 @@
-package com.blockx.greg.becomerich;
+package com.blockx.greg.becomerich.Activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import static com.blockx.greg.becomerich.MainActivity.GAME_PREFERENCES;
+import com.blockx.greg.becomerich.R;
 
 public class BankActivity extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
@@ -26,7 +26,7 @@ public class BankActivity extends AppCompatActivity {
 
         //Roept sharedpreferences aan, haalt waardes eruit en steekt deze in lokale variabelen
         Context context = getApplicationContext();
-        sharedPreferences = context.getSharedPreferences(GAME_PREFERENCES, context.MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences(MainActivity.GAME_PREFERENCES, context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
         yourMoney = sharedPreferences.getInt("money", 0);
         yourBankMoney = sharedPreferences.getInt("bankmoney", 0);

@@ -1,4 +1,4 @@
-package com.blockx.greg.becomerich;
+package com.blockx.greg.becomerich.Activities;
 
 
 import android.content.Context;
@@ -15,28 +15,19 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
-import com.facebook.GraphRequest;
-import com.facebook.GraphResponse;
-import com.facebook.login.LoginResult;
-import com.facebook.login.widget.LoginButton;
+import com.blockx.greg.becomerich.Fragments.EducationFragment;
+import com.blockx.greg.becomerich.Fragments.MainFragment;
+import com.blockx.greg.becomerich.Fragments.MarketFragment;
+import com.blockx.greg.becomerich.Fragments.WorkFragment;
+import com.blockx.greg.becomerich.R;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,10 +63,12 @@ public class MainActivity extends AppCompatActivity {
 
         actionBar = getSupportActionBar();
 
+        //Roept sharedpreferences aan, haalt waardes eruit en steekt deze in lokale variabelen
         Context context = getApplicationContext();
         sharedPreferences = context.getSharedPreferences(MainActivity.GAME_PREFERENCES, context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
+        //Intialize ad
         adCounter = sharedPreferences.getInt("adcounter", 0);
 
         mInterstitialAd = new InterstitialAd(this);
@@ -92,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Set app title
         String position = sharedPreferences.getString("tab_opened", null);
         if (position == null) {
             viewPager.setCurrentItem(0, true);
@@ -137,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //Set tab icons
     private void setupTabIcons() {
         tabLayout.getTabAt(0).setIcon(tabIcons[0]);
         tabLayout.getTabAt(1).setIcon(tabIcons[1]);

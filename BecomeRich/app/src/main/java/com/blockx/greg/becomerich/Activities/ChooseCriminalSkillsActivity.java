@@ -1,4 +1,4 @@
-package com.blockx.greg.becomerich;
+package com.blockx.greg.becomerich.Activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +12,9 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.blockx.greg.becomerich.Util.GameItem;
+import com.blockx.greg.becomerich.R;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -45,6 +48,7 @@ public class ChooseCriminalSkillsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.common_choose_layout);
 
+        //Roept sharedpreferences aan, haalt waardes eruit en steekt deze in lokale variabelen
         Context context = getApplicationContext();
         sharedPreferences = context.getSharedPreferences(MainActivity.GAME_PREFERENCES,context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
@@ -92,6 +96,7 @@ public class ChooseCriminalSkillsActivity extends AppCompatActivity {
         activityAdapter = new ActivityAdapterCheckBox(this, R.layout.activityrow_checkbox, skillsList);
         listview.setAdapter(activityAdapter);
 
+        //Bij het klikken op een criminal skill wordt je geld vermindert en heb je een nieuwe skill
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -121,6 +126,7 @@ public class ChooseCriminalSkillsActivity extends AppCompatActivity {
         });
     }
 
+    //Ga terug naar het education screen
     public void goBackToScreen(View view){
         Intent startGoBackToEducationActivity = new Intent(this, MainActivity.class);
         startActivity(startGoBackToEducationActivity);

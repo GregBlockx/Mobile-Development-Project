@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorGray"
     android:fitsSystemWindows="true"
-    tools:context="com.blockx.greg.becomerich.MainActivity">
+    tools:context="com.blockx.greg.becomerich.Activities.MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

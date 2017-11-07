@@ -1,4 +1,4 @@
-package com.blockx.greg.becomerich;
+package com.blockx.greg.becomerich.Fragments;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.blockx.greg.becomerich.R;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -52,6 +53,7 @@ public class MainFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //Roept sharedpreferences aan, haalt waardes eruit en steekt deze in lokale variabelen
         Context context = getActivity().getApplicationContext();
         sharedPreferences = context.getSharedPreferences(GAME_PREFERENCES, context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
@@ -89,6 +91,7 @@ public class MainFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
        name = view.findViewById(R.id.textViewName);
 
+        //Facebook login
         loginButton = view.findViewById(R.id.login_button);
         loginButton.setFragment(this);
         loginButton.setReadPermissions("email", "public_profile");
@@ -171,6 +174,7 @@ public class MainFragment extends Fragment {
         return view;
     }
 
+    //Show facebook name
     public void displayUserInfo(JSONObject object) throws JSONException {
         String lastName, imageUrl;
         lastName = "" + object.getString("last_name");

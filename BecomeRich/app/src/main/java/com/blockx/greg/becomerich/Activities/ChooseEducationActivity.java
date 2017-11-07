@@ -1,4 +1,4 @@
-package com.blockx.greg.becomerich;
+package com.blockx.greg.becomerich.Activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,19 +13,22 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.blockx.greg.becomerich.Util.GameItem;
+import com.blockx.greg.becomerich.R;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-public class ChooseResidencyActivity extends AppCompatActivity {
+public class ChooseEducationActivity extends AppCompatActivity {
 
     ListView listview;
     ActivityAdapterCheckBox activityAdapter;
-    ArrayList<GameItem> residencyList = new ArrayList<>();
+    ArrayList<GameItem> educationList = new ArrayList<>();
     TextView yourMoney;
     int yourMoneyInt;
-    int residencyPrice;
+    int educationPrice;
 
     TextView yourHealthText;
     TextView yourHungerText;
@@ -35,9 +38,7 @@ public class ChooseResidencyActivity extends AppCompatActivity {
     public int health;
 
     public int maxValue = 300;
-
-    Set<String>residencyOwned = new HashSet<>();
-
+    Set<String> educationOwned = new HashSet<>();
 
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
@@ -47,13 +48,14 @@ public class ChooseResidencyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.common_choose_layout);
 
+        //Roept sharedpreferences aan, haalt waardes eruit en steekt deze in lokale variabelen
         Context context = getApplicationContext();
         sharedPreferences = context.getSharedPreferences(MainActivity.GAME_PREFERENCES,context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
         hunger = sharedPreferences.getInt("hunger",150);
         health = sharedPreferences.getInt("health",150);
-        residencyOwned = sharedPreferences.getStringSet("residencyOwned",residencyOwned);
+        educationOwned = sharedPreferences.getStringSet("educationOwned",educationOwned);
 
         listview = (ListView) findViewById(R.id.listViewItems);
         yourMoney = (TextView) findViewById(R.id.textViewYourMoney);
@@ -73,58 +75,60 @@ public class ChooseResidencyActivity extends AppCompatActivity {
         yourHealth.setProgress(health);
         yourHunger.setProgress(hunger);
 
-        residencyList.add(new GameItem("Sleeping bag", 0, true));
-        residencyList.add(new GameItem("Rent Basement", 70,false));
-        residencyList.add(new GameItem("Rent Apartment", 500,false));
-        residencyList.add(new GameItem("Buy Apartment", 40000,false));
-        residencyList.add(new GameItem("Buy Penthouse", 150000,false));
-        residencyList.add(new GameItem("Buy Mansion", 500000,false));
+        educationList.add(new GameItem("Nothing", 0, true));
+        educationList.add(new GameItem("Secondary School", 100, false));
+        educationList.add(new GameItem("High School", 7500, false));
+        educationList.add(new GameItem("General Training", 15000, false));
+        educationList.add(new GameItem("College", 25000, false));
+        educationList.add(new GameItem("Master's Degree", 100000, false));
 
-        for(int i = 0; i <residencyList.size();i++)
+        for(int i = 0; i <educationList.size();i++)
         {
-            for (Iterator<String> it = residencyOwned.iterator(); it.hasNext(); ) {
+            for (Iterator<String> it = educationOwned.iterator(); it.hasNext(); ) {
                 String f = it.next();
-                if (f.equals(residencyList.get(i).getActivityName())){
-                    residencyList.get(i).setHaveBought(true);
+                if (f.equals(educationList.get(i).getActivityName())){
+                    educationList.get(i).setHaveBought(true);
                 }
             }
         }
 
-        activityAdapter = new ActivityAdapterCheckBox(this, R.layout.activityrow_checkbox, residencyList);
+        activityAdapter = new ActivityAdapterCheckBox(this, R.layout.activityrow_checkbox, educationList);
         listview.setAdapter(activityAdapter);
 
+        //Als je op een educatie klikt dan zal je geld verminderen en krijg je een nieuwe education
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 yourMoneyInt = sharedPreferences.getInt("money", 0);
-                residencyPrice = Integer.parseInt(adapterView.getItemAtPosition(i).toString());
+                educationPrice = Integer.parseInt(adapterView.getItemAtPosition(i).toString());
                 CheckBox HaveItem = view.findViewById(R.id.checkBoxHaveItem);
 
-                if(yourMoneyInt >= residencyPrice && !HaveItem.isChecked()){
-                    yourMoneyInt -= residencyPrice;
-                    residencyList.get(i).setHaveBought(true);
-                    residencyOwned.add(residencyList.get(i).getActivityName());
-                    editor.putString("residency",residencyList.get(i).getActivityName());
-                    HaveItem.setChecked(residencyList.get(i).isHaveBought());
-                }else if(HaveItem.isChecked()){
-                    Toast toast = Toast.makeText(getApplicationContext(), "You already own this residence!", Toast.LENGTH_SHORT);
-                    toast.show();
-                }else if(yourMoneyInt < residencyPrice){
+                if (yourMoneyInt >= educationPrice && !HaveItem.isChecked()) {
+                    yourMoneyInt -= educationPrice;
+                    educationList.get(i).setHaveBought(true);
+                    educationOwned.add(educationList.get(i).getActivityName());
+                    editor.putString("education",educationList.get(i).getActivityName());
+                    HaveItem.setChecked(educationList.get(i).isHaveBought());
+                } else if (yourMoneyInt < educationPrice) {
                     Toast toast = Toast.makeText(getApplicationContext(), "You don't have enough money!", Toast.LENGTH_SHORT);
                     toast.show();
+                } else if (HaveItem.isChecked()) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "You already have this education!", Toast.LENGTH_SHORT);
+                    toast.show();
                 }
-
                 editor.putInt("money", yourMoneyInt);
-                editor.putStringSet("residencyOwned", residencyOwned);
+
+                editor.putStringSet("educationOwned", educationOwned);
                 yourMoney.setText("€ " + yourMoneyInt);
                 editor.commit();
             }
         });
     }
 
+    //Ga terug naar education screen
     public void goBackToScreen(View view){
-        Intent startGoBackToMarketActivity = new Intent(this, MainActivity.class);
-        startActivity(startGoBackToMarketActivity);
+        Intent startGoBackToEducationActivity = new Intent(this, MainActivity.class);
+        startActivity(startGoBackToEducationActivity);
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         finish();
     }
