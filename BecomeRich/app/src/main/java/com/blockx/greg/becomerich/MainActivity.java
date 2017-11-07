@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Handler;
 import android.support.design.widget.TabLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -53,15 +54,14 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
     private int adCounter;
+    private ActionBar actionBar;
     private Boolean exit = false;
+    private String[] tabsTitles = {"Become Rich","Work","Market","Education"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         viewPager = (ViewPager) findViewById(R.id.container);
         setupViewPager(viewPager);
@@ -69,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
         setupTabIcons();
+
+        actionBar = getSupportActionBar();
 
         Context context = getApplicationContext();
         sharedPreferences = context.getSharedPreferences(MainActivity.GAME_PREFERENCES, context.MODE_PRIVATE);
@@ -91,22 +93,45 @@ public class MainActivity extends AppCompatActivity {
         });
 
         String position = sharedPreferences.getString("tab_opened", null);
-        if(position==null){
-            viewPager.setCurrentItem(0,true);
-            toolbar.setTitle("Main");
-        }else if(position=="0"){
-            viewPager.setCurrentItem(0,true);
-            toolbar.setTitle("Main");
-        }else if(position=="1"){
-            viewPager.setCurrentItem(1,true);
-            toolbar.setTitle("Work");
-        }else if(position=="2"){
-            viewPager.setCurrentItem(2,true);
-            toolbar.setTitle("Market");
-        }else if(position=="3"){
-            viewPager.setCurrentItem(3,true);
-            toolbar.setTitle("Education");
+        if (position == null) {
+            viewPager.setCurrentItem(0, true);
+            getSupportActionBar().setTitle(tabsTitles[0]);
+        } else if (position.equals("0")) {
+            viewPager.setCurrentItem(0, true);
+            getSupportActionBar().setTitle(tabsTitles[0]);
+        } else if (position.equals("1")) {
+            viewPager.setCurrentItem(1, true);
+            getSupportActionBar().setTitle(tabsTitles[1]);
+        } else if (position.equals("2")) {
+            viewPager.setCurrentItem(2, true);
+            getSupportActionBar().setTitle(tabsTitles[2]);
+        } else if (position.equals("3")) {
+            viewPager.setCurrentItem(3, true);
+            getSupportActionBar().setTitle(tabsTitles[3]);
         }
+
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
+            @Override
+            public void onPageSelected(int position) {
+                // TODO Auto-generated method stub
+
+
+                actionBar.setTitle(tabsTitles[position]);
+            }
+
+            @Override
+            public void onPageScrolled(int arg0, float arg1, int arg2) {
+                // TODO Auto-generated method stub
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int pos) {
+                // TODO Auto-generated method stub
+
+            }
+        });
 
 
     }
@@ -180,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToHunger(View view) {
-        editor.putString("tab_opened","0");
+        editor.putString("tab_opened", "0");
         editor.commit();
         Intent startHungerActivity = new Intent(this, HungerActivity.class);
         startActivity(startHungerActivity);
@@ -188,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToHealth(View view) {
-        editor.putString("tab_opened","0");
+        editor.putString("tab_opened", "0");
         editor.commit();
         Intent startHealthActivity = new Intent(this, HealthActivity.class);
         startActivity(startHealthActivity);
@@ -196,7 +221,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToDoWork(View view) {
-        editor.putString("tab_opened","1");
+        editor.putString("tab_opened", "1");
         editor.commit();
         Intent startDoWorkActivity = new Intent(this, DoWorkActivity.class);
 
@@ -215,7 +240,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToDoCriminalActivity(View view) {
-        editor.putString("tab_opened","1");
+        editor.putString("tab_opened", "1");
         editor.commit();
         Intent startDoCriminalJobActivity = new Intent(this, DoCriminalJobActivity.class);
         startActivity(startDoCriminalJobActivity);
@@ -223,7 +248,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToBank(View view) {
-        editor.putString("tab_opened","1");
+        editor.putString("tab_opened", "1");
         editor.commit();
         Intent startGoToBankActivity = new Intent(this, BankActivity.class);
         startActivity(startGoToBankActivity);
@@ -231,7 +256,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToChooseResidency(View view) {
-        editor.putString("tab_opened","2");
+        editor.putString("tab_opened", "2");
         editor.commit();
         Intent startChooseResidencyActivity = new Intent(this, ChooseResidencyActivity.class);
         startActivity(startChooseResidencyActivity);
@@ -239,7 +264,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToChooseTransport(View view) {
-        editor.putString("tab_opened","2");
+        editor.putString("tab_opened", "2");
         editor.commit();
         Intent startChooseTransportActivity = new Intent(this, ChooseTransportActivity.class);
         startActivity(startChooseTransportActivity);
@@ -247,23 +272,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToChooseWeapon(View view) {
-        editor.putString("tab_opened","2");
+        editor.putString("tab_opened", "2");
         editor.commit();
         Intent startChooseWeaponActivity = new Intent(this, ChooseWeaponActivity.class);
         startActivity(startChooseWeaponActivity);
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
-    public void goToChooseEducation(View view){
-        editor.putString("tab_opened","3");
+    public void goToChooseEducation(View view) {
+        editor.putString("tab_opened", "3");
         editor.commit();
         Intent startChooseEducationActivity = new Intent(this, ChooseEducationActivity.class);
         startActivity(startChooseEducationActivity);
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
-    public void goToChooseCriminalSkills(View view){
-        editor.putString("tab_opened","3");
+    public void goToChooseCriminalSkills(View view) {
+        editor.putString("tab_opened", "3");
         editor.commit();
         Intent startChooseCriminalSkillActivity = new Intent(this, ChooseCriminalSkillsActivity.class);
         startActivity(startChooseCriminalSkillActivity);
