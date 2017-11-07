@@ -28,12 +28,18 @@ import com.blockx.greg.becomerich.R;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.reward.RewardItem;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
+import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements RewardedVideoAdListener {
     private ViewPager viewPager;
+    private static RewardedVideoAd mRewardedVideoAd;
+
     TabLayout tabLayout;
     private int[] tabIcons = {
             R.mipmap.user_icon,
@@ -53,6 +59,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
+        mRewardedVideoAd.setRewardedVideoAdListener(this);
+
+        loadRewardedVideoAd();
 
         viewPager = (ViewPager) findViewById(R.id.container);
         setupViewPager(viewPager);
@@ -131,6 +142,19 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void loadRewardedVideoAd() {
+        if(!mRewardedVideoAd.isLoaded())
+        {
+            mRewardedVideoAd.loadAd("ca-app-pub-3940256099942544/5224354917",new AdRequest.Builder().build());
+        }
+    }
+
+    public static void showRewardedVideo() {
+        if (mRewardedVideoAd.isLoaded()) {
+            mRewardedVideoAd.show();
+        }
+    }
+
     //Set tab icons
     private void setupTabIcons() {
         tabLayout.getTabAt(0).setIcon(tabIcons[0]);
@@ -168,6 +192,41 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFrag(new MarketFragment(), "Market");
         adapter.addFrag(new EducationFragment(), "Education");
         viewPager.setAdapter(adapter);
+    }
+
+    @Override
+    public void onRewardedVideoAdLeftApplication() {
+        //Toast.makeText(this, "onRewardedVideoAdLeftApplication",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onRewardedVideoAdClosed() {
+        Toast.makeText(this, "you have been revived",Toast.LENGTH_SHORT).show();
+        goToPlayerInfo();
+        loadRewardedVideoAd();
+    }
+
+    @Override
+    public void onRewarded(RewardItem rewardItem) {
+        editor.putInt("health",300);
+        editor.putInt("hunger",300);
+        editor.commit();
+    }
+
+    @Override
+    public void onRewardedVideoAdFailedToLoad(int errorCode) {
+    }
+
+    @Override
+    public void onRewardedVideoAdLoaded() {
+    }
+
+    @Override
+    public void onRewardedVideoAdOpened() {
+    }
+
+    @Override
+    public void onRewardedVideoStarted() {
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
@@ -310,4 +369,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void goToPlayerInfo() {
+        Intent startMainActivity = new Intent(this, MainActivity.class);
+        startActivity(startMainActivity);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        finish();
+    }
 }
