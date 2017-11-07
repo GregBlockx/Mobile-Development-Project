@@ -116,7 +116,8 @@ public class MainActivity extends AppCompatActivity {
             public void onPageSelected(int position) {
                 // TODO Auto-generated method stub
 
-
+                editor.putString("tab_opened", "" + position);
+                editor.commit();
                 actionBar.setTitle(tabsTitles[position]);
             }
 

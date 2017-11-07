@@ -90,6 +90,7 @@ public class MainFragment extends Fragment {
        name = view.findViewById(R.id.textViewName);
 
         loginButton = view.findViewById(R.id.login_button);
+        loginButton.setFragment(this);
         loginButton.setReadPermissions("email", "public_profile");
 
         callbackManager = CallbackManager.Factory.create();
@@ -140,7 +141,7 @@ public class MainFragment extends Fragment {
         TextView ageTextView =  view.findViewById(R.id.textViewYourAge);
         ageTextView.setText(getAge(sharedPreferences.getInt("age", AGE)));
 
-        //name.setText("Mr. " + sharedPreferences.getString("playername", "Davidson"));
+        name.setText("Mr. " + sharedPreferences.getString("playername", "Davidson"));
 
         TextView money =  view.findViewById(R.id.textViewYourMoney);
         money.setText(" € " + sharedPreferences.getInt("money", 0));
