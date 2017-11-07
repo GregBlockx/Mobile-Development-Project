@@ -22,6 +22,8 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
+import static com.blockx.greg.becomerich.Activities.MainActivity.showRewardedVideo;
+
 public class DoCriminalJobActivity extends AppCompatActivity {
 
     ListView listview;
@@ -163,9 +165,7 @@ public class DoCriminalJobActivity extends AppCompatActivity {
                 yourHunger.setProgress(hunger);
 
                 if (health <= 0 || hunger <= 0) {
-                    showAlert("YOU DIED", "You worked too hard, better luck in your next life!");
-                    editor.putInt("health", maxValue);
-                    editor.putInt("hunger", maxValue);
+                    showAlertDied("YOU DIED", "You worked too hard, better luck in your next life!");
                 }
                 editor.commit();
             }
@@ -202,6 +202,30 @@ public class DoCriminalJobActivity extends AppCompatActivity {
         arrestAlert.setCancelable(false);
         arrestAlert.create();
         arrestAlert.show();
+
+    }
+
+    private void showAlertDied(String title, String displayMessage) {
+        AlertDialog.Builder allert = new AlertDialog.Builder(this);
+        allert.setMessage(displayMessage);
+        allert.setTitle(title);
+        allert.setPositiveButton("RESTART", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                editor.putBoolean("firstrun",true);
+                editor.commit();
+                goToPlayerInfo();
+            }
+        });
+        allert.setNegativeButton("Watch Ad", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                showRewardedVideo();
+            }
+        });
+        allert.setCancelable(false);
+        allert.create();
+        allert.show();
 
     }
 }

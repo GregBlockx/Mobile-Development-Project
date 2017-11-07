@@ -22,6 +22,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static android.app.PendingIntent.getActivity;
+import static com.blockx.greg.becomerich.Activities.MainActivity.showRewardedVideo;
 
 public class DoWorkActivity extends AppCompatActivity {
     ListView listview;
@@ -188,18 +189,26 @@ public class DoWorkActivity extends AppCompatActivity {
 
     //Wanneer je dood bent
     private void showAlert(String title, String displayMessage) {
-        AlertDialog.Builder arrestAlert = new AlertDialog.Builder(this);
-        arrestAlert.setMessage(displayMessage);
-        arrestAlert.setTitle(title);
-        arrestAlert.setPositiveButton("RESTART", new DialogInterface.OnClickListener() {
+        AlertDialog.Builder allert = new AlertDialog.Builder(this);
+        allert.setMessage(displayMessage);
+        allert.setTitle(title);
+        allert.setPositiveButton("RESTART", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                editor.putBoolean("firstrun",true);
+                editor.commit();
                 goToPlayerInfo();
             }
         });
-        arrestAlert.setCancelable(false);
-        arrestAlert.create();
-        arrestAlert.show();
+        allert.setNegativeButton("Watch Ad", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                showRewardedVideo();
+            }
+        });
+        allert.setCancelable(false);
+        allert.create();
+        allert.show();
 
     }
 

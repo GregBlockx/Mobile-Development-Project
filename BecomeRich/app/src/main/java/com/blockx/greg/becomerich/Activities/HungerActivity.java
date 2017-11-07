@@ -1,8 +1,10 @@
 package com.blockx.greg.becomerich.Activities;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +18,8 @@ import com.blockx.greg.becomerich.Util.GameItem;
 import com.blockx.greg.becomerich.R;
 
 import java.util.ArrayList;
+
+import static com.blockx.greg.becomerich.Activities.MainActivity.showRewardedVideo;
 
 public class HungerActivity extends AppCompatActivity {
 
@@ -130,11 +134,7 @@ public class HungerActivity extends AppCompatActivity {
                 yourHunger.setProgress(hunger);
 
                 if (health <= 0 || hunger <= 0) {
-                    Toast toast = Toast.makeText(getApplicationContext(), "You Died! Start again!", Toast.LENGTH_SHORT);
-                    toast.show();
-                    goToPlayerInfo();
-                    editor.putInt("health", maxValue);
-                    editor.putInt("hunger", maxValue);
+                    showAlert("You died","You can watch an ad and keep everything or start over");
                 }
                 editor.commit();
             }
@@ -155,5 +155,29 @@ public class HungerActivity extends AppCompatActivity {
         startActivity(startMainActivity);
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         finish();
+    }
+
+    private void showAlert(String title, String displayMessage) {
+        AlertDialog.Builder allert = new AlertDialog.Builder(this);
+        allert.setMessage(displayMessage);
+        allert.setTitle(title);
+        allert.setPositiveButton("RESTART", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                editor.putBoolean("firstrun",true);
+                editor.commit();
+                goToPlayerInfo();
+            }
+        });
+        allert.setNegativeButton("Watch Ad", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                showRewardedVideo();
+            }
+        });
+        allert.setCancelable(false);
+        allert.create();
+        allert.show();
+
     }
 }

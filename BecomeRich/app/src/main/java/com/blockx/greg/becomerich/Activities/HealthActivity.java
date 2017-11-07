@@ -24,6 +24,8 @@ import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 
 import java.util.ArrayList;
 
+import static com.blockx.greg.becomerich.Activities.MainActivity.showRewardedVideo;
+
 public class HealthActivity extends AppCompatActivity {
 
     ListView listview;
@@ -135,9 +137,6 @@ public class HealthActivity extends AppCompatActivity {
 
                 if (health <= 0 || hunger <= 0) {
                     showAlert("You died!","You can die and lose everything or watch an ad and keep everything");
-//                    goToPlayerInfo();
-//                    editor.putInt("health", maxValue);
-//                    editor.putInt("hunger", maxValue);
                 }
                 editor.commit();
             }
@@ -160,12 +159,11 @@ public class HealthActivity extends AppCompatActivity {
         finish();
     }
 
-    //Als je dood bent
     private void showAlert(String title, String displayMessage) {
-        AlertDialog.Builder arrestAlert = new AlertDialog.Builder(this);
-        arrestAlert.setMessage(displayMessage);
-        arrestAlert.setTitle(title);
-        arrestAlert.setPositiveButton("RESTART", new DialogInterface.OnClickListener() {
+        AlertDialog.Builder allert = new AlertDialog.Builder(this);
+        allert.setMessage(displayMessage);
+        allert.setTitle(title);
+        allert.setPositiveButton("RESTART", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 editor.putBoolean("firstrun",true);
@@ -173,17 +171,15 @@ public class HealthActivity extends AppCompatActivity {
                 goToPlayerInfo();
             }
         });
-        arrestAlert.setNegativeButton("Watch Ad", new DialogInterface.OnClickListener() {
+        allert.setNegativeButton("Watch Ad", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                MainActivity.showRewardedVideo();
+                showRewardedVideo();
             }
         });
-        arrestAlert.setCancelable(false);
-        arrestAlert.create();
-        arrestAlert.show();
+        allert.setCancelable(false);
+        allert.create();
+        allert.show();
 
     }
-
-
 }
