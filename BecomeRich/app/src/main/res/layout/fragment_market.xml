@@ -30,12 +30,14 @@
                 android:layout_marginRight="5dp">
 
                 <ImageButton
+                    android:padding="30dp"
                     android:id="@+id/imageButton"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:backgroundTint="@color/colorLightGreen"
                     android:onClick="goToChooseResidency"
                     android:scaleType="fitStart"
+
                     android:tint="@color/colorMidGreen"
                     app:srcCompat="@mipmap/house_icon" />
 

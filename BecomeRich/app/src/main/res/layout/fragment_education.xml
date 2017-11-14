@@ -68,7 +68,7 @@
                     android:layout_height="fill_parent"
                     android:backgroundTint="@color/colorRed"
                     android:onClick="goToChooseCriminalSkills"
-                    android:padding="20dp"
+                    android:padding="30dp"
                     android:scaleType="fitStart"
                     android:tint="@color/colorDarkRed"
                     app:srcCompat="@mipmap/criminal_icon" />
